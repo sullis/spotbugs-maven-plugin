@@ -36,9 +36,9 @@ import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.util.FileUtils
 
 /**
- * Fail the build if there were any FindBugs violations in the source code.
+ * Fail the build if there were any SpotBugs violations in the source code.
  * An XML report is put out by default in the target directory with the errors.
- * To see more documentation about FindBugs' options, please see the <a href="http://findbugs.sourceforge.net/manual/index.html" class="externalLink">FindBugs Manual.</a>.
+ * To see more documentation about SpotBugs' options, please see the <a href="http://spotbugs.readthedocs.io/en/latest/" class="externalLink">SpotBugs Manual.</a>.
  *
  * @since 2.0
  *
@@ -46,7 +46,7 @@ import org.codehaus.plexus.util.FileUtils
  */
 
 @Mojo( name = "check", defaultPhase = LifecyclePhase.VERIFY, requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true, threadSafe = true )
-@Execute( goal = "findbugs")
+@Execute( goal = "spotbugs")
 class FindbugsViolationCheckMojo extends AbstractMojo {
 
     /**
@@ -57,11 +57,11 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
     File outputDirectory
 
     /**
-     * Turn on and off xml output of the Findbugs report.
+     * Turn on and off xml output of the Spotbugs report.
      *
      * @since 1.0.0
      */
-    @Parameter( defaultValue = "false", property="findbugs.xmlOutput", required = true )
+    @Parameter( defaultValue = "false", property="spotbugs.xmlOutput", required = true )
     boolean xmlOutput
 
     /**
@@ -85,15 +85,15 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      */
     @Deprecated
     @Parameter( defaultValue = "true" )
-    boolean findbugsXmlOutput
+    boolean spotbugsXmlOutput
 
     /**
-     * Specifies the directory where the findbugs native xml output will be generated.
+     * Specifies the directory where the spotbugs native xml output will be generated.
      *
      * @since 1.2.0
      */
     @Parameter( defaultValue = '${project.build.directory}', required = true )
-    File findbugsXmlOutputDirectory
+    File spotbugsXmlOutputDirectory
 
     /**
      * Doxia Site Renderer.
@@ -102,13 +102,13 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
     Renderer siteRenderer
 
     /**
-     * Directory containing the class files for FindBugs to analyze.
+     * Directory containing the class files for SpotBugs to analyze.
      */
     @Parameter( defaultValue = '${project.build.outputDirectory}', required = true )
     File classFilesDirectory
 
     /**
-     * Directory containing the test class files for FindBugs to analyze.
+     * Directory containing the test class files for SpotBugs to analyze.
      *
      */
     @Parameter( defaultValue = '${project.build.testOutputDirectory}', required = true )
@@ -144,15 +144,15 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
     List testSourceRoots
 
     /**
-     * Run Findbugs on the tests.
+     * Run Spotbugs on the tests.
      *
      * @since 2.0
      */
-    @Parameter( defaultValue = "false", property="findbugs.includeTests" )
+    @Parameter( defaultValue = "false", property="spotbugs.includeTests" )
     boolean includeTests
 
     /**
-     * List of artifacts this plugin depends on. Used for resolving the Findbugs coreplugin.
+     * List of artifacts this plugin depends on. Used for resolving the Spotbugs coreplugin.
      *
      */
     @Parameter( property="plugin.artifacts", required = true, readonly = true )
@@ -208,7 +208,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      * Threshold of minimum bug severity to report. Valid values are High, Default, Low, Ignore, and Exp (for experimental).
      *
      */
-    @Parameter( defaultValue = "Default", property="findbugs.threshold" )
+    @Parameter( defaultValue = "Default", property="spotbugs.threshold" )
     String threshold
 
     /**
@@ -230,12 +230,12 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      * This parameter is resolved as resource, URL, then file. If successfully
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
-     * directory before being passed to Findbugs as a filter file.
+     * directory before being passed to Spotbugs as a filter file.
      * </p>
      *
      * @since 1.0-beta-1
      */
-    @Parameter( property="findbugs.includeFilterFile" )
+    @Parameter( property="spotbugs.includeFilterFile" )
     String includeFilterFile
 
     /**
@@ -251,12 +251,12 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      * This parameter is resolved as resource, URL, then file. If successfully
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
-     * directory before being passed to Findbugs as a filter file.
+     * directory before being passed to Spotbugs as a filter file.
      * </p>
      *
      * @since 1.0-beta-1
      */
-    @Parameter( property="findbugs.excludeFilterFile" )
+    @Parameter( property="spotbugs.excludeFilterFile" )
     String excludeFilterFile
 
     /**
@@ -272,14 +272,14 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      * This parameter is resolved as resource, URL, then file. If successfully
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
-     * directory before being passed to Findbugs as a filter file.
+     * directory before being passed to Spotbugs as a filter file.
      * </p>
      *
      * This is a comma-delimited list.
      *
      * @since 2.4.1
      */
-    @Parameter( property="findbugs.excludeBugsFile" )
+    @Parameter( property="spotbugs.excludeBugsFile" )
     String excludeBugsFile
 
     /**
@@ -287,14 +287,14 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 1.0-beta-1
      */
-    @Parameter( defaultValue = "Default", property="findbugs.effort" )
+    @Parameter( defaultValue = "Default", property="spotbugs.effort" )
     String effort
 
     /**
-     * turn on Findbugs debugging
+     * turn on Spotbugs debugging
      *
      */
-    @Parameter( defaultValue = "false", property="findbugs.debug" )
+    @Parameter( defaultValue = "false", property="spotbugs.debug" )
     Boolean debug
 
     /**
@@ -303,7 +303,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 1.1
      */
-    @Parameter( defaultValue = "false", property="findbugs.relaxed" )
+    @Parameter( defaultValue = "false", property="spotbugs.relaxed" )
     Boolean relaxed
 
     /**
@@ -311,7 +311,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 1.0-beta-1
      */
-    @Parameter( property="findbugs.visitors" )
+    @Parameter( property="spotbugs.visitors" )
     String visitors
 
     /**
@@ -319,7 +319,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 1.0-beta-1
      */
-    @Parameter( property="findbugs.omitVisitors" )
+    @Parameter( property="spotbugs.omitVisitors" )
     String omitVisitors
 
     /**
@@ -335,12 +335,12 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      * This parameter is resolved as resource, URL, then file. If successfully
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
-     * directory before being passed to Findbugs as a plugin file.
+     * directory before being passed to Spotbugs as a plugin file.
      * </p>
      *
      * @since 1.0-beta-1
      */
-    @Parameter( property="findbugs.pluginList" )
+    @Parameter( property="spotbugs.pluginList" )
     String pluginList
 
     /**
@@ -348,7 +348,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 1.1
      */
-    @Parameter( property="findbugs.onlyAnalyze" )
+    @Parameter( property="spotbugs.onlyAnalyze" )
     String onlyAnalyze
 
     /**
@@ -357,7 +357,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 2.3.2
      */
-    @Parameter( property="findbugs.nested", defaultValue = "false" )
+    @Parameter( property="spotbugs.nested", defaultValue = "false" )
     Boolean nested
 
     /**
@@ -366,7 +366,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 2.3.2
      */
-    @Parameter( property="findbugs.trace", defaultValue = "false" )
+    @Parameter( property="spotbugs.trace", defaultValue = "false" )
     Boolean trace
 
     /**
@@ -374,7 +374,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 2.4.1
      */
-    @Parameter( property="findbugs.maxRank" )
+    @Parameter( property="spotbugs.maxRank" )
     int maxRank
 
     /**
@@ -382,7 +382,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 1.1
      */
-    @Parameter( property="findbugs.skip", defaultValue = "false" )
+    @Parameter( property="spotbugs.skip", defaultValue = "false" )
     boolean skip
 
     /**
@@ -404,15 +404,15 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 2.0
      */
-    @Parameter( property="findbugs.failOnError", defaultValue = "true" )
+    @Parameter( property="spotbugs.failOnError", defaultValue = "true" )
     boolean failOnError
 
     /**
-     * Fork a VM for FindBugs analysis.  This will allow you to set timeouts and heap size
+     * Fork a VM for SpotBugs analysis.  This will allow you to set timeouts and heap size
      *
      * @since 2.3.2
      */
-    @Parameter( property="findbugs.fork", defaultValue = "true" )
+    @Parameter( property="spotbugs.fork", defaultValue = "true" )
     boolean fork
 
     /**
@@ -421,18 +421,18 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 2.2
      */
-    @Parameter( property="findbugs.maxHeap", defaultValue = "512" )
+    @Parameter( property="spotbugs.maxHeap", defaultValue = "512" )
     int maxHeap
 
     /**
-     * Specifies the amount of time, in milliseconds, that FindBugs may run before
+     * Specifies the amount of time, in milliseconds, that SpotBugs may run before
      *  it is assumed to be hung and is terminated.
      * The default is 600,000 milliseconds, which is ten minutes.
      * This only works if the <b>fork</b> parameter is set <b>true</b>.
      *
      * @since 2.2
      */
-    @Parameter( property="findbugs.timeout", defaultValue = "600000" )
+    @Parameter( property="spotbugs.timeout", defaultValue = "600000" )
     int timeout
 
     /**
@@ -442,7 +442,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
      *
      * @since 2.4.1
      */
-    @Parameter( property="findbugs.jvmArgs" )
+    @Parameter( property="spotbugs.jvmArgs" )
     String jvmArgs
 
 	int bugCount
@@ -453,7 +453,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
 		Locale locale = Locale.getDefault()
 		List sourceFiles
 
-		log.debug("Executing findbugs:check")
+		log.debug("Executing spotbugs:check")
 
 		if ( this.classFilesDirectory.exists() && this.classFilesDirectory.isDirectory() ) {
 			sourceFiles = FileUtils.getFiles(classFilesDirectory, FindBugsInfo.JAVA_REGEX_PATTERN, null)
@@ -463,15 +463,15 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
 
 			// this goes
 
-			log.debug("Here goes...............Executing findbugs:check")
+			log.debug("Here goes...............Executing spotbugs:check")
 
-			if (!findbugsXmlOutputDirectory.exists()) {
-				if ( !findbugsXmlOutputDirectory.mkdirs() ) {
+			if (!spotbugsXmlOutputDirectory.exists()) {
+				if ( !spotbugsXmlOutputDirectory.mkdirs() ) {
                     throw new MojoExecutionException("Cannot create xml output directory")
 				}
 			}
 
-			File outputFile = new File("${findbugsXmlOutputDirectory}/findbugsXml.xml")
+			File outputFile = new File("${spotbugsXmlOutputDirectory}/spotbugsXml.xml")
 
 			if (outputFile.exists()) {
 
@@ -500,7 +500,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
                     log.info( bug.LongMessage.text() + FindBugsInfo.BLANK + bug.SourceLine.'@classname' + FindBugsInfo.BLANK + bug.SourceLine.Message.text() + FindBugsInfo.BLANK + bug.'@type')
                 }
 
-                log.info('\n\n\nTo see bug detail using the Findbugs GUI, use the following command "mvn findbugs:gui"\n\n\n')
+                log.info('\n\n\nTo see bug detail using the Spotbugs GUI, use the following command "mvn spotbugs:gui"\n\n\n')
 
                 if ( (bugCount || errorCount) && failOnError ) {
                     throw new MojoExecutionException("failed with ${bugCount} bugs and ${errorCount} errors ")
@@ -508,7 +508,7 @@ class FindbugsViolationCheckMojo extends AbstractMojo {
             }
 		}
 		else {
-			log.debug("Nothing for FindBugs to do here.")
+			log.debug("Nothing for SpotBugs to do here.")
 		}
 	}
 

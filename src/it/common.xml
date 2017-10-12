@@ -21,16 +21,16 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>findbugs-maven-plugin.it</groupId>
+  <groupId>spotbugs-maven-plugin.it</groupId>
   <artifactId>common</artifactId>
   <version>testing</version>
   <packaging>pom</packaging>
 
   <dependencies>
     <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>findbugs</artifactId>
-      <version>@findbugsVersion@</version>
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs</artifactId>
+      <version>@spotbugsVersion@</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -53,13 +53,13 @@
   </dependencies>
 
   <build>
-    <sourceDirectory>@project.build.directory@/it-src-findbugs/findbugsTestCases/src/java</sourceDirectory>
+    <sourceDirectory>@project.build.directory@/it-src-spotbugs/spotbugsTestCases/src/java</sourceDirectory>
     <testSourceDirectory>@project.basedir@/src/it-src/test/java</testSourceDirectory>
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>findbugs-maven-plugin</artifactId>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
           <version>@pom.version@</version>
         </plugin>
         <plugin>
@@ -97,8 +97,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <debug>false</debug>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.8</source>
+          <target>1.8</target>
           <excludes>
             <exclude>*fakeAnnotations/**</exclude>
             <exclude>jsr305/**</exclude>

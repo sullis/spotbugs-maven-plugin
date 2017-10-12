@@ -25,7 +25,7 @@ import groovy.xml.StreamingMarkupBuilder
 
 
 /**
- * The reporter controls the generation of the FindBugs report.
+ * The reporter controls the generation of the Spotbugs report.
  *
  * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
@@ -36,7 +36,7 @@ class XDocsReporter {
 	 * The key to get the value if the line number is not available.
 	 *
 	 */
-	static final String NOLINE_KEY = "report.findbugs.noline"
+	static final String NOLINE_KEY = "report.spotbugs.noline"
 
 	/**
 	 * The bundle to get the messages from.
@@ -68,7 +68,7 @@ class XDocsReporter {
 	 */
 	Writer outputWriter
 
-	GPathResult findbugsResults
+	GPathResult spotbugsResults
 
 	List bugClasses
 
@@ -101,7 +101,7 @@ class XDocsReporter {
 		this.outputEncoding = outputEncoding
 
 		this.outputWriter = null
-		this.findbugsResults = null
+		this.spotbugsResults = null
 
 		this.compileSourceRoots = []
 		this.testSourceRoots = []
@@ -143,13 +143,13 @@ class XDocsReporter {
 	}
 
 	/**
-	 * Gets the Findbugs Version of the report.
+	 * Gets the Spotbugs Version of the report.
 	 *
-	 * @return The Findbugs Version used on the report.
+	 * @return The Spotbugs Version used on the report.
 	 *
 	 */
 	protected String getFindBugsVersion() {
-		return edu.umd.cs.findbugs.Version.RELEASE
+		return edu.umd.cs.findbugs.Version.VERSION_STRING
 	}
 
 	public void generateReport() {
@@ -159,13 +159,13 @@ class XDocsReporter {
 
 		def xdoc = {
 			mkp.xmlDeclaration()
-			log.debug("generateReport findbugsResults is ${findbugsResults}")
+			log.debug("generateReport spotbugsResults is ${spotbugsResults}")
 
-			BugCollection(version: getFindBugsVersion(), threshold: FindBugsInfo.findbugsThresholds.get(threshold), effort: FindBugsInfo.findbugsEfforts.get(effort)) {
+			BugCollection(version: getFindBugsVersion(), threshold: FindBugsInfo.spotbugsThresholds.get(threshold), effort: FindBugsInfo.spotbugsEfforts.get(effort)) {
 
-				log.debug("findbugsResults.FindBugsSummary total_bugs is ${findbugsResults.FindBugsSummary.@total_bugs.text()}")
+				log.debug("spotbugsResults.SpotBugsSummary total_bugs is ${spotbugsResults.SpotBugsSummary.@total_bugs.text()}")
 
-				findbugsResults.FindBugsSummary.PackageStats.ClassStats.each() {classStats ->
+				spotbugsResults.FindBugsSummary.PackageStats.ClassStats.each() {classStats ->
 
 					def classStatsValue = classStats.'@class'.text()
 					def classStatsBugCount = classStats.'@bugs'.text()
@@ -182,7 +182,7 @@ class XDocsReporter {
 				bugClasses.each() {bugClass ->
 					log.debug("finish bugClass is ${bugClass}")
 					file(classname: bugClass) {
-						findbugsResults.BugInstance.each() {bugInstance ->
+						spotbugsResults.BugInstance.each() {bugInstance ->
 
 							if ( bugInstance.Class.find{ it.@primary == "true" }.@classname.text() == bugClass ) {
 
@@ -201,13 +201,13 @@ class XDocsReporter {
 
 				log.debug("Printing Errors")
 				Error() {
-					findbugsResults.Error.analysisError.each() {analysisError ->
+					spotbugsResults.Error.analysisError.each() {analysisError ->
 						AnalysisError(analysisError.message.text())
 					}
 
 					log.debug("Printing Missing classes")
 
-					findbugsResults.Error.MissingClass.each() {missingClass ->
+					spotbugsResults.Error.MissingClass.each() {missingClass ->
 						MissingClass(missingClass.text)
 					}
 				}

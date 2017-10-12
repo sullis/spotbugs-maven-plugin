@@ -20,14 +20,14 @@
 
   <!-- Parent is disabled on purpose
   <parent>
-    <groupId>findbugs-maven-plugin.it</groupId>
+    <groupId>spotbugs-maven-plugin.it</groupId>
     <artifactId>common</artifactId>
     <version>testing</version>
     <relativePath>../common.xml</relativePath>
   </parent>
   -->
 
-  <groupId>findbugs-maven-plugin.it</groupId>
+  <groupId>spotbugs-maven-plugin.it</groupId>
   <version>testing</version>
   <artifactId>skipEmpty</artifactId>
   <name>skipEmpty</name>
@@ -40,10 +40,10 @@
         <version>@jxrPluginVersion@</version>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
         <configuration>
-          <findbugsXmlOutput>true</findbugsXmlOutput>
+          <spotbugsXmlOutput>true</spotbugsXmlOutput>
           <skipEmptyReport>true</skipEmptyReport>
           <xmlOutput>true</xmlOutput>
         </configuration>

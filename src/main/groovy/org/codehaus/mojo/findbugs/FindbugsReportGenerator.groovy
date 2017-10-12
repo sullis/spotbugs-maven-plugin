@@ -26,8 +26,8 @@ import org.apache.maven.plugin.logging.Log
 import org.codehaus.plexus.util.PathTool
 
 /**
- * The reporter controls the generation of the FindBugs report. It contains call back methods which gets called by
- * FindBugs if a bug is found.
+ * The reporter controls the generation of the SpotBugs report. It contains call back methods which gets called by
+ * SpotBugs if a bug is found.
  *
  * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
@@ -38,127 +38,127 @@ class FindbugsReportGenerator implements FindBugsInfo {
 	 * The key to get the value if the line number is not available.
 	 *
 	 */
-	static final String NOLINE_KEY = "report.findbugs.noline"
+	static final String NOLINE_KEY = "report.spotbugs.noline"
 
 	/**
 	 * The key to get the column title for the line.
 	 *
 	 */
-	static final String COLUMN_LINE_KEY = "report.findbugs.column.line"
+	static final String COLUMN_LINE_KEY = "report.spotbugs.column.line"
 
 	/**
 	 * The key to get the column title for the bug.
 	 *
 	 */
-	static final String COLUMN_BUG_KEY = "report.findbugs.column.bug"
+	static final String COLUMN_BUG_KEY = "report.spotbugs.column.bug"
 
 	/**
 	 * The key to get the column title for the bugs.
 	 *
 	 */
-	static final String COLUMN_BUGS_KEY = "report.findbugs.column.bugs"
+	static final String COLUMN_BUGS_KEY = "report.spotbugs.column.bugs"
 
 	/**
 	 * The key to get the column title for the category.
 	 *
 	 */
-	static final String COLUMN_CATEGORY_KEY = "report.findbugs.column.category"
+	static final String COLUMN_CATEGORY_KEY = "report.spotbugs.column.category"
 
 	/**
 	 * The key to get the column title for the priority.
 	 *
 	 */
-	static final String COLUMN_PRIORITY_KEY = "report.findbugs.column.priority"
+	static final String COLUMN_PRIORITY_KEY = "report.spotbugs.column.priority"
 
 	/**
 	 * The key to get the column title for the details.
 	 *
 	 */
-	static final String COLUMN_DETAILS_KEY = "report.findbugs.column.details"
+	static final String COLUMN_DETAILS_KEY = "report.spotbugs.column.details"
 
 	/**
 	 * The key to get the report title of the Plug-In from the bundle.
 	 *
 	 */
-	static final String REPORT_TITLE_KEY = "report.findbugs.reporttitle"
+	static final String REPORT_TITLE_KEY = "report.spotbugs.reporttitle"
 
 	/**
 	 * The key to get the report link title of the Plug-In from the bundle.
 	 *
 	 */
-	static final String LINKTITLE_KEY = "report.findbugs.linktitle"
+	static final String LINKTITLE_KEY = "report.spotbugs.linktitle"
 
 	/**
 	 * The key to get the report link of the Plug-In from the bundle.
 	 *
 	 */
-	static final String LINK_KEY = "report.findbugs.link"
+	static final String LINK_KEY = "report.spotbugs.link"
 
 	/**
 	 * The key to get the files title of the Plug-In from the bundle.
 	 *
 	 */
-	static final String FILES_KEY = "report.findbugs.files"
+	static final String FILES_KEY = "report.spotbugs.files"
 
 	/**
 	 * The key to get the threshold of the report from the bundle.
 	 *
 	 */
-	static final String THRESHOLD_KEY = "report.findbugs.threshold"
+	static final String THRESHOLD_KEY = "report.spotbugs.threshold"
 
 	/**
 	 * The key to get the effort of the report from the bundle.
 	 *
 	 */
-	static final String EFFORT_KEY = "report.findbugs.effort"
+	static final String EFFORT_KEY = "report.spotbugs.effort"
 
 	/**
-	 * The key to get the link to FindBugs description page from the bundle.
+	 * The key to get the link to SpotBugs description page from the bundle.
 	 *
 	 */
-	static final String DETAILSLINK_KEY = "report.findbugs.detailslink"
+	static final String DETAILSLINK_KEY = "report.spotbugs.detailslink"
 
 	/**
-	 * The key to get the version title for FindBugs from the bundle.
+	 * The key to get the version title for SpotBugs from the bundle.
 	 *
 	 */
-	static final String VERSIONTITLE_KEY = "report.findbugs.versiontitle"
+	static final String VERSIONTITLE_KEY = "report.spotbugs.versiontitle"
 
 	/**
 	 * The key to get the files title of the Plug-In from the bundle.
 	 *
 	 */
-	static final String SUMMARY_KEY = "report.findbugs.summary"
+	static final String SUMMARY_KEY = "report.spotbugs.summary"
 
 	/**
 	 * The key to column title for the Class.
 	 *
 	 */
-	static final String COLUMN_CLASS_KEY = "report.findbugs.column.class"
+	static final String COLUMN_CLASS_KEY = "report.spotbugs.column.class"
 
 	/**
 	 * The key to column title for the Classes.
 	 *
 	 */
-	static final String COLUMN_CLASSES_KEY = "report.findbugs.column.classes"
+	static final String COLUMN_CLASSES_KEY = "report.spotbugs.column.classes"
 
 	/**
 	 * The key to column title for the errors.
 	 *
 	 */
-	static final String COLUMN_ERRORS_KEY = "report.findbugs.column.errors"
+	static final String COLUMN_ERRORS_KEY = "report.spotbugs.column.errors"
 
 	/**
 	 * The key to column title for the files.
 	 *
 	 */
-	static final String COLUMN_FILES_KEY = "report.findbugs.column.files"
+	static final String COLUMN_FILES_KEY = "report.spotbugs.column.files"
 
 	/**
 	 * The key to column title for the files.
 	 *
 	 */
-	static final String COLUMN_MISSINGCLASSES_KEY = "report.findbugs.column.missingclasses"
+	static final String COLUMN_MISSINGCLASSES_KEY = "report.spotbugs.column.missingclasses"
 
 	/**
 	 * The sink to write the report to.
@@ -191,7 +191,7 @@ class FindbugsReportGenerator implements FindBugsInfo {
 	String effort
 
 	/**
-	 * The name of the current class which is analysed by FindBugs.
+	 * The name of the current class which is analysed by SpotBugs.
 	 *
 	 */
 	String currentClassName
@@ -269,7 +269,7 @@ class FindbugsReportGenerator implements FindBugsInfo {
 	List testSourceRoots
 
 	/**
-	 * Run Findbugs on the tests.
+	 * Run Spotbugs on the tests.
 	 *
 	 */
 	boolean includeTests
@@ -282,7 +282,7 @@ class FindbugsReportGenerator implements FindBugsInfo {
 
 	File basedir
 
-	GPathResult findbugsResults
+	GPathResult spotbugsResults
 
 	List bugClasses
 
@@ -357,7 +357,7 @@ class FindbugsReportGenerator implements FindBugsInfo {
 		sink.text(getReportTitle())
 		sink.sectionTitle1_()
 
-		// information about FindBugs
+		// information about SpotBugs
 		sink.paragraph()
 		sink.text(bundle.getString(LINKTITLE_KEY) + FindBugsInfo.BLANK)
 		sink.link(bundle.getString(LINK_KEY))
@@ -368,21 +368,21 @@ class FindbugsReportGenerator implements FindBugsInfo {
 		sink.paragraph()
 		sink.text(bundle.getString(VERSIONTITLE_KEY) + FindBugsInfo.BLANK)
 		sink.italic()
-		sink.text(edu.umd.cs.findbugs.Version.RELEASE)
+		sink.text(edu.umd.cs.findbugs.Version.VERSION_STRING)
 		sink.italic_()
 		sink.paragraph_()
 
 		sink.paragraph()
 		sink.text(bundle.getString(THRESHOLD_KEY) + FindBugsInfo.BLANK)
 		sink.italic()
-		sink.text(FindBugsInfo.findbugsThresholds.get(threshold))
+		sink.text(FindBugsInfo.spotbugsThresholds.get(threshold))
 		sink.italic_()
 		sink.paragraph_()
 
 		sink.paragraph()
 		sink.text(bundle.getString(EFFORT_KEY) + FindBugsInfo.BLANK)
 		sink.italic()
-		sink.text(FindBugsInfo.findbugsEfforts.get(effort))
+		sink.text(FindBugsInfo.spotbugsEfforts.get(effort))
 		sink.italic_()
 		sink.paragraph_()
 		sink.section1_()
@@ -403,9 +403,9 @@ class FindbugsReportGenerator implements FindBugsInfo {
 		openClassReportSection(bugClass)
 
 
-		log.debug("printBug findbugsResults is ${findbugsResults}")
+		log.debug("printBug spotbugsResults is ${spotbugsResults}")
 
-		findbugsResults.BugInstance.each() {bugInstance ->
+		spotbugsResults.BugInstance.each() {bugInstance ->
 
 
 			log.debug("bugInstance --->  ${bugInstance}")
@@ -452,7 +452,7 @@ class FindbugsReportGenerator implements FindBugsInfo {
 
 				// priority
 				sink.tableCell()
-				sink.text(findbugsPriority[priority.toInteger()])
+				sink.text(spotbugsPriority[priority.toInteger()])
 				sink.tableCell_()
 
 				sink.tableRow_()
@@ -622,22 +622,22 @@ class FindbugsReportGenerator implements FindBugsInfo {
 
 		// files
 		sink.tableCell()
-		sink.text(findbugsResults.FindBugsSummary.@total_classes.text())
+		sink.text(spotbugsResults.FindBugsSummary.@total_classes.text())
 		sink.tableCell_()
 
 		// bug
 		sink.tableCell()
-		sink.text(findbugsResults.FindBugsSummary.@total_bugs.text())
+		sink.text(spotbugsResults.FindBugsSummary.@total_bugs.text())
 		sink.tableCell_()
 
 		// Errors
 		sink.tableCell()
-		sink.text(findbugsResults.Errors.@errors.text())
+		sink.text(spotbugsResults.Errors.@errors.text())
 		sink.tableCell_()
 
 		// Missing Classes
 		sink.tableCell()
-		sink.text(findbugsResults.Errors.@missingClasses.text())
+		sink.text(spotbugsResults.Errors.@missingClasses.text())
 		sink.tableCell_()
 
 		sink.tableRow_()
@@ -680,7 +680,7 @@ class FindbugsReportGenerator implements FindBugsInfo {
 
 		sink.tableRow_()
 
-		findbugsResults.FindBugsSummary.PackageStats.ClassStats.each() {classStats ->
+		spotbugsResults.FindBugsSummary.PackageStats.ClassStats.each() {classStats ->
 
 			def classStatsValue = classStats.'@class'.text()
 			def classStatsBugCount = classStats.'@bugs'.text()
@@ -733,7 +733,7 @@ class FindbugsReportGenerator implements FindBugsInfo {
 	}
 
 	/**
-	 * Return the value to display. If FindBugs does not provide a line number, a default message is returned. The line
+	 * Return the value to display. If SpotBugs does not provide a line number, a default message is returned. The line
 	 * number otherwise.
 	 *
 	 * @param line
