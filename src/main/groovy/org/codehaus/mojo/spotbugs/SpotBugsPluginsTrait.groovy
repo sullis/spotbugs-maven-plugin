@@ -1,4 +1,4 @@
-package org.codehaus.mojo.findbugs
+package org.codehaus.mojo.spotbugs
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -31,10 +31,10 @@ import org.codehaus.plexus.resource.ResourceManager
 
 
 /**
- * FindBugs plugin support for Mojos.
+ * SpotBugs plugin support for Mojos.
  */
 
-trait FindBugsPluginsTrait {
+trait SpotBugsPluginsTrait {
 
     // the trait needs certain objects to work, this need is expressed as abstract getters
     // classes implement them with implicitly generated property getters
@@ -42,7 +42,7 @@ trait FindBugsPluginsTrait {
     abstract ArtifactFactory getFactory()
     abstract List getRemoteRepositories()
     abstract ArtifactRepository getLocalRepository()
-    abstract File getFindbugsXmlOutputDirectory()
+    abstract File getSpotbugsXmlOutputDirectory()
 	abstract Log getLog()
 	abstract ResourceManager getResourceManager()
 
@@ -53,11 +53,11 @@ trait FindBugsPluginsTrait {
     abstract PluginArtifact[] getPlugins()
 
     /**
-     * Adds the specified plugins to findbugs. The coreplugin is always added first.
+     * Adds the specified plugins to spotbugs. The coreplugin is always added first.
      *
      */
-    String getFindbugsPlugins() {
-        ResourceHelper resourceHelper = new ResourceHelper(log, findbugsXmlOutputDirectory, resourceManager)
+    String getSpotbugsPlugins() {
+        ResourceHelper resourceHelper = new ResourceHelper(log, spotbugsXmlOutputDirectory, resourceManager)
 
         URL[] pluginURL
 
@@ -65,7 +65,7 @@ trait FindBugsPluginsTrait {
 
         if (pluginList) {
             log.debug("  Adding Plugins ")
-            String[] pluginJars = pluginList.split(FindBugsInfo.COMMA)
+            String[] pluginJars = pluginList.split(SpotBugsInfo.COMMA)
 
             pluginJars.each() { pluginJar ->
                 def pluginFileName = pluginJar.trim()

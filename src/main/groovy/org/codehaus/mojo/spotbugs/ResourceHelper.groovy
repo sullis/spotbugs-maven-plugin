@@ -1,4 +1,4 @@
-package org.codehaus.mojo.findbugs
+package org.codehaus.mojo.spotbugs
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -54,12 +54,12 @@ final class ResourceHelper {
         String location = null
         String artifact = resource
 
-        if (resource.indexOf(FindBugsInfo.FORWARD_SLASH) != -1) {
-            artifact = resource.substring(resource.lastIndexOf(FindBugsInfo.FORWARD_SLASH) + 1)
+        if (resource.indexOf(SpotBugsInfo.FORWARD_SLASH) != -1) {
+            artifact = resource.substring(resource.lastIndexOf(SpotBugsInfo.FORWARD_SLASH) + 1)
         }
 
-        if (resource.indexOf(FindBugsInfo.FORWARD_SLASH) != -1) {
-            location = resource.substring(0, resource.lastIndexOf(FindBugsInfo.FORWARD_SLASH))
+        if (resource.indexOf(SpotBugsInfo.FORWARD_SLASH) != -1) {
+            location = resource.substring(0, resource.lastIndexOf(SpotBugsInfo.FORWARD_SLASH))
         }
 
         // replace all occurrences of the following characters:  ? : & =

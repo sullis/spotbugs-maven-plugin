@@ -1,4 +1,4 @@
-package org.codehaus.mojo.findbugsmavenplugin.it;
+package org.codehaus.mojo.spotbugsmavenplugin.it;
 
 import static org.junit.Assert.assertEquals;
 
