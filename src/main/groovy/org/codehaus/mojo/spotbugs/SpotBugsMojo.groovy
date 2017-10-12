@@ -1,4 +1,4 @@
-package org.codehaus.mojo.findbugs
+package org.codehaus.mojo.spotbugs
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -45,15 +45,15 @@ import groovy.xml.StreamingMarkupBuilder
 import org.sonatype.plexus.build.incremental.BuildContext
 
 /**
- * Generates a FindBugs Report when the site plugin is run.
+ * Generates a SpotBugs Report when the site plugin is run.
  * The HTML report is generated for site commands only.
  *
  *
  * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
 
-@Mojo(name = "findbugs", requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true, threadSafe = true)
-class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
+@Mojo(name = "spotbugs", requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true, threadSafe = true)
+class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
 
     /**
      * Location where generated html will be created.
@@ -63,11 +63,11 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     File outputDirectory
 
     /**
-     * Turn on and off xml output of the Findbugs report.
+     * Turn on and off xml output of the Spotbugs report.
      *
      * @since 1.0.0
      */
-    @Parameter(defaultValue = "false", property = "findbugs.xmlOutput", required = true)
+    @Parameter(defaultValue = "false", property = "spotbugs.xmlOutput", required = true)
     boolean xmlOutput
 
     /**
@@ -86,15 +86,15 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      */
     @Deprecated
     @Parameter(defaultValue = "true")
-    boolean findbugsXmlOutput
+    boolean spotbugsXmlOutput
 
     /**
-     * Specifies the directory where the findbugs native xml output will be generated.
+     * Specifies the directory where the Spotbugs native xml output will be generated.
      *
      * @since 1.2.0
      */
     @Parameter(defaultValue = '${project.build.directory}', required = true)
-    File findbugsXmlOutputDirectory
+    File spotbugsXmlOutputDirectory
 
     /**
      * Doxia Site Renderer.
@@ -103,13 +103,13 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     Renderer siteRenderer
 
     /**
-     * Directory containing the class files for FindBugs to analyze.
+     * Directory containing the class files for Spotbugs to analyze.
      */
     @Parameter(defaultValue = '${project.build.outputDirectory}', required = true)
     File classFilesDirectory
 
     /**
-     * Directory containing the test class files for FindBugs to analyze.
+     * Directory containing the test class files for Spotbugs to analyze.
      *
      */
     @Parameter(defaultValue = '${project.build.testOutputDirectory}', required = true)
@@ -145,15 +145,15 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     List testSourceRoots
 
     /**
-     * Run Findbugs on the tests.
+     * Run Spotbugs on the tests.
      *
      * @since 2.0
      */
-    @Parameter(defaultValue = "false", property = "findbugs.includeTests")
+    @Parameter(defaultValue = "false", property = "spotbugs.includeTests")
     boolean includeTests
 
     /**
-     * List of artifacts this plugin depends on. Used for resolving the Findbugs coreplugin.
+     * List of artifacts this plugin depends on. Used for resolving the Spotbugs coreplugin.
      *
      */
     @Parameter(property = "plugin.artifacts", required = true, readonly = true)
@@ -216,7 +216,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      * Threshold of minimum bug severity to report. Valid values are High, Default, Low, Ignore, and Exp (for experimental).
      *
      */
-    @Parameter(defaultValue = "Default", property = "findbugs.threshold")
+    @Parameter(defaultValue = "Default", property = "spotbugs.threshold")
     String threshold
 
     /**
@@ -245,13 +245,13 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      * This parameter is resolved as resource, URL, then file. If successfully
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
-     * directory before being passed to Findbugs as a filter file.
+     * directory before being passed to Spotbugs as a filter file.
      * It supports multiple files separated by a comma
      * </p>
      *
      * @since 1.0-beta-1
      */
-    @Parameter(property = "findbugs.includeFilterFile")
+    @Parameter(property = "spotbugs.includeFilterFile")
     String includeFilterFile
 
     /**
@@ -267,13 +267,13 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      * This parameter is resolved as resource, URL, then file. If successfully
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
-     * directory before being passed to Findbugs as a filter file.
+     * directory before being passed to Spotbugs as a filter file.
      * It supports multiple files separated by a comma
      * </p>
      *
      * @since 1.0-beta-1
      */
-    @Parameter(property = "findbugs.excludeFilterFile")
+    @Parameter(property = "spotbugs.excludeFilterFile")
     String excludeFilterFile
 
     /**
@@ -289,14 +289,14 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      * This parameter is resolved as resource, URL, then file. If successfully
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
-     * directory before being passed to Findbugs as a filter file.
+     * directory before being passed to Spotbugs as a filter file.
      * </p>
      *
      * This is a comma-delimited list.
      *
      * @since 2.4.1
      */
-    @Parameter(property = "findbugs.excludeBugsFile")
+    @Parameter(property = "spotbugs.excludeBugsFile")
     String excludeBugsFile
 
     /**
@@ -304,14 +304,14 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 1.0-beta-1
      */
-    @Parameter(defaultValue = "Default", property = "findbugs.effort")
+    @Parameter(defaultValue = "Default", property = "spotbugs.effort")
     String effort
 
     /**
-     * turn on Findbugs debugging
+     * turn on Spotbugs debugging
      *
      */
-    @Parameter(defaultValue = "false", property = "findbugs.debug")
+    @Parameter(defaultValue = "false", property = "spotbugs.debug")
     Boolean debug
 
     /**
@@ -320,7 +320,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 1.1
      */
-    @Parameter(defaultValue = "false", property = "findbugs.relaxed")
+    @Parameter(defaultValue = "false", property = "spotbugs.relaxed")
     Boolean relaxed
 
     /**
@@ -328,7 +328,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 1.0-beta-1
      */
-    @Parameter(property = "findbugs.visitors")
+    @Parameter(property = "spotbugs.visitors")
     String visitors
 
     /**
@@ -336,7 +336,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 1.0-beta-1
      */
-    @Parameter(property = "findbugs.omitVisitors")
+    @Parameter(property = "spotbugs.omitVisitors")
     String omitVisitors
 
     /**
@@ -352,12 +352,12 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      * This parameter is resolved as resource, URL, then file. If successfully
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
-     * directory before being passed to Findbugs as a plugin file.
+     * directory before being passed to Spotbugs as a plugin file.
      * </p>
      *
      * @since 1.0-beta-1
      */
-    @Parameter(property = "findbugs.pluginList")
+    @Parameter(property = "spotbugs.pluginList")
     String pluginList
 
     /**
@@ -377,7 +377,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 1.1
      */
-    @Parameter(property = "findbugs.onlyAnalyze")
+    @Parameter(property = "spotbugs.onlyAnalyze")
     String onlyAnalyze
 
     /**
@@ -386,7 +386,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 2.3.2
      */
-    @Parameter(property = "findbugs.nested", defaultValue = "false")
+    @Parameter(property = "spotbugs.nested", defaultValue = "false")
     Boolean nested
 
     /**
@@ -395,7 +395,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 2.3.2
      */
-    @Parameter(property = "findbugs.trace", defaultValue = "false")
+    @Parameter(property = "spotbugs.trace", defaultValue = "false")
     Boolean trace
 
     /**
@@ -403,7 +403,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 2.4.1
      */
-    @Parameter(property = "findbugs.maxRank")
+    @Parameter(property = "spotbugs.maxRank")
     int maxRank
 
     /**
@@ -411,7 +411,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 1.1
      */
-    @Parameter(property = "findbugs.skip", defaultValue = "false")
+    @Parameter(property = "spotbugs.skip", defaultValue = "false")
     boolean skip
 
     /**
@@ -433,15 +433,15 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 2.0
      */
-    @Parameter(property = "findbugs.failOnError", defaultValue = "true")
+    @Parameter(property = "spotbugs.failOnError", defaultValue = "true")
     boolean failOnError
 
     /**
-     * Fork a VM for FindBugs analysis.  This will allow you to set timeouts and heap size
+     * Fork a VM for Spotbugs analysis.  This will allow you to set timeouts and heap size
      *
      * @since 2.3.2
      */
-    @Parameter(property = "findbugs.fork", defaultValue = "true")
+    @Parameter(property = "spotbugs.fork", defaultValue = "true")
     boolean fork
 
     /**
@@ -450,18 +450,18 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 2.2
      */
-    @Parameter(property = "findbugs.maxHeap", defaultValue = "512")
+    @Parameter(property = "spotbugs.maxHeap", defaultValue = "512")
     int maxHeap
 
     /**
-     * Specifies the amount of time, in milliseconds, that FindBugs may run before
+     * Specifies the amount of time, in milliseconds, that Spotbugs may run before
      *  it is assumed to be hung and is terminated.
      * The default is 600,000 milliseconds, which is ten minutes.
      * This only works if the <b>fork</b> parameter is set <b>true</b>.
      *
      * @since 2.2
      */
-    @Parameter(property = "findbugs.timeout", defaultValue = "600000")
+    @Parameter(property = "spotbugs.timeout", defaultValue = "600000")
     int timeout
 
     /**
@@ -471,29 +471,29 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      *
      * @since 2.4.1
      */
-    @Parameter(property = "findbugs.jvmArgs")
+    @Parameter(property = "spotbugs.jvmArgs")
     String jvmArgs
 
     /**
-     * Skip the FindBugs HTML report generation if there are no violations found. Defaults to
+     * Skip the Spotbugs HTML report generation if there are no violations found. Defaults to
      * <code>false</code>.
      *
      * @since 3.0.1
      */
-    @Parameter(property = "findbugs.skipEmptyReport", defaultValue = "false")
+    @Parameter(property = "spotbugs.skipEmptyReport", defaultValue = "false")
     boolean skipEmptyReport
     
     /**
      * Set the path of the user preferences file to use.
      * Will try to read the path as a resource before treating it as a local path.
      *
-     * This will read in a configuration file to set up Findbugs.
+     * This will read in a configuration file to set up Spotbugs.
      *
      * The parameters in the POM file will override anything in the config file
      *
      * @since 3.0.2
      */
-    @Parameter(property = "findbugs.userPrefs")
+    @Parameter(property = "spotbugs.userPrefs")
     String userPrefs
 
     int bugCount
@@ -501,7 +501,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
 
     ResourceBundle bundle
 
-    File outputFindbugsFile
+    File outputSpotbugsFile
 
     /**
      * Checks whether prerequisites for generating this report are given.
@@ -512,12 +512,12 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     boolean canGenerateReport() {
 
         def canGenerate = false
-        log.debug("****** FindBugsMojo canGenerateReport *******")
+        log.debug("****** SpotBugsMojo canGenerateReport *******")
 
         if (!skip && classFilesDirectory.exists()) {
 
             classFilesDirectory.eachFileRecurse {
-                if (it.name.contains(FindBugsInfo.CLASS_SUFFIX)) {
+                if (it.name.contains(SpotBugsInfo.CLASS_SUFFIX)) {
                     canGenerate = true
                 }
             }
@@ -527,22 +527,22 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
         if (!skip && testClassFilesDirectory.exists() && includeTests) {
 
             testClassFilesDirectory.eachFileRecurse {
-                if (it.name.contains(FindBugsInfo.CLASS_SUFFIX)) {
+                if (it.name.contains(SpotBugsInfo.CLASS_SUFFIX)) {
                     canGenerate = true
                 }
             }
             log.debug("canGenerate Test Src is ${canGenerate}")
         }
 
-        if (canGenerate && outputFindbugsFile == null) {
-            outputFindbugsFile = new File("${findbugsXmlOutputDirectory}/findbugsXml.xml")
+        if (canGenerate && outputSpotbugsFile == null) {
+            outputSpotbugsFile = new File("${spotbugsXmlOutputDirectory}/spotbugsXml.xml")
 
             ClassLoader tccl = Thread.currentThread().getContextClassLoader();
             try {
                 // The SAX parser factory will fail with CCE if the TCCL is out of sync with our class loader
                 // This for Maven 2.2.1 only MFINDBUGS-178
                 Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
-                executeFindbugs(outputFindbugsFile)
+                executeSpotbugs(outputSpotbugsFile)
             } finally {
                 Thread.currentThread().setContextClassLoader(tccl);
             }
@@ -567,7 +567,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      * @see org.apache.maven.reporting.MavenReport#getDescription(java.util.Locale)
      */
     String getDescription(Locale locale) {
-        return getBundle(locale).getString(FindBugsInfo.DESCRIPTION_KEY)
+        return getBundle(locale).getString(SpotBugsInfo.DESCRIPTION_KEY)
     }
 
     /**
@@ -580,7 +580,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      * @see org.apache.maven.reporting.MavenReport#getName(java.util.Locale)
      */
     String getName(Locale locale) {
-        return getBundle(locale).getString(FindBugsInfo.NAME_KEY)
+        return getBundle(locale).getString(SpotBugsInfo.NAME_KEY)
     }
 
     /**
@@ -592,7 +592,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      * @see org.apache.maven.reporting.MavenReport#getOutputName()
      */
     String getOutputName() {
-        return FindBugsInfo.PLUGIN_NAME
+        return SpotBugsInfo.PLUGIN_NAME
     }
 
     /**
@@ -606,14 +606,14 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
      */
     void executeReport(Locale locale) {
 
-        log.debug("****** FindBugsMojo executeReport *******")
+        log.debug("****** SpotBugsMojo executeReport *******")
         executeCheck(locale)
 
         if (!skip && canGenerateReport()) {
 
             log.debug("Locale is ${locale.getLanguage()}")
 
-            log.debug("****** FindBugsMojo executeReport *******")
+            log.debug("****** SpotBugsMojo executeReport *******")
 
             log.debug("report Output Directory is " + getReportOutputDirectory())
             log.debug("Output Directory is " + outputDirectory)
@@ -629,14 +629,14 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
                 }
             }
 
-            if (outputFindbugsFile != null && outputFindbugsFile.exists()) {
+            if (outputSpotbugsFile != null && outputSpotbugsFile.exists()) {
 
                 if (skipEmptyReport && bugCount == 0) {
-                    log.info("Skipping Generation Findbugs HTML since there are not any bugs")
+                    log.info("Skipping Generation Spotbugs HTML since there are not any bugs")
                 } else {
-                    log.debug("Generating Findbugs HTML")
+                    log.debug("Generating Spotbugs HTML")
 
-                    FindbugsReportGenerator generator = new FindbugsReportGenerator(getSink(), getBundle(locale), this.project.getBasedir(), siteTool)
+                    SpotbugsReportGenerator generator = new SpotbugsReportGenerator(getSink(), getBundle(locale), this.project.getBasedir(), siteTool)
 
                     boolean isJxrPluginEnabled = isJxrPluginEnabled()
 
@@ -656,7 +656,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
 
                     generator.effort = effort
 
-                    generator.setFindbugsResults(new XmlSlurper().parse(outputFindbugsFile))
+                    generator.setSpotbugsResults(new XmlSlurper().parse(outputSpotbugsFile))
 
                     generator.setOutputDirectory(new File(outputDirectory.getAbsolutePath()))
 
@@ -672,7 +672,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     }
 
     public void execute() {
-        log.debug("****** FindBugsMojo execute *******")
+        log.debug("****** SpotBugsMojo execute *******")
 
         Locale locale = Locale.getDefault()
         if (!skip) {
@@ -684,21 +684,21 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     }
 
     private void executeCheck(Locale locale) {
-        log.debug("****** FindBugsMojo executeCheck *******")
+        log.debug("****** SpotBugsMojo executeCheck *******")
 
-        log.debug("Generating Findbugs XML")
+        log.debug("Generating Spotbugs XML")
 
-        if (!findbugsXmlOutputDirectory.exists()) {
-            if (!findbugsXmlOutputDirectory.mkdirs()) {
+        if (!spotbugsXmlOutputDirectory.exists()) {
+            if (!spotbugsXmlOutputDirectory.mkdirs()) {
                 throw new MojoExecutionException("Cannot create xml output directory")
             }
         }
     }
 
     private void generateXDoc(Locale locale) {
-        log.debug("****** FindBugsMojo generateXDoc *******")
+        log.debug("****** SpotBugsMojo generateXDoc *******")
 
-        if (outputFindbugsFile != null && outputFindbugsFile.exists()) {
+        if (outputSpotbugsFile != null && outputSpotbugsFile.exists()) {
 
             log.debug("xmlOutput is ${xmlOutput}")
 
@@ -712,8 +712,8 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
                 }
 
                 XDocsReporter xDocsReporter = new XDocsReporter(getBundle(locale), log, threshold, effort, outputEncoding)
-                xDocsReporter.setOutputWriter(new OutputStreamWriter(new FileOutputStream(new File("${xmlOutputDirectory}/findbugs.xml")), outputEncoding))
-                xDocsReporter.setFindbugsResults(new XmlSlurper().parse(outputFindbugsFile))
+                xDocsReporter.setOutputWriter(new OutputStreamWriter(new FileOutputStream(new File("${xmlOutputDirectory}/spotbugs.xml")), outputEncoding))
+                xDocsReporter.setSpotbugsResults(new XmlSlurper().parse(outputSpotbugsFile))
                 xDocsReporter.setCompileSourceRoots(this.compileSourceRoots)
                 xDocsReporter.setTestSourceRoots(this.testSourceRoots)
 
@@ -784,7 +784,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
 
     ResourceBundle getBundle(locale) {
 
-        this.bundle = ResourceBundle.getBundle(FindBugsInfo.BUNDLE_NAME, locale, FindBugsMojo.class.getClassLoader())
+        this.bundle = ResourceBundle.getBundle(SpotBugsInfo.BUNDLE_NAME, locale, SpotBugsMojo.class.getClassLoader())
 
         log.debug("Mojo Locale is " + this.bundle.getLocale().getLanguage())
 
@@ -792,15 +792,15 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     }
 
     /**
-     * Get the Findbugs command line arguments.
+     * Get the Spotbugs command line arguments.
      *
-     * @param Findbugs temp output file
+     * @param Spotbugs temp output file
      *
-     * @return Findbugs command line arguments.
+     * @return Spotbugs command line arguments.
      *
      */
-    private ArrayList<String> getFindbugsArgs(File tempFile) {
-        ResourceHelper resourceHelper = new ResourceHelper(log, findbugsXmlOutputDirectory, resourceManager)
+    private ArrayList<String> getSpotbugsArgs(File tempFile) {
+        ResourceHelper resourceHelper = new ResourceHelper(log, spotbugsXmlOutputDirectory, resourceManager)
         def args = new ArrayList<String>()
 
         if(userPrefs) {
@@ -827,7 +827,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
 
         if (pluginList || plugins) {
             args << "-pluginList"
-            args << getFindbugsPlugins()
+            args << getSpotbugsPlugins()
         }
 
 
@@ -859,7 +859,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
         if (includeFilterFile) {
             log.debug("  Adding Include Filter File ")
 
-            String[] includefilters = includeFilterFile.split(FindBugsInfo.COMMA)
+            String[] includefilters = includeFilterFile.split(SpotBugsInfo.COMMA)
 
             includefilters.each { includefilter ->
                 args << "-include"
@@ -870,7 +870,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
 
         if (excludeFilterFile) {
             log.debug("  Adding Exclude Filter File ")
-            String[] excludefilters = excludeFilterFile.split(FindBugsInfo.COMMA)
+            String[] excludefilters = excludeFilterFile.split(SpotBugsInfo.COMMA)
 
             excludefilters.each { excludeFilter ->
                 args << "-exclude"
@@ -881,7 +881,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
 
         if (excludeBugsFile) {
             log.debug("  Adding Exclude Bug Files (Baselines)")
-            String[] excludeFiles = excludeBugsFile.split(FindBugsInfo.COMMA)
+            String[] excludeFiles = excludeBugsFile.split(SpotBugsInfo.COMMA)
 
             excludeFiles.each() { excludeFile ->
                 args << "-excludeBugs"
@@ -912,10 +912,10 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     }
 
     /**
-     * Get the Findbugs AuxClasspath.
+     * Get the Spotbugs AuxClasspath.
      *
      */
-    private String getFindbugsAuxClasspath() {
+    private String getSpotbugsAuxClasspath() {
         def auxClasspathElements
 
         if (classFilesDirectory.exists() && classFilesDirectory.isDirectory()) {
@@ -956,18 +956,18 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
     }
 
     /**
-     * Set up and run the Findbugs engine.
+     * Set up and run the Spotbugs engine.
      *
      * @param locale
      *            the locale the report should be generated for
      *
      */
-    private void executeFindbugs(File outputFile) {
+    private void executeSpotbugs(File outputFile) {
 
-        log.debug("****** FindBugsMojo executeFindbugs *******")
+        log.debug("****** SpotBugsMojo executeSpotbugs *******")
         long startTime, duration
 
-        File tempFile = new File("${project.build.directory}/findbugsTemp.xml")
+        File tempFile = new File("${project.build.directory}/spotbugsTemp.xml")
 
         if (tempFile.exists()) {
             tempFile.delete()
@@ -978,10 +978,10 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
 
         outputEncoding = outputEncoding ?: 'UTF-8'
 
-        log.debug("****** Executing FindBugsMojo *******")
+        log.debug("****** Executing SpotBugsMojo *******")
 
         resourceManager.addSearchPath(FileResourceLoader.ID, project.getFile().getParentFile().getAbsolutePath())
-        resourceManager.addSearchPath(FindBugsInfo.URL, "")
+        resourceManager.addSearchPath(SpotBugsInfo.URL, "")
 
         resourceManager.setOutputDirectory(new File(project.getBuild().getDirectory()))
 
@@ -991,7 +991,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
         log.debug("  Plugin Artifacts to be added -> ${pluginArtifacts.toString()}")
 
         log.debug("outputFile is " + outputFile.getCanonicalPath())
-        log.debug("output Directory is " + findbugsXmlOutputDirectory.getAbsolutePath())
+        log.debug("output Directory is " + spotbugsXmlOutputDirectory.getAbsolutePath())
 
         log.debug("Temp File is " + tempFile.getCanonicalPath())
 
@@ -1003,7 +1003,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
             startTime = System.nanoTime()
         }
 
-        def findbugsArgs = getFindbugsArgs(tempFile)
+        def spotbugsArgs = getSpotbugsArgs(tempFile)
 
             def effectiveEncoding = System.getProperty("file.encoding", "UTF-8")
 
@@ -1011,7 +1011,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
                 effectiveEncoding = sourceEncoding
             }
 
-        ant.java(classname: "edu.umd.cs.findbugs.FindBugs2", inputstring: getFindbugsAuxClasspath(), fork: "${fork}", failonerror: "true", clonevm: "false", timeout: "${timeout}", maxmemory: "${maxHeap}m") {
+        ant.java(classname: "edu.umd.cs.findbugs.FindBugs2", inputstring: getSpotbugsAuxClasspath(), fork: "${fork}", failonerror: "true", clonevm: "false", timeout: "${timeout}", maxmemory: "${maxHeap}m") {
 
             log.debug("File Encoding is " + effectiveEncoding)
 
@@ -1020,7 +1020,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
             if (jvmArgs && fork) {
                 log.debug("Adding JVM Args => ${jvmArgs}")
 
-                String[] args = jvmArgs.split(FindBugsInfo.BLANK)
+                String[] args = jvmArgs.split(SpotBugsInfo.BLANK)
 
                 args.each() { jvmArg ->
                     log.debug("Adding JVM Arg => ${jvmArg}")
@@ -1029,7 +1029,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
             }
 
             if (debug || trace) {
-                sysproperty(key: "findbugs.debug", value: true)
+                sysproperty(key: "spotbugs.debug", value: true)
             }
 
             classpath() {
@@ -1041,19 +1041,19 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
                 }
             }
 
-            findbugsArgs.each { findbugsArg ->
-                log.debug("Findbugs arg is ${findbugsArg}")
-                arg(value: findbugsArg)
+            spotbugsArgs.each { spotbugsArg ->
+                log.debug("Spotbugs arg is ${spotbugsArg}")
+                arg(value: spotbugsArg)
             }
 
         }
 
         if (log.isDebugEnabled()) {
             duration = (System.nanoTime() - startTime) / 1000000000.00
-            log.debug("FindBugs duration is ${duration}")
+            log.debug("SpotBugs duration is ${duration}")
         }
 
-        log.info("Done FindBugs Analysis....")
+        log.info("Done SpotBugs Analysis....")
 
         if (tempFile.exists()) {
 
@@ -1080,7 +1080,7 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
                     }
                 }
 
-                path.FindbugsResults.FindBugsSummary.'total_bugs' = bugCount   // Fixes visitor problem
+                path.SpotbugsResults.FindBugsSummary.'total_bugs' = bugCount   // Fixes visitor problem
 
                 xmlProject.appendNode {
                     WrkDir(project.build.directory)
@@ -1145,7 +1145,6 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
 
     }
 
-
     /**
      * @see org.apache.maven.reporting.AbstractMavenReport#setReportOutputDirectory(java.io.File)
      */
@@ -1164,12 +1163,12 @@ class FindBugsMojo extends AbstractMavenReport implements FindBugsPluginsTrait {
         List sourceFiles = new ArrayList()
 
         if (classFilesDirectory.exists() && classFilesDirectory.isDirectory()) {
-            List files = FileUtils.getFiles(classFilesDirectory, FindBugsInfo.JAVA_REGEX_PATTERN, null)
+            List files = FileUtils.getFiles(classFilesDirectory, SpotBugsInfo.JAVA_REGEX_PATTERN, null)
             sourceFiles.addAll(files)
         }
 
         if (testClassFilesDirectory.exists() && testClassFilesDirectory.isDirectory() && includeTests) {
-            List files = FileUtils.getFiles(testClassFilesDirectory, FindBugsInfo.JAVA_REGEX_PATTERN, null)
+            List files = FileUtils.getFiles(testClassFilesDirectory, SpotBugsInfo.JAVA_REGEX_PATTERN, null)
             sourceFiles.addAll(files)
         }
 

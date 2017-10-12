@@ -1,10 +1,10 @@
 
 <project xmlns="http://maven.apache.org/DECORATION/1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/DECORATION/1.7.0 http://maven.apache.org/xsd/decoration-1.7.0.xsd"
-    name="FindBugs Maven Plugin">
+    name="SpotBugs Maven Plugin">
 
   <bannerLeft>
-    <name>FindBugs Maven Plugin</name>
+    <name>SpotBugs Maven Plugin</name>
   </bannerLeft>
 
   <skin>
@@ -19,12 +19,12 @@
       <sideBarEnabled>true</sideBarEnabled>
       <breadcrumbDivider>»</breadcrumbDivider>
       <gitHub>
-        <projectId>gleclaire/findbugs-maven-plugin</projectId>
+        <projectId>spotbugs/spotbugs-maven-plugin</projectId>
         <ribbonOrientation>right</ribbonOrientation>
         <ribbonColor>red</ribbonColor>
       </gitHub>
       <ohloh>
-        <projectId>findbugs-maven-plugin</projectId>
+        <projectId>spotbugs-maven-plugin</projectId>
         <widget>thin-badge</widget>
       </ohloh>
     </fluidoSkin>
@@ -35,11 +35,11 @@
 
   <body>
     <links>
-      <item name="FindBugs" href="http://findbugs.sourceforge.net/"/>
+      <item name="SpotBugs" href="https://github.com/spotbugs/"/>
     </links>
 
     <breadcrumbs>
-      <item name="FindBugs Maven Plugin" href="index.html"/>
+      <item name="SpotBugs Maven Plugin" href="index.html"/>
     </breadcrumbs>
 
     <menu name="Overview">
@@ -49,9 +49,9 @@
       <item name="FAQ" href="faq.html"/>
     </menu>
     <menu name="Examples">
-      <item name="Sample Report" href="examples/findbugs.html"/>
-      <item name="Sample XML xdoc Report" href="examples/findbugs.xml"/>
-      <item name="Sample Legacy XML Report" href="examples/findbugsXml.xml"/>
+      <item name="Sample Report" href="examples/spotbugs.html"/>
+      <item name="Sample XML xdoc Report" href="examples/spotbugs.xml"/>
+      <item name="Sample Legacy XML Report" href="examples/spotbugsXml.xml"/>
       <item name="Multi-Module Configuration" href="examples/multi-module-config.html"/>
       <item name="Violation Checking Configuration" href="examples/violationChecking.html"/>
     </menu>

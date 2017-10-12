@@ -19,7 +19,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>findbugs-maven-plugin.it</groupId>
+  <groupId>spotbugs-maven-plugin.it</groupId>
   <artifactId>prime</artifactId>
   <name>prime</name>
   <packaging>jar</packaging>
@@ -27,9 +27,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>findbugs</artifactId>
-      <version>@findbugsVersion@</version>
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs</artifactId>
+      <version>@spotbugsVersion@</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

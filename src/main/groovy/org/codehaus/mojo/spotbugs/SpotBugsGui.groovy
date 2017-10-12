@@ -1,4 +1,4 @@
-package org.codehaus.mojo.findbugs
+package org.codehaus.mojo.spotbugs
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -34,18 +34,18 @@ import org.apache.maven.plugins.annotations.ResolutionScope
 import org.codehaus.plexus.resource.ResourceManager
 
 /**
- * Launch the Findbugs GUI.
+ * Launch the Spotbugs GUI.
  * It will use all the parameters in the POM fle.
  *
  * @since 2.0
  *
- * @description Launch the Findbugs GUI using the parameters in the POM fle.
+ * @description Launch the Spotbugs GUI using the parameters in the POM fle.
  *
  * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
 
 @Mojo( name = "gui", requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true )
-class FindBugsGui extends AbstractMojo implements FindBugsPluginsTrait {
+class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
 
     /**
      * locale to use for Resource bundle.
@@ -53,20 +53,20 @@ class FindBugsGui extends AbstractMojo implements FindBugsPluginsTrait {
     static Locale locale = Locale.ENGLISH
 
     /**
-     * Directory containing the class files for FindBugs to analyze.
+     * Directory containing the class files for Spotbugs to analyze.
      */
     @Parameter( defaultValue = '${project.build.outputDirectory}', required = true )
     File classFilesDirectory
 
     /**
-     * turn on Findbugs debugging
+     * turn on Spotbugs debugging
      *
      */
-    @Parameter( defaultValue = "false", property="findbugs.debug" )
+    @Parameter( defaultValue = "false", property="spotbugs.debug" )
     Boolean debug
 
     /**
-     * List of artifacts this plugin depends on. Used for resolving the Findbugs coreplugin.
+     * List of artifacts this plugin depends on. Used for resolving the Spotbugs coreplugin.
      *
      */
     @Parameter( property="plugin.artifacts", required = true, readonly = true )
@@ -76,14 +76,14 @@ class FindBugsGui extends AbstractMojo implements FindBugsPluginsTrait {
      * Effort of the bug finders. Valid values are Min, Default and Max.
      *
      */
-    @Parameter( defaultValue = "Default", property="findbugs.effort" )
+    @Parameter( defaultValue = "Default", property="spotbugs.effort" )
     String effort
 
     /**
-     * The plugin list to include in the report. This is a FindBugsInfo.COMMA-delimited list.
+     * The plugin list to include in the report. This is a SpotbugsInfo.COMMA-delimited list.
      *
      */
-    @Parameter( property="findbugs.pluginList" )
+    @Parameter( property="spotbugs.pluginList" )
     String pluginList
 
     /**
@@ -140,11 +140,11 @@ class FindBugsGui extends AbstractMojo implements FindBugsPluginsTrait {
     ResourceBundle bundle
 
     /**
-     * Specifies the directory where the findbugs native xml output will be generated.
+     * Specifies the directory where the Spotbugs native xml output will be generated.
      *
      */
     @Parameter( defaultValue = '${project.build.directory}', required = true )
-    File findbugsXmlOutputDirectory
+    File spotbugsXmlOutputDirectory
 
     /**
      * The file encoding to use when reading the source files. If the property <code>project.build.sourceEncoding</code>
@@ -161,7 +161,7 @@ class FindBugsGui extends AbstractMojo implements FindBugsPluginsTrait {
      *
      * @since 2.2
      */
-    @Parameter( property="findbugs.maxHeap", defaultValue = "512" )
+    @Parameter( property="spotbugs.maxHeap", defaultValue = "512" )
     int maxHeap
 
 	/**
@@ -180,7 +180,7 @@ class FindBugsGui extends AbstractMojo implements FindBugsPluginsTrait {
             log.debug("  Plugin Artifacts to be added ->" + pluginArtifacts.toString())
         }
 
-        ant.project.setProperty('basedir', findbugsXmlOutputDirectory.getAbsolutePath())
+        ant.project.setProperty('basedir', spotbugsXmlOutputDirectory.getAbsolutePath())
         ant.project.setProperty('verbose', "true")
 
         ant.java(classname: "edu.umd.cs.findbugs.LaunchAppropriateUI", fork: "true", failonerror: "true", clonevm: "true", maxmemory: "${maxHeap}m")
@@ -194,29 +194,29 @@ class FindBugsGui extends AbstractMojo implements FindBugsPluginsTrait {
 
             sysproperty(key: "file.encoding" , value: effectiveEncoding)
 
-            // findbugs assumes that multiple arguments (because of options) means text mode, so need to request gui explicitly
+            // spotbugs assumes that multiple arguments (because of options) means text mode, so need to request gui explicitly
             jvmarg(value: "-Dfindbugs.launchUI=gui2")
 
-            // options must be added before the findbugsXml path
-            def findbugsArgs = new ArrayList<String>()
+            // options must be added before the spotbugsXml path
+            def spotbugsArgs = new ArrayList<String>()
 
-            findbugsArgs << getEffortParameter()
+            spotbugsArgs << getEffortParameter()
 
             if (pluginList || plugins) {
-                findbugsArgs << "-pluginList"
-                findbugsArgs << getFindbugsPlugins()
+                spotbugsArgs << "-pluginList"
+                spotbugsArgs << getSpotbugsPlugins()
             }
-            findbugsArgs.each { findbugsArg ->
-                log.debug("Findbugs arg is ${findbugsArg}")
-                arg(value: findbugsArg)
+            spotbugsArgs.each { spotbugsArg ->
+                log.debug("Spotbugs arg is ${spotbugsArg}")
+                arg(value: spotbugsArg)
             }
 
-            def findbugsXmlName = findbugsXmlOutputDirectory.toString() + "/findbugsXml.xml"
-            def findbugsXml = new File(findbugsXmlName)
+            def spotbugsXmlName = spotbugsXmlOutputDirectory.toString() + "/spotbugsXml.xml"
+            def spotbugsXml = new File(spotbugsXmlName)
 
-            if ( findbugsXml.exists() ) {
-                log.debug("  Found an FindBugs XML at ->" + findbugsXml.toString())
-                arg(value: findbugsXml)
+            if ( spotbugsXml.exists() ) {
+                log.debug("  Found an SpotBugs XML at ->" + spotbugsXml.toString())
+                arg(value: spotbugsXml)
             }
 
             classpath()

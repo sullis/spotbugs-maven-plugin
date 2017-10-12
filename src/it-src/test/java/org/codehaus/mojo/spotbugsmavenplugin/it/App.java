@@ -1,4 +1,4 @@
-package org.codehaus.mojo.findbugsmavenplugin.it;
+package org.codehaus.mojo.spotbugsmavenplugin.it;
 
 
 import org.junit.*;
