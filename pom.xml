@@ -640,7 +640,7 @@
     </profile>
 
     <profile>
-      <id>find-it-src-checkout</id>
+      <id>spot-it-src-checkout</id>
       <activation>
         <property>
           <name>testSrc</name>
@@ -685,7 +685,7 @@
     </profile>
 
     <profile>
-      <id>find-it-src-local</id>
+      <id>spot-it-src-local</id>
       <activation>
         <property>
           <name>testSrc</name>

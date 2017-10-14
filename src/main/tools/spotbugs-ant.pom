@@ -5,7 +5,7 @@
   <version>@spotbugs.version@</version>
   <packaging>jar</packaging>
   <url>https://spotbugs.github.io/</url>
-  <name>FindBugs-AntTask</name>
+  <name>SpotBugs-AntTask</name>
   <description>AntTask to run Spotbugs</description>
   <licenses>
     <license>
