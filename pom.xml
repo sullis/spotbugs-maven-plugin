@@ -3,9 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>mojo-parent</artifactId>
-    <version>40</version>
+    <groupId>com.github.hazendaz</groupId>
+    <artifactId>base-parent</artifactId>
+    <version>14</version>
     <relativePath />
   </parent>
 
@@ -25,16 +25,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
-  <!--
-    <repositories>
-      <repository>
-        <id>sonatype</id>
-        <name>SonaType Staging</name>
-        <url>https://oss.sonatype.org/content/repositories/staging/</url>
-      </repository>
-    </repositories>
-  -->
 
   <developers>
     <developer>
@@ -123,7 +113,6 @@
   </distributionManagement>
 
   <properties>
-    <project.build.java.target>1.7</project.build.java.target>
     <projectVersion>${project.version}</projectVersion>
 
     <junitVersion>4.12</junitVersion>
@@ -180,9 +169,8 @@
     <javaeeApiVersion>7.0</javaeeApiVersion>
     <servletApiVersion>3.1.0</servletApiVersion>
 
-    <!-- Override from apache parent -->
-    <coberturaPluginVersion>2.7</coberturaPluginVersion>
-    <enforcerPluginVersion>3.0.0-M1</enforcerPluginVersion>
+    <!-- Override jgit until scm catches up with my other PR -->
+    <jgit.version>3.7.1.201504261725-r</jgit.version>
   </properties>
 
   <dependencies>
@@ -377,38 +365,9 @@
             <skipDeploy>false</skipDeploy>
           </configuration>
         </plugin>
-
-        <!--  Disable cobertura from parent -->
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>cobertura-maven-plugin</artifactId>
-          <version>${coberturaPluginVersion}</version>
-          <configuration>
-            <skip>true</skip>
-          </configuration>
-        </plugin>
-
-        <!-- Override from apache parent -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>${compilerPluginVersion}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-enforcer-plugin</artifactId>
-          <version>${enforcerPluginVersion}</version>
-        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
@@ -472,16 +431,6 @@
         <configuration>
           <pushChanges>false</pushChanges>
           <localCheckout>true</localCheckout>
-        </configuration>
-      </plugin>
-
-      <!--  Disable cobertura from parent -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>cobertura-maven-plugin</artifactId>
-        <version>${coberturaPluginVersion}</version>
-        <configuration>
-          <skip>true</skip>
         </configuration>
       </plugin>
     </plugins>
@@ -582,17 +531,9 @@
           </reportSet>
         </reportSets>
       </plugin>
-      <!--  Disable cobertura from parent -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>cobertura-maven-plugin</artifactId>
-        <version>${coberturaPluginVersion}</version>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
-      </plugin>
     </plugins>
   </reporting>
+
   <profiles>
     <profile>
       <id>run-its</id>
