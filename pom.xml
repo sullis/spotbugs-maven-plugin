@@ -168,6 +168,9 @@
     <mavenSurefireVersion>2.20.1</mavenSurefireVersion>
     <javaeeApiVersion>7.0</javaeeApiVersion>
     <servletApiVersion>3.1.0</servletApiVersion>
+
+    <!-- Override jgit until scm catches up with my other PR -->
+    <jgit.version>3.7.1.201504261725-r</jgit.version>
   </properties>
 
   <dependencies>
