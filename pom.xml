@@ -180,6 +180,8 @@
     <javaeeApiVersion>7.0</javaeeApiVersion>
     <servletApiVersion>3.1.0</servletApiVersion>
 
+    <!-- Override from apache parent -->
+    <enforcerPluginVersion>3.0.0-M1</enforcerPluginVersion>
   </properties>
 
   <dependencies>
@@ -382,6 +384,13 @@
           <configuration>
             <skip>true</skip>
           </configuration>
+        </plugin>
+
+        <!-- Override from apache parent -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${enforcerPluginVersion}</version>
         </plugin>
       </plugins>
     </pluginManagement>
