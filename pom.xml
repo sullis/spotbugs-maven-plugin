@@ -144,7 +144,7 @@
     <pluginPluginVersion>3.5</pluginPluginVersion>
     <scmPluginVersion>1.9.5</scmPluginVersion>
     <sitePluginVersion>3.6</sitePluginVersion>
-    <versionsPluginVersion>2.4</versionsPluginVersion>
+    <versionsPluginVersion>2.5</versionsPluginVersion>
 
     <spotbugsTestDebug>false</spotbugsTestDebug>
     <integrationTestSrc>${project.build.directory}/it-src-spotbugs</integrationTestSrc>
