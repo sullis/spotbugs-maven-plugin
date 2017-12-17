@@ -131,7 +131,7 @@
     <spotbugsTag>3.1.0</spotbugsTag>
 
     <antVersion>1.9.9</antVersion>
-    <groovyVersion>2.4.12</groovyVersion>
+    <groovyVersion>2.4.13</groovyVersion>
 
     <doxiaToolsVersion>1.4</doxiaToolsVersion>
     <doxiaVersion>1.7</doxiaVersion>
