@@ -103,12 +103,12 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
     <snapshotRepository>
-        <id>ossrh</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <site>
-       <id>gh-pages</id>
-       <url>git:ssh://git@github.com/spotbugs/spotbugs-maven-plugin.git?gh-pages#</url>
+      <id>gh-pages</id>
+      <url>git:ssh://git@github.com/spotbugs/spotbugs-maven-plugin.git?gh-pages#</url>
     </site>
   </distributionManagement>
 
