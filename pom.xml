@@ -103,12 +103,12 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
     <snapshotRepository>
-        <id>ossrh</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <site>
-      <id>github-project-site</id>
-      <url>gitsite:git@github.com/spotbugs/spotbugs-maven-plugin.git</url>
+      <id>gh-pages</id>
+      <url>git:ssh://git@github.com/spotbugs/spotbugs-maven-plugin.git?gh-pages#</url>
     </site>
   </distributionManagement>
 
@@ -116,8 +116,8 @@
     <projectVersion>${project.version}</projectVersion>
 
     <junitVersion>4.12</junitVersion>
-    <spotbugsVersion>3.1.0</spotbugsVersion>
-    <spotbugsTag>3.1.0</spotbugsTag>
+    <spotbugsVersion>3.1.1</spotbugsVersion>
+    <spotbugsTag>3.1.1</spotbugsTag>
 
     <antVersion>1.9.9</antVersion>
     <groovyVersion>2.4.13</groovyVersion>
@@ -145,8 +145,6 @@
     <scmPluginVersion>1.9.5</scmPluginVersion>
     <sitePluginVersion>3.6</sitePluginVersion>
     <versionsPluginVersion>2.4</versionsPluginVersion>
-
-    <wagonGitsiteExtensionVersion>0.3.1</wagonGitsiteExtensionVersion>
 
     <spotbugsTestDebug>false</spotbugsTestDebug>
     <integrationTestSrc>${project.build.directory}/it-src-spotbugs</integrationTestSrc>
@@ -329,25 +327,6 @@
 
   <build>
     <defaultGoal>install</defaultGoal>
-
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-provider-gitexe</artifactId>
-        <version>${scmPluginVersion}</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-manager-plexus</artifactId>
-        <version>${scmPluginVersion}</version>
-      </extension>
-      <extension>
-        <!-- note you can download this from http://github.com/khuxtable/wagon-gitsite -->
-        <groupId>org.kathrynhuxtable.maven.wagon</groupId>
-        <artifactId>wagon-gitsite</artifactId>
-        <version>${wagonGitsiteExtensionVersion}</version>
-      </extension>
-    </extensions>
 
     <pluginManagement>
       <plugins>
