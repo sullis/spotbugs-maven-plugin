@@ -389,6 +389,11 @@
         <!-- Override from apache parent -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${compilerPluginVersion}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>${enforcerPluginVersion}</version>
         </plugin>
