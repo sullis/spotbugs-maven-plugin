@@ -124,7 +124,7 @@
 
     <doxiaToolsVersion>1.4</doxiaToolsVersion>
     <doxiaVersion>1.7</doxiaVersion>
-    <doxiaPlusVersion>1.7.1</doxiaPlusVersion>
+    <doxiaPlusVersion>1.7.5</doxiaPlusVersion>
 
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
     <mavenReportingVersion>3.0.0</mavenReportingVersion>
