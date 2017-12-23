@@ -123,7 +123,7 @@
     <groovyVersion>2.4.13</groovyVersion>
 
     <doxiaToolsVersion>1.4</doxiaToolsVersion>
-    <doxiaVersion>1.7</doxiaVersion>
+    <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.7.5</doxiaSiteToolsVersion>
 
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
