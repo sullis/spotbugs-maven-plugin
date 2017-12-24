@@ -119,12 +119,11 @@
     <spotbugsVersion>3.1.1</spotbugsVersion>
     <spotbugsTag>3.1.1</spotbugsTag>
 
-    <antVersion>1.10.0</antVersion>
+    <antVersion>1.10.1</antVersion>
     <groovyVersion>2.4.13</groovyVersion>
 
-    <doxiaToolsVersion>1.4</doxiaToolsVersion>
-    <doxiaVersion>1.7</doxiaVersion>
-    <doxiaPlusVersion>1.7.1</doxiaPlusVersion>
+    <doxiaVersion>1.8</doxiaVersion>
+    <doxiaSiteToolsVersion>1.7.5</doxiaSiteToolsVersion>
 
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
     <mavenReportingVersion>3.0.0</mavenReportingVersion>
@@ -168,8 +167,21 @@
     <javaeeApiVersion>7.0</javaeeApiVersion>
     <servletApiVersion>3.1.0</servletApiVersion>
 
+    <!-- Force maven core to latest -->
+    <maven-core.version>3.5.2</maven-core.version>
+
     <!-- Override jgit until scm catches up with my other PR -->
     <jgit.version>3.7.1.201504261725-r</jgit.version>
+
+    <!-- Targeted patches -->
+    <beanutils.version>1.9.3</beanutils.version>
+    <chain.version>1.2</chain.version>
+    <codec.version>1.11</codec.version>
+    <collections.version>3.2.2</collections.version>
+    <digester.version>1.8.1</digester.version>
+    <io.version>2.6</io.version>
+    <lang3.version>3.7</lang3.version>
+    <validator.version>1.6</validator.version>
   </properties>
 
   <dependencies>
@@ -179,10 +191,10 @@
       <artifactId>spotbugs</artifactId>
       <version>${spotbugsVersion}</version>
       <exclusions>
-          <exclusion>
-              <groupId>xml-apis</groupId>
-              <artifactId>xml-apis</artifactId>
-          </exclusion>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
 
@@ -190,6 +202,16 @@
     <dependency>
       <groupId>org.apache.ant</groupId>
       <artifactId>ant</artifactId>
+      <version>${antVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant-antlr</artifactId>
+      <version>${antVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant-junit</artifactId>
       <version>${antVersion}</version>
     </dependency>
 
@@ -221,6 +243,12 @@
           <artifactId>plexus-container-default</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
+      <version>${maven-core.version}</version>
     </dependency>
 
     <dependency>
@@ -268,12 +296,12 @@
     <dependency>
       <groupId>org.apache.maven.doxia</groupId>
       <artifactId>doxia-decoration-model</artifactId>
-      <version>${doxiaPlusVersion}</version>
+      <version>${doxiaSiteToolsVersion}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.doxia</groupId>
       <artifactId>doxia-site-renderer</artifactId>
-      <version>${doxiaPlusVersion}</version>
+      <version>${doxiaSiteToolsVersion}</version>
       <exclusions>
         <exclusion>
           <groupId>org.codehaus.plexus</groupId>
@@ -283,18 +311,66 @@
           <groupId>org.codehaus.plexus</groupId>
           <artifactId>plexus-container-default</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-taglib</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-tiles</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-core</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.apache.maven.shared</groupId>
-      <artifactId>maven-doxia-tools</artifactId>
-      <version>${doxiaToolsVersion}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.codehaus.plexus</groupId>
-          <artifactId>plexus-container-default</artifactId>
-        </exclusion>
-      </exclusions>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-integration-tools</artifactId>
+      <version>${doxiaSiteToolsVersion}</version>
+    </dependency>
+
+    <!-- Commons -->
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>${beanutils.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-chain</groupId>
+      <artifactId>commons-chain</artifactId>
+      <version>${chain.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${codec.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>${collections.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-digester</groupId>
+      <artifactId>commons-digester</artifactId>
+      <version>${digester.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${io.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-validator</groupId>
+      <artifactId>commons-validator</artifactId>
+      <version>${validator.version}</version>
     </dependency>
 
     <!-- plexus -->
@@ -341,9 +417,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>${sitePluginVersion}</version>
-          <configuration>
-            <skipDeploy>false</skipDeploy>
-          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${project.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
