@@ -421,6 +421,11 @@
             <skipDeploy>false</skipDeploy>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${project.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
