@@ -311,6 +311,18 @@
           <groupId>org.codehaus.plexus</groupId>
           <artifactId>plexus-container-default</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-taglib</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-tiles</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-core</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
