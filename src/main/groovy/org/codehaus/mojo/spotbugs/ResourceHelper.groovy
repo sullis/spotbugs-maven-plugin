@@ -88,8 +88,6 @@ final class ResourceHelper {
 
         // End optimization
 
-        InputStream is = new BufferedInputStream(resourceManager.getResourceAsInputStream(name))
-
         File outputResourceFile
 
         if (outputPath == null) {
@@ -101,6 +99,8 @@ final class ResourceHelper {
                 outputResourceFile = new File(outputPath)
             }
         }
+
+        InputStream is = new BufferedInputStream(resourceManager.getResourceAsInputStream(name))
 
         try {
             if (!outputResourceFile.getParentFile().exists()) {
