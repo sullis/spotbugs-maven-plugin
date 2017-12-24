@@ -122,7 +122,6 @@
     <antVersion>1.10.1</antVersion>
     <groovyVersion>2.4.13</groovyVersion>
 
-    <doxiaToolsVersion>1.4</doxiaToolsVersion>
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.7.5</doxiaSiteToolsVersion>
 
@@ -315,15 +314,9 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.apache.maven.shared</groupId>
-      <artifactId>maven-doxia-tools</artifactId>
-      <version>${doxiaToolsVersion}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.codehaus.plexus</groupId>
-          <artifactId>plexus-container-default</artifactId>
-        </exclusion>
-      </exclusions>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-integration-tools</artifactId>
+      <version>${doxiaSiteToolsVersion}</version>
     </dependency>
 
     <!-- Commons -->
