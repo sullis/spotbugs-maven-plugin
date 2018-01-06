@@ -378,6 +378,12 @@
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-container-default</artifactId>
       <version>${plexusContainerVersion}</version>
+      <exclusions>
+          <exclusion>
+              <groupId>com.google.collections</groupId>
+              <artifactId>google-collections</artifactId>
+          </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
