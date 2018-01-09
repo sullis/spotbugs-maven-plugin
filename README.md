@@ -22,6 +22,10 @@ Maven Mojo Plug-In to generate reports based on the SpotBugs Analyzer
 
 Continue to use 'FindBugsFilter' when needed as the spotbugs project has not yet renamed that to reflect project.
 
+## Usage ##
+
+The [SpotBugs documentation](https://spotbugs.readthedocs.io/en/latest/maven.html) describes the pom.xml modifications and Maven goals.
+
 ## Running Tests ##
 
 Run all tests
