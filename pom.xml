@@ -120,7 +120,7 @@
     <spotbugsTag>3.1.2</spotbugsTag>
 
     <antVersion>1.10.2</antVersion>
-    <groovyVersion>2.4.13</groovyVersion>
+    <groovyVersion>2.4.14</groovyVersion>
 
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8</doxiaSiteToolsVersion>
