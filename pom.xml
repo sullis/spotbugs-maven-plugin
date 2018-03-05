@@ -144,6 +144,7 @@
     <pluginPluginVersion>3.5</pluginPluginVersion>
     <scmPluginVersion>1.9.5</scmPluginVersion>
     <sitePluginVersion>3.6</sitePluginVersion> <!-- 3.7+ breaks some integration tests -->
+    <sitePluginNonItVersion>3.7</sitePluginNonItVersion>
     <versionsPluginVersion>2.5</versionsPluginVersion>
 
     <spotbugsTestDebug>false</spotbugsTestDebug>
@@ -413,7 +414,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>${sitePluginVersion}</version>
+          <version>${sitePluginNonItVersion}</version>
         </plugin>
         <plugin>
           <groupId>com.github.spotbugs</groupId>
