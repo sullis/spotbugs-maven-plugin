@@ -468,7 +468,7 @@
             <phase>site</phase>
             <goals>
               <goal>groovydoc</goal>
-              <goal>testGroovydoc</goal>
+              <goal>groovydocTests</goal>
             </goals>
           </execution>
         </executions>
