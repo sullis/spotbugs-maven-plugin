@@ -137,7 +137,7 @@
     <antrunPluginVersion>1.8</antrunPluginVersion>
     <l10nPluginVersion>1.8</l10nPluginVersion>
     <codenarcPluginVersion>0.22-1</codenarcPluginVersion>
-    <gmavenPluginVersion>1.5</gmavenPluginVersion>
+    <gmavenPluginVersion>1.6</gmavenPluginVersion>
     <infoReportsPluginVersion>2.9</infoReportsPluginVersion>
     <invokerPluginVersion>3.0.0</invokerPluginVersion>
     <javadocPluginVersion>3.0.0</javadocPluginVersion>
@@ -455,8 +455,8 @@
               <goal>addTestSources</goal>
               <goal>generateStubs</goal>
               <goal>compile</goal>
-              <goal>testGenerateStubs</goal>
-              <goal>testCompile</goal>
+              <goal>generateTestStubs</goal>
+              <goal>compileTests</goal>
 <!--
               <goal>removeStubs</goal>
               <goal>removeTestStubs</goal>
