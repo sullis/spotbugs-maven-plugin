@@ -25,7 +25,6 @@ import org.codehaus.plexus.resource.loader.FileResourceLoader
 import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.util.FileUtils
 
-
 final class ResourceHelper {
 
     Log log
@@ -36,7 +35,7 @@ final class ResourceHelper {
         assert log
         this.log = log
         this.outputDirectory = outputDirectory
-		this.resourceManager = resourceManager
+        this.resourceManager = resourceManager
     }
 
     /**
@@ -109,9 +108,7 @@ final class ResourceHelper {
 
             def os = new FileOutputStream(outputResourceFile)
 
-
             os << is
-
 
         } catch (IOException e) {
             throw new FileResourceCreationException("Cannot create file-based resource.", e)

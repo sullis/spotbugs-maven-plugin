@@ -21,17 +21,22 @@ package org.codehaus.mojo.spotbugs
 
 import org.apache.maven.artifact.repository.ArtifactRepository
 import org.apache.maven.artifact.resolver.ArtifactResolver
+
 import org.apache.maven.doxia.siterenderer.Renderer;
 import org.apache.maven.doxia.tools.SiteTool
+
 import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.plugin.MojoExecutionException
+
 import org.apache.maven.plugins.annotations.Component
 import org.apache.maven.plugins.annotations.Execute
 import org.apache.maven.plugins.annotations.LifecyclePhase
 import org.apache.maven.plugins.annotations.Mojo
 import org.apache.maven.plugins.annotations.Parameter
 import org.apache.maven.plugins.annotations.ResolutionScope
+
 import org.apache.maven.project.MavenProject
+
 import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.util.FileUtils
 
@@ -506,10 +511,10 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
                     throw new MojoExecutionException("failed with ${bugCount} bugs and ${errorCount} errors ")
                 }
             }
-		}
-		else {
-			log.debug("Nothing for SpotBugs to do here.")
-		}
-	}
+        }
+        else {
+            log.debug("Nothing for SpotBugs to do here.")
+        }
+    }
 
 }

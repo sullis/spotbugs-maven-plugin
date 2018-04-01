@@ -20,9 +20,11 @@ package org.codehaus.mojo.spotbugs
  */
 
 import groovy.util.slurpersupport.GPathResult
+
 import org.apache.maven.doxia.sink.Sink
 import org.apache.maven.doxia.tools.SiteTool
 import org.apache.maven.plugin.logging.Log
+
 import org.codehaus.plexus.util.PathTool
 
 /**
