@@ -19,12 +19,16 @@ package org.codehaus.mojo.spotbugs
  * under the License.
  */
 
+import groovy.xml.StreamingMarkupBuilder
+
 import org.apache.maven.artifact.Artifact
-import org.apache.maven.artifact.factory.ArtifactFactory;
 import org.apache.maven.artifact.repository.ArtifactRepository
 import org.apache.maven.artifact.resolver.ArtifactResolver
+
 import org.apache.maven.doxia.siterenderer.Renderer
 import org.apache.maven.doxia.tools.SiteTool
+
+import org.apache.maven.plugin.MojoExecutionException
 
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.LifecyclePhase
@@ -32,15 +36,15 @@ import org.apache.maven.plugins.annotations.Mojo
 import org.apache.maven.plugins.annotations.Parameter
 import org.apache.maven.plugins.annotations.ResolutionScope
 
-import org.apache.maven.plugin.MojoExecutionException
-
 import org.apache.maven.project.MavenProject
+
 import org.apache.maven.reporting.AbstractMavenReport
+
+import org.apache.maven.repository.RepositorySystem
+
 import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.resource.loader.FileResourceCreationException
 import org.codehaus.plexus.resource.loader.FileResourceLoader
-
-import groovy.xml.StreamingMarkupBuilder
 
 import org.sonatype.plexus.build.incremental.BuildContext
 
@@ -229,8 +233,8 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      * Used to look up Artifacts in the remote repository.
      *
      */
-    @Component(role = ArtifactFactory.class)
-    ArtifactFactory factory
+    @Component(role = RepositorySystem.class)
+    RepositorySystem factory
 
     /**
      * <p>
