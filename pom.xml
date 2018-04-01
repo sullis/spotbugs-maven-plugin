@@ -164,9 +164,9 @@
     <fb-contribVersion>7.2.0</fb-contribVersion>
     <findsecbugsVersion>1.7.1</findsecbugsVersion>
     <jxrPluginVersion>2.5</jxrPluginVersion>
-    <servletApiVersion>3.1.0</servletApiVersion>
     <mavenSurefireVersion>2.21.0</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
+    <servletApiVersion>4.0.0</servletApiVersion>
 
     <!-- Override jgit until scm catches up with my other PR -->
     <jgit.version>3.7.1.201504261725-r</jgit.version>
