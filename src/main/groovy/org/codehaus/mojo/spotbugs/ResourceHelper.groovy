@@ -30,7 +30,7 @@ final class ResourceHelper {
 
     Log log
     File outputDirectory
-	ResourceManager resourceManager
+    ResourceManager resourceManager
 
     ResourceHelper(Log log, File outputDirectory, ResourceManager resourceManager) {
         assert log
