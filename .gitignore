@@ -6,3 +6,6 @@ target/
 *.iws
 *.iml
 *.asc
+*.releaseBackup
+release.properties
+.mvn/wrapper/maven-wrapper.jar
