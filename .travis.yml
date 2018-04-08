@@ -13,7 +13,7 @@ env:
 
 script:
   - ./mvnw verify -B -P run-its -DtestSrc=remote -Dinvoker.parallelThreads=4
-  - ./mvnw site -B
+  - ./mvnw site -B -Ddownloader.tls.protocols=TLSv1.1,TLSv1.2,TLSv1.3
 
 deploy:
   - provider: pages
