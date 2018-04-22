@@ -19,7 +19,7 @@ deploy:
   - provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
-    local_dir: $TRAVIS_BUILD_DIR/target/site
+    local_dir: target/site
     email: skypencil+spotbugs-bot@gmail.com
     on:
       repo: spotbugs/spotbugs-maven-plugin
