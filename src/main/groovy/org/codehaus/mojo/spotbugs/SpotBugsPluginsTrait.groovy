@@ -20,15 +20,15 @@ package org.codehaus.mojo.spotbugs
  */
 
 import org.apache.maven.artifact.Artifact
-import org.apache.maven.artifact.factory.ArtifactFactory
 import org.apache.maven.artifact.repository.ArtifactRepository
 import org.apache.maven.artifact.resolver.ArtifactResolver
 
 import org.apache.maven.plugin.logging.Log
 import org.apache.maven.plugin.MojoExecutionException
 
-import org.codehaus.plexus.resource.ResourceManager
+import org.apache.maven.repository.RepositorySystem
 
+import org.codehaus.plexus.resource.ResourceManager
 
 /**
  * SpotBugs plugin support for Mojos.
@@ -39,7 +39,7 @@ trait SpotBugsPluginsTrait {
     // the trait needs certain objects to work, this need is expressed as abstract getters
     // classes implement them with implicitly generated property getters
     abstract ArtifactResolver getArtifactResolver()
-    abstract ArtifactFactory getFactory()
+    abstract RepositorySystem getFactory()
     abstract List getRemoteRepositories()
     abstract ArtifactRepository getLocalRepository()
     abstract File getSpotbugsXmlOutputDirectory()

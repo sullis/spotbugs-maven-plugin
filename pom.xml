@@ -119,15 +119,15 @@
     <spotbugsVersion>3.1.3</spotbugsVersion>
     <spotbugsTag>3.1.3</spotbugsTag>
 
-    <antVersion>1.10.2</antVersion>
-    <groovyVersion>2.4.14</groovyVersion>
+    <antVersion>1.10.3</antVersion>
+    <groovyVersion>2.4.15</groovyVersion>
 
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8</doxiaSiteToolsVersion>
 
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
     <mavenReportingVersion>3.0.0</mavenReportingVersion>
-    <mavenVersion>3.5.0</mavenVersion> <!-- Version 3.5.2 introduces widespread issues reported across many plugins that upgraded, stay at 3.5.2 until fixed -->
+    <mavenVersion>3.5.0</mavenVersion> <!-- Version 3.5.3 introduces widespread issues reported across many plugins that upgraded, stay at 3.5.0 until fixed -->
 
     <plexusBuildVersion>0.0.7</plexusBuildVersion>
     <plexusContainerVersion>1.7.1</plexusContainerVersion>
@@ -164,9 +164,9 @@
     <fb-contribVersion>7.2.0</fb-contribVersion>
     <findsecbugsVersion>1.7.1</findsecbugsVersion>
     <jxrPluginVersion>2.5</jxrPluginVersion>
-    <mavenSurefireVersion>2.20.1</mavenSurefireVersion>
-    <javaeeApiVersion>7.0</javaeeApiVersion>
-    <servletApiVersion>3.1.0</servletApiVersion>
+    <mavenSurefireVersion>2.21.0</mavenSurefireVersion>
+    <javaeeApiVersion>8.0</javaeeApiVersion>
+    <servletApiVersion>4.0.0</servletApiVersion>
 
     <!-- Override jgit until scm catches up with my other PR -->
     <jgit.version>3.7.1.201504261725-r</jgit.version>

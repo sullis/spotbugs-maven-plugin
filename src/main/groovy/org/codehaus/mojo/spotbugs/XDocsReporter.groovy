@@ -20,9 +20,9 @@ package org.codehaus.mojo.spotbugs
  */
 
 import groovy.util.slurpersupport.GPathResult
-import org.apache.maven.plugin.logging.Log
 import groovy.xml.StreamingMarkupBuilder
 
+import org.apache.maven.plugin.logging.Log
 
 /**
  * The reporter controls the generation of the Spotbugs report.
