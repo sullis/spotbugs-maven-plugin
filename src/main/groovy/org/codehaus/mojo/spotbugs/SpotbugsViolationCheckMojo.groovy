@@ -502,7 +502,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
                 log.info('Total bugs: ' + total)
                 for (i in 0..total-1) {
                     def bug = bugs[i]
-                    log.info( bug.LongMessage.text() + SpotBugsInfo.BLANK + bug.SourceLine.'@classname' + SpotBugsInfo.BLANK + bug.SourceLine.Message.text() + SpotBugsInfo.BLANK + bug.'@type')
+                    log.error( bug.LongMessage.text() + SpotBugsInfo.BLANK + bug.SourceLine.'@classname' + SpotBugsInfo.BLANK + bug.SourceLine.Message.text() + SpotBugsInfo.BLANK + bug.'@type')
                 }
 
                 log.info('\n\n\nTo see bug detail using the Spotbugs GUI, use the following command "mvn spotbugs:gui"\n\n\n')
