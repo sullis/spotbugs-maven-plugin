@@ -168,7 +168,7 @@
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
-    <!-- Override jgit until scm catches up with my other PR -->
+    <!-- Override older jgit until scm released new patch allowing up to 4.11 -->
     <jgit.version>3.7.1.201504261725-r</jgit.version>
 
     <!-- Targeted patches -->
