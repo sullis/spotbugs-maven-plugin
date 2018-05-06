@@ -56,11 +56,6 @@
     </dependency>
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-site-plugin</artifactId>
-      <version>@sitePluginVersion@</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
       <version>@compilerPluginVersion@</version>
     </dependency>
