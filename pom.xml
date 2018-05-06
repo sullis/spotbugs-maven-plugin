@@ -144,7 +144,7 @@
     <pluginPluginVersion>3.5.1</pluginPluginVersion>
     <scmPluginVersion>1.9.5</scmPluginVersion>
     <sitePluginVersion>3.6</sitePluginVersion> <!-- 3.7+ breaks some integration tests -->
-    <sitePluginNonItVersion>3.7</sitePluginNonItVersion>
+    <sitePluginNonItVersion>3.7.1</sitePluginNonItVersion>
     <versionsPluginVersion>2.5</versionsPluginVersion>
 
     <spotbugsTestDebug>false</spotbugsTestDebug>
