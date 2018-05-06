@@ -14,31 +14,24 @@
  * limitations under the License.
  */
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 
 /**
  *
  * @author garvin
  */
-public class EmptyJUnitTest extends TestCase
-{
-    
-    public EmptyJUnitTest( String testName )
-    {
-        super( testName );
+public class EmptyJUnitTest {
+
+    @BeforeEach
+    void setUp() {
+        // Do nothing
     }
-    
-    @Override
-    protected void setUp() throws Exception
-    {
-        super.setUp();
+
+    @AfterEach
+    void tearDown() {
+        // Do nothing
     }
-    
-    @Override
-    protected void tearDown() throws Exception
-    {
-        super.tearDown();
-    }
-    // TODO add test methods here. The name must begin with 'test'. For example:
-    // public void testHello() {}
+
 }
