@@ -37,7 +37,10 @@ install: true
 
 script:
   - ./mvnw verify -B -P run-its -DtestSrc=remote -Dinvoker.parallelThreads=4
-  - ./mvnw site -B -Ddownloader.tls.protocols=TLSv1.1,TLSv1.2,TLSv1.3
+
+after_success:
+  - chmod -R 777 ./travis/after_success.sh
+  - "./travis/after_success.sh"
 
 deploy:
   - provider: pages
