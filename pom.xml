@@ -166,7 +166,7 @@
     <jxrPluginVersion>2.5</jxrPluginVersion>
     <mavenSurefireVersion>2.21.0</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
-    <servletApiVersion>4.0.0</servletApiVersion>
+    <servletApiVersion>4.0.1</servletApiVersion>
 
     <!-- Override jgit until scm catches up with my other PR -->
     <jgit.version>3.7.1.201504261725-r</jgit.version>
