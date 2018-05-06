@@ -143,8 +143,8 @@
     <javadocPluginVersion>3.0.0</javadocPluginVersion>
     <pluginPluginVersion>3.5.1</pluginPluginVersion>
     <scmPluginVersion>1.9.5</scmPluginVersion>
-    <sitePluginVersion>3.6</sitePluginVersion> <!-- 3.7+ breaks some integration tests -->
-    <sitePluginNonItVersion>3.7.1</sitePluginNonItVersion>
+    <sitePluginVersion>3.7.1</sitePluginVersion>
+    <sitePlugin36Version>3.6</sitePlugin36Version> <!-- For MFINDBUGS-145 (breaks on newer jdks) -->
     <versionsPluginVersion>2.5</versionsPluginVersion>
 
     <spotbugsTestDebug>false</spotbugsTestDebug>
@@ -414,7 +414,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>${sitePluginNonItVersion}</version>
+          <version>${sitePluginVersion}</version>
         </plugin>
         <plugin>
           <groupId>com.github.spotbugs</groupId>
