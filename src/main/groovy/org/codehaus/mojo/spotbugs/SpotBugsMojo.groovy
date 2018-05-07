@@ -46,8 +46,6 @@ import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.resource.loader.FileResourceCreationException
 import org.codehaus.plexus.resource.loader.FileResourceLoader
 
-import org.sonatype.plexus.build.incremental.BuildContext
-
 /**
  * Generates a SpotBugs Report when the site plugin is run.
  * The HTML report is generated for site commands only.
