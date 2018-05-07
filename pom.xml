@@ -196,16 +196,6 @@
       <artifactId>ant</artifactId>
       <version>${antVersion}</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.ant</groupId>
-      <artifactId>ant-antlr</artifactId>
-      <version>${antVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.ant</groupId>
-      <artifactId>ant-junit</artifactId>
-      <version>${antVersion}</version>
-    </dependency>
 
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
@@ -217,6 +207,20 @@
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-ant</artifactId>
       <version>${groovyVersion}</version>
+      <exclusions>
+          <exclusion>
+              <groupId>org.apache.ant</groupId>
+              <artifactId>ant-junit</artifactId>
+          </exclusion>
+          <exclusion>
+              <groupId>org.apache.ant</groupId>
+              <artifactId>ant-antlr</artifactId>
+          </exclusion>
+          <exclusion>
+              <groupId>org.codehaus.groovy</groupId>
+              <artifactId>groovy-groovydoc</artifactId>
+          </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
