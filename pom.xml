@@ -125,6 +125,7 @@
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
 
+    <mavenCoreVersion>3.1.1</mavenCoreVersion>
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
     <mavenReportingVersion>3.0.0</mavenReportingVersion>
     <mavenVersion>3.5.0</mavenVersion> <!-- Version 3.5.3 introduces widespread issues reported across many plugins that upgraded, stay at 3.5.0 until fixed -->
@@ -265,6 +266,12 @@
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-artifact</artifactId>
       <version>${mavenVersion}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
+      <version>${mavenCoreVersion}</version>
     </dependency>
 
     <!-- doxia -->
