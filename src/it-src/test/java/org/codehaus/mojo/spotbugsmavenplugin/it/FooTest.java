@@ -1,11 +1,8 @@
 package org.codehaus.mojo.spotbugsmavenplugin.it;
 
-import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-import org.junit.Ignore;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 
 /**
  * Tests for {@link Foo}.
@@ -15,12 +12,13 @@ import org.junit.runners.JUnit4;
 public class FooTest {
 
     @Test
-    public void thisAlwaysPasses() {
-
+    void thisAlwaysPasses() {
+        // Do nothing
     }
 
+    @Disabled
     @Test
-    @Ignore
     public void thisIsIgnored() {
+        // Do nothing
     }
 }

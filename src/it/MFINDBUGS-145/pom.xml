@@ -48,7 +48,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>@sitePluginVersion@</version>
+        <version>@sitePlugin36Version@</version>
         <configuration>
           <!-- MFINDBUGS-145 indicates this setup although this is obsolete and should not be used -->
           <reportPlugins>
@@ -60,6 +60,7 @@
             <plugin>
               <groupId>com.github.spotbugs</groupId>
               <artifactId>spotbugs-maven-plugin</artifactId>
+              <version>@pom.version@</version>
             </plugin>
           </reportPlugins>
         </configuration>
@@ -67,18 +68,16 @@
     </plugins>
   </build>
 
-  <!--
-  Uncomment to generate JXR links and to stop this test from failing.
-
   <reporting>
     <plugins>
+      <!-- Uncomment to generate JXR links and to stop this test from failing.
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
         <version>@jxrPluginVersion@</version>
       </plugin>
+      -->
     </plugins>
   </reporting>
-  -->
 
 </project>

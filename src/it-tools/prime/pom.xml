@@ -32,8 +32,8 @@
       <version>@spotbugsVersion@</version>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
       <version>@junitVersion@</version>
       <scope>test</scope>
     </dependency>
@@ -48,11 +48,6 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>@servletApiVersion@</version>
       <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-site-plugin</artifactId>
-      <version>@sitePluginVersion@</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>

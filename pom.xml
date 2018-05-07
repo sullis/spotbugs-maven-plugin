@@ -115,7 +115,7 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>4.12</junitVersion>
+    <junitVersion>5.2.0</junitVersion>
     <spotbugsVersion>3.1.3</spotbugsVersion>
     <spotbugsTag>3.1.3</spotbugsTag>
 
@@ -139,12 +139,12 @@
     <codenarcPluginVersion>0.22-1</codenarcPluginVersion>
     <gmavenPluginVersion>1.6</gmavenPluginVersion>
     <infoReportsPluginVersion>2.9</infoReportsPluginVersion>
-    <invokerPluginVersion>3.0.0</invokerPluginVersion>
+    <invokerPluginVersion>3.0.1</invokerPluginVersion>
     <javadocPluginVersion>3.0.0</javadocPluginVersion>
     <pluginPluginVersion>3.5.1</pluginPluginVersion>
     <scmPluginVersion>1.9.5</scmPluginVersion>
-    <sitePluginVersion>3.6</sitePluginVersion> <!-- 3.7+ breaks some integration tests -->
-    <sitePluginNonItVersion>3.7</sitePluginNonItVersion>
+    <sitePluginVersion>3.7.1</sitePluginVersion>
+    <sitePlugin36Version>3.6</sitePlugin36Version> <!-- For MFINDBUGS-145 (breaks on newer jdks) -->
     <versionsPluginVersion>2.5</versionsPluginVersion>
 
     <spotbugsTestDebug>false</spotbugsTestDebug>
@@ -161,14 +161,14 @@
 
     <!-- Used by Integration tests -->
     <compilerPluginVersion>3.7.0</compilerPluginVersion>
-    <fb-contribVersion>7.2.0</fb-contribVersion>
+    <fb-contribVersion>7.2.1.sb</fb-contribVersion>
     <findsecbugsVersion>1.7.1</findsecbugsVersion>
     <jxrPluginVersion>2.5</jxrPluginVersion>
     <mavenSurefireVersion>2.21.0</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
-    <servletApiVersion>4.0.0</servletApiVersion>
+    <servletApiVersion>4.0.1</servletApiVersion>
 
-    <!-- Override jgit until scm catches up with my other PR -->
+    <!-- Override older jgit until scm released new patch allowing up to 4.11 -->
     <jgit.version>3.7.1.201504261725-r</jgit.version>
 
     <!-- Targeted patches -->
@@ -414,7 +414,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>${sitePluginNonItVersion}</version>
+          <version>${sitePluginVersion}</version>
         </plugin>
         <plugin>
           <groupId>com.github.spotbugs</groupId>
