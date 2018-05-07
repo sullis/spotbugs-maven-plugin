@@ -23,10 +23,11 @@ import groovy.xml.StreamingMarkupBuilder
 
 import org.apache.maven.artifact.Artifact
 import org.apache.maven.artifact.repository.ArtifactRepository
-import org.apache.maven.artifact.resolver.ArtifactResolver
 
 import org.apache.maven.doxia.siterenderer.Renderer
 import org.apache.maven.doxia.tools.SiteTool
+
+import org.apache.maven.execution.MavenSession
 
 import org.apache.maven.plugin.MojoExecutionException
 
@@ -41,6 +42,8 @@ import org.apache.maven.project.MavenProject
 import org.apache.maven.reporting.AbstractMavenReport
 
 import org.apache.maven.repository.RepositorySystem
+
+import org.apache.maven.shared.transfer.artifact.resolve.ArtifactResolver
 
 import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.resource.loader.FileResourceCreationException
@@ -181,6 +184,12 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      */
     @Parameter(property = "project.remoteArtifactRepositories", required = true, readonly = true)
     List remoteArtifactRepositories
+
+    /**
+     * Maven Session.
+     */
+    @Parameter (defaultValue = '${session}', required = true, readonly = true)
+    MavenSession session;
 
     /**
      * Maven Project.

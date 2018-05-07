@@ -127,6 +127,7 @@
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
 
     <mavenCoreVersion>3.1.1</mavenCoreVersion>
+    <mavenTransferVersion>0.10.1</mavenTransferVersion>
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
     <mavenReportingVersion>3.0.0</mavenReportingVersion>
     <mavenVersion>3.5.0</mavenVersion> <!-- Version 3.5.3+ introduces issues for many users of spotbugs that cannot upgrade maven to latest -->
@@ -279,14 +280,14 @@
 
     <dependency>
       <groupId>org.apache.maven</groupId>
-      <artifactId>maven-compat</artifactId>
+      <artifactId>maven-artifact</artifactId>
       <version>${mavenVersion}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-artifact</artifactId>
-      <version>${mavenVersion}</version>
+      <groupId>org.apache.maven.shared</groupId>
+      <artifactId>maven-artifact-transfer</artifactId>
+      <version>${mavenTransferVersion}</version>
     </dependency>
 
     <dependency>
@@ -417,6 +418,13 @@
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-utils</artifactId>
       <version>${plexusUtilsVersion}</version>
+    </dependency>
+
+    <!-- slf4j override on maven transfer artifact -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4jVersion}</version>
     </dependency>
   </dependencies>
 
