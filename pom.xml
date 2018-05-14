@@ -88,7 +88,7 @@
   </prerequisites>
 
   <scm>
-    <connection>scm:git:https://github.com/spotbugs/spotbugs-maven-plugin.git</connection>
+    <connection>scm:git:ssh://git@github.com/spotbugs/spotbugs-maven-plugin.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/spotbugs/spotbugs-maven-plugin.git</developerConnection>
     <url>https://github.com/spotbugs/spotbugs-maven-plugin</url>
     <tag>HEAD</tag>
