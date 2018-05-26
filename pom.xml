@@ -141,7 +141,7 @@
     <infoReportsPluginVersion>2.9</infoReportsPluginVersion>
     <invokerPluginVersion>3.0.1</invokerPluginVersion>
     <javadocPluginVersion>3.0.0</javadocPluginVersion>
-    <pluginPluginVersion>3.5.1</pluginPluginVersion>
+    <pluginPluginVersion>3.5.2</pluginPluginVersion>
     <scmPluginVersion>1.9.5</scmPluginVersion>
     <sitePluginVersion>3.7.1</sitePluginVersion>
     <sitePlugin36Version>3.6</sitePlugin36Version> <!-- For MFINDBUGS-145 (breaks on newer jdks) -->
