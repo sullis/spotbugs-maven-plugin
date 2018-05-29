@@ -142,7 +142,7 @@
     <invokerPluginVersion>3.0.1</invokerPluginVersion>
     <javadocPluginVersion>3.0.0</javadocPluginVersion>
     <pluginPluginVersion>3.5.2</pluginPluginVersion>
-    <scmPluginVersion>1.9.5</scmPluginVersion>
+    <scmPluginVersion>1.10.0</scmPluginVersion>
     <sitePluginVersion>3.7.1</sitePluginVersion>
     <sitePlugin36Version>3.6</sitePlugin36Version> <!-- For MFINDBUGS-145 (breaks on newer jdks) -->
     <versionsPluginVersion>2.5</versionsPluginVersion>
@@ -168,8 +168,7 @@
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
-    <!-- Override older jgit until scm released new patch allowing up to 4.11 -->
-    <jgit.version>3.7.1.201504261725-r</jgit.version>
+    <jgit.version>4.11.0.201803080745-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
@@ -688,6 +687,11 @@
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-jgit</artifactId>
                 <version>${scmPluginVersion}</version>
+              </dependency>
+              <dependency>
+                <groupId>org.eclipse.jgit</groupId>
+                <artifactId>org.eclipse.jgit</artifactId>
+                <version>${jgit.version}</version>
               </dependency>
             </dependencies>
           </plugin>
