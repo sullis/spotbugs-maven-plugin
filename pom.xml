@@ -688,6 +688,11 @@
                 <artifactId>maven-scm-provider-jgit</artifactId>
                 <version>${scmPluginVersion}</version>
               </dependency>
+              <dependency>
+                <groupId>org.eclipse.jgit</groupId>
+                <artifactId>org.eclipse.jgit</artifactId>
+                <version>${jgit.version}</version>
+              </dependency>
             </dependencies>
           </plugin>
         </plugins>
