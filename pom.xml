@@ -11,7 +11,7 @@
 
   <groupId>com.github.spotbugs</groupId>
   <artifactId>spotbugs-maven-plugin</artifactId>
-  <version>3.1.4-SNAPSHOT</version>
+  <version>3.1.5-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>SpotBugs Maven Plugin</name>
@@ -116,8 +116,8 @@
     <projectVersion>${project.version}</projectVersion>
 
     <junitVersion>5.2.0</junitVersion>
-    <spotbugsVersion>3.1.3</spotbugsVersion>
-    <spotbugsTag>3.1.3</spotbugsTag>
+    <spotbugsVersion>3.1.5</spotbugsVersion>
+    <spotbugsTag>3.1.5</spotbugsTag>
 
     <antVersion>1.10.3</antVersion>
     <groovyVersion>2.5.0</groovyVersion>
@@ -161,10 +161,10 @@
 
     <!-- Used by Integration tests -->
     <compilerPluginVersion>3.7.0</compilerPluginVersion>
-    <fb-contribVersion>7.4.1.sb</fb-contribVersion>
+    <fb-contribVersion>7.4.2.sb</fb-contribVersion>
     <findsecbugsVersion>1.7.1</findsecbugsVersion>
     <jxrPluginVersion>2.5</jxrPluginVersion>
-    <mavenSurefireVersion>2.21.0</mavenSurefireVersion>
+    <mavenSurefireVersion>2.22.0</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
