@@ -119,8 +119,8 @@
     <spotbugsVersion>3.1.5</spotbugsVersion>
     <spotbugsTag>3.1.5</spotbugsTag>
 
-    <antVersion>1.10.3</antVersion>
     <groovyVersion>2.5.0</groovyVersion>
+    <antVersion>1.10.4</antVersion>
 
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
