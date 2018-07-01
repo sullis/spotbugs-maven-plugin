@@ -168,7 +168,7 @@
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
-    <jgit.version>4.11.0.201803080745-r</jgit.version>
+    <jgit.version>5.0.1.201806211838-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
