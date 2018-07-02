@@ -35,7 +35,8 @@ Usage
   of your <<<pom.xml>>>.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -67,7 +68,8 @@ mvn site
   <<<\<xmlOutputDirectory\>>>> option.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -105,7 +107,8 @@ mvn site
   also contains useful examples.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -143,7 +146,8 @@ mvn site
   also contains useful examples.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -178,7 +182,8 @@ mvn site
   are run.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -210,7 +215,8 @@ mvn site
   detectors which will not be run.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -242,7 +248,8 @@ mvn site
   list of classes and packages.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -275,7 +282,8 @@ mvn site
   Jar files to add.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -306,7 +314,8 @@ mvn site
   The <<<plugins>>> option defines a collection of PluginArtifact to work on. (PluginArtifact contains groupId, artifactId, version, type.) 
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>
@@ -345,7 +354,8 @@ mvn site
   as follows.
 
 +-----+
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   ...
   <reporting>
     <plugins>

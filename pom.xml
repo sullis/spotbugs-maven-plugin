@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>17</version>
+    <version>18</version>
     <relativePath />
   </parent>
 
@@ -119,8 +119,8 @@
     <spotbugsVersion>3.1.5</spotbugsVersion>
     <spotbugsTag>3.1.5</spotbugsTag>
 
-    <antVersion>1.10.3</antVersion>
-    <groovyVersion>2.5.0</groovyVersion>
+    <antVersion>1.10.4</antVersion>
+    <groovyVersion>3.0.0-alpha-3</groovyVersion>
 
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
@@ -168,7 +168,7 @@
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
-    <jgit.version>4.11.0.201803080745-r</jgit.version>
+    <jgit.version>5.0.1.201806211838-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
