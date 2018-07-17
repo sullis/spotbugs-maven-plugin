@@ -84,7 +84,7 @@
   </contributors>
 
   <prerequisites>
-    <maven>3.1.1</maven>
+    <maven>3.5.3</maven>
   </prerequisites>
 
   <scm>
@@ -116,7 +116,7 @@
     <projectVersion>${project.version}</projectVersion>
 
     <junitVersion>5.2.0</junitVersion>
-    <spotbugsVersion>3.1.5</spotbugsVersion>
+    <spotbugsVersion>4.0.0-SNAPSHOT</spotbugsVersion>
     <spotbugsTag>3.1.5</spotbugsTag>
 
     <antVersion>1.10.4</antVersion>
@@ -203,7 +203,7 @@
       <version>${groovyVersion}</version>
       <classifier>indy</classifier>
     </dependency>
-    
+
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy</artifactId>
