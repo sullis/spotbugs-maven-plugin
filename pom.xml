@@ -84,7 +84,7 @@
   </contributors>
 
   <prerequisites>
-    <maven>3.5.3</maven>
+    <maven>3.1.1</maven>
   </prerequisites>
 
   <scm>
