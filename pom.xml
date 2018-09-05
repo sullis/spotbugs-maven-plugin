@@ -160,7 +160,7 @@
     <skipSurefireReport>true</skipSurefireReport>
 
     <!-- Used by Integration tests -->
-    <compilerPluginVersion>3.7.0</compilerPluginVersion>
+    <compilerPluginVersion>3.8.0</compilerPluginVersion>
     <fb-contribVersion>7.4.3.sb</fb-contribVersion>
     <findsecbugsVersion>1.7.1</findsecbugsVersion>
     <jxrPluginVersion>2.5</jxrPluginVersion>
