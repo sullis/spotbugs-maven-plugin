@@ -177,7 +177,7 @@
     <collections.version>3.2.2</collections.version>
     <digester.version>1.8.1</digester.version>
     <io.version>2.6</io.version>
-    <lang3.version>3.7</lang3.version>
+    <lang3.version>3.8</lang3.version>
     <validator.version>1.6</validator.version>
   </properties>
 
