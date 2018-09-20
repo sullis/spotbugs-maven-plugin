@@ -115,12 +115,12 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>5.2.0</junitVersion>
+    <junitVersion>5.3.0</junitVersion>
     <spotbugsVersion>3.1.7</spotbugsVersion>
     <spotbugsTag>3.1.7</spotbugsTag>
 
     <antVersion>1.10.5</antVersion>
-    <groovyVersion>3.0.0-alpha-3</groovyVersion>
+    <groovyVersion>2.5.2</groovyVersion>
 
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
@@ -145,7 +145,7 @@
     <scmPluginVersion>1.10.0</scmPluginVersion>
     <sitePluginVersion>3.7.1</sitePluginVersion>
     <sitePlugin36Version>3.6</sitePlugin36Version> <!-- For MFINDBUGS-145 (breaks on newer jdks) -->
-    <versionsPluginVersion>2.5</versionsPluginVersion>
+    <versionsPluginVersion>2.7</versionsPluginVersion>
 
     <spotbugsTestDebug>false</spotbugsTestDebug>
     <integrationTestSrc>${project.build.directory}/it-src-spotbugs</integrationTestSrc>
@@ -168,7 +168,7 @@
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
-    <jgit.version>5.0.2.201807311906-r</jgit.version>
+    <jgit.version>5.1.0.201809111528-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
