@@ -115,7 +115,7 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>5.3.0</junitVersion>
+    <junitVersion>5.3.1</junitVersion>
     <spotbugsVersion>3.1.7</spotbugsVersion>
     <spotbugsTag>3.1.7</spotbugsTag>
 
