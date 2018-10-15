@@ -108,7 +108,7 @@
     </snapshotRepository>
     <site>
       <id>gh-pages</id>
-      <url>git:ssh://git@github.com/spotbugs/spotbugs-maven-plugin.git?gh-pages#</url>
+      <url>github:ssh://spotbugs.github.io/spotbugs-maven-plugin/</url>
     </site>
   </distributionManagement>
 
