@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>18</version>
+    <version>20</version>
     <relativePath />
   </parent>
 
@@ -115,12 +115,12 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>5.3.0</junitVersion>
+    <junitVersion>5.3.1</junitVersion>
     <spotbugsVersion>3.1.7</spotbugsVersion>
     <spotbugsTag>3.1.7</spotbugsTag>
 
     <antVersion>1.10.5</antVersion>
-    <groovyVersion>2.5.2</groovyVersion>
+    <groovyVersion>2.5.3</groovyVersion>
 
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
@@ -128,7 +128,7 @@
     <mavenCoreVersion>3.1.1</mavenCoreVersion>
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
     <mavenReportingVersion>3.0.0</mavenReportingVersion>
-    <mavenVersion>3.5.0</mavenVersion> <!-- Version 3.5.3 introduces widespread issues reported across many plugins that upgraded, stay at 3.5.0 until fixed -->
+    <mavenVersion>3.5.0</mavenVersion> <!-- Version 3.5.3+ introduces issues for many users of spotbugs that cannot upgrade maven to latest -->
 
     <plexusContainerVersion>1.7.1</plexusContainerVersion>
     <plexusResourcesVersion>1.1.0</plexusResourcesVersion>
@@ -137,12 +137,12 @@
     <antrunPluginVersion>1.8</antrunPluginVersion>
     <l10nPluginVersion>1.8</l10nPluginVersion>
     <codenarcPluginVersion>0.22-1</codenarcPluginVersion>
-    <gmavenPluginVersion>1.6.1</gmavenPluginVersion>
+    <gmavenPluginVersion>1.6.2</gmavenPluginVersion>
     <infoReportsPluginVersion>3.0.0</infoReportsPluginVersion>
     <invokerPluginVersion>3.1.0</invokerPluginVersion>
     <javadocPluginVersion>3.0.1</javadocPluginVersion>
     <pluginPluginVersion>3.5.2</pluginPluginVersion>
-    <scmPluginVersion>1.10.0</scmPluginVersion>
+    <scmPluginVersion>1.11.1</scmPluginVersion>
     <sitePluginVersion>3.7.1</sitePluginVersion>
     <sitePlugin36Version>3.6</sitePlugin36Version> <!-- For MFINDBUGS-145 (breaks on newer jdks) -->
     <versionsPluginVersion>2.7</versionsPluginVersion>
@@ -168,7 +168,7 @@
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
-    <jgit.version>5.1.0.201809111528-r</jgit.version>
+    <jgit.version>5.1.2.201810061102-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
@@ -177,7 +177,7 @@
     <collections.version>3.2.2</collections.version>
     <digester.version>1.8.1</digester.version>
     <io.version>2.6</io.version>
-    <lang3.version>3.8</lang3.version>
+    <lang3.version>3.8.1</lang3.version>
     <validator.version>1.6</validator.version>
   </properties>
 
@@ -203,7 +203,7 @@
       <version>${groovyVersion}</version>
       <classifier>indy</classifier>
     </dependency>
-    
+
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy</artifactId>
@@ -429,6 +429,7 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -473,10 +474,12 @@
           <execution>
             <id>site</id>
             <phase>site</phase>
+            <!-- TODO: This is breaking site generation since groovy 2.5.0 (review and fix to turn back on)
             <goals>
               <goal>groovydoc</goal>
               <goal>groovydocTests</goal>
             </goals>
+            -->
           </execution>
         </executions>
       </plugin>
@@ -497,6 +500,7 @@
       </plugin>
     </plugins>
   </build>
+
   <reporting>
     <excludeDefaults>true</excludeDefaults>
     <plugins>
@@ -562,17 +566,17 @@
         <reportSets>
           <reportSet>
             <reports>
-              <report>cim</report>
+              <report>ci-management</report>
               <report>dependency-info</report>
               <report>dependencies</report>
               <report>dependency-convergence</report>
               <report>dependency-management</report>
               <report>index</report>
-              <report>issue-tracking</report>
-              <report>license</report>
-              <report>mailing-list</report>
+              <report>issue-management</report>
+              <report>licenses</report>
+              <report>mailing-lists</report>
               <report>plugin-management</report>
-              <report>project-team</report>
+              <report>team</report>
               <report>scm</report>
               <report>summary</report>
             </reports>
