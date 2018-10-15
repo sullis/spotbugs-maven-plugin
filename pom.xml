@@ -142,7 +142,7 @@
     <invokerPluginVersion>3.1.0</invokerPluginVersion>
     <javadocPluginVersion>3.0.1</javadocPluginVersion>
     <pluginPluginVersion>3.5.2</pluginPluginVersion>
-    <scmPluginVersion>1.10.0</scmPluginVersion>
+    <scmPluginVersion>1.11.1</scmPluginVersion>
     <sitePluginVersion>3.7.1</sitePluginVersion>
     <sitePlugin36Version>3.6</sitePlugin36Version> <!-- For MFINDBUGS-145 (breaks on newer jdks) -->
     <versionsPluginVersion>2.7</versionsPluginVersion>
