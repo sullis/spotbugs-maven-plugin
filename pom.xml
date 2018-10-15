@@ -474,10 +474,12 @@
           <execution>
             <id>site</id>
             <phase>site</phase>
+            <!-- TODO: This is breaking site generation since groovy 2.5.0 (review and fix to turn back on)
             <goals>
               <goal>groovydoc</goal>
               <goal>groovydocTests</goal>
             </goals>
+            -->
           </execution>
         </executions>
       </plugin>
