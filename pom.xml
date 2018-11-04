@@ -163,8 +163,8 @@
     <compilerPluginVersion>3.8.0</compilerPluginVersion>
     <fb-contribVersion>7.4.3.sb</fb-contribVersion>
     <findsecbugsVersion>1.8.0</findsecbugsVersion>
-    <mavenSurefireVersion>2.22.0</mavenSurefireVersion>
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
+    <mavenSurefireVersion>2.22.1</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
