@@ -1,39 +1,14 @@
 language: java
 sudo: false
 
-matrix:
-  include:
-# 11
-    - env: JDK='Oracle JDK 11'
-      install: . ./install-jdk.sh -F 11 -L BCL
-    - env: JDK='OpenJDK 11'
-      install: . ./install-jdk.sh -F 11 -L GPL
-# 10
-    - env: JDK='Oracle JDK 10'
-      install: . ./install-jdk.sh -F 10 -L BCL
-    - env: JDK='OpenJDK 10'
-      install: . ./install-jdk.sh -F 10 -L GPL
-# 9
-    - env: JDK='Oracle JDK 9'
-      jdk: oraclejdk9
-    - env: JDK='OpenJDK 9'
-      install: . ./install-jdk.sh -F 9
-# 8
-    - env: JDK='Oracle JDK 8'
-      jdk: oraclejdk8
-    - env: JDK='OpenJDK 8'
-      jdk: openjdk8
+jdk:
+  - oraclejdk11
+  - oraclejdk8
 
 env:
   global:
     # GITHUB_TOKEN value to push changes to GitHub; Currently it is used to update gh-pages.
     - secure: "KqPuq9TiiqdOUfGq3k+XYObNjV8FxbgJeqSWK0pcWFFs5w5c4vcGmrfUSSSqNa/JJkKOBWQ6S3tJP7CRxx0uow5BvU4ZQAZLFt6VjzcUZFKGTl5soMTF2gQdyAAcwUnRX2gQKt0doO8Fid6xzfsn1KdTIWXmeqMrcTvC+d7EhxU="
-
-before_install:
-  - wget https://raw.githubusercontent.com/sormuras/bach/master/install-jdk.sh
-  - ./mvnw install -q -DskipTests=true
-
-install: true
 
 script:
   - ./mvnw verify -B -P run-its -DtestSrc=remote -Dinvoker.parallelThreads=4

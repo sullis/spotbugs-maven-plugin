@@ -116,8 +116,8 @@
     <projectVersion>${project.version}</projectVersion>
 
     <junitVersion>5.3.1</junitVersion>
-    <spotbugsVersion>3.1.7</spotbugsVersion>
-    <spotbugsTag>3.1.7</spotbugsTag>
+    <spotbugsVersion>3.1.8</spotbugsVersion>
+    <spotbugsTag>3.1.8</spotbugsTag>
 
     <antVersion>1.10.5</antVersion>
     <groovyVersion>2.5.3</groovyVersion>
@@ -163,12 +163,12 @@
     <compilerPluginVersion>3.8.0</compilerPluginVersion>
     <fb-contribVersion>7.4.3.sb</fb-contribVersion>
     <findsecbugsVersion>1.8.0</findsecbugsVersion>
-    <jxrPluginVersion>2.5</jxrPluginVersion>
-    <mavenSurefireVersion>2.22.0</mavenSurefireVersion>
+    <jxrPluginVersion>3.0.0</jxrPluginVersion>
+    <mavenSurefireVersion>2.22.1</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
-    <jgit.version>5.1.2.201810061102-r</jgit.version>
+    <jgit.version>5.1.3.201810200350-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
