@@ -164,7 +164,7 @@
     <fb-contribVersion>7.4.3.sb</fb-contribVersion>
     <findsecbugsVersion>1.8.0</findsecbugsVersion>
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
-    <mavenSurefireVersion>2.22.1</mavenSurefireVersion>
+    <mavenSurefireVersion>3.0.0-M1</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
