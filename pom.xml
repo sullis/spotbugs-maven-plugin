@@ -203,14 +203,6 @@
       <version>${antVersion}</version>
     </dependency>
 
-    <!-- Needed with groovy 2.5.0 and gmaven currently (remove if fixed later) -->
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-dateutil</artifactId>
-      <version>${groovyVersion}</version>
-      <classifier>indy</classifier>
-    </dependency>
-
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy</artifactId>
@@ -231,6 +223,13 @@
               <artifactId>ant-antlr</artifactId>
           </exclusion>
       </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-dateutil</artifactId>
+      <version>${groovyVersion}</version>
+      <classifier>indy</classifier>
     </dependency>
 
     <dependency>
