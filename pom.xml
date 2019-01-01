@@ -121,7 +121,7 @@
     <slf4jVersion>1.8.0-beta2</slf4jVersion>
 
     <antVersion>1.10.5</antVersion>
-    <groovyVersion>2.5.4</groovyVersion>
+    <groovyVersion>2.5.5</groovyVersion>
 
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
@@ -133,7 +133,7 @@
 
     <plexusContainerVersion>1.7.1</plexusContainerVersion>
     <plexusResourcesVersion>1.1.0</plexusResourcesVersion>
-    <plexusUtilsVersion>3.1.0</plexusUtilsVersion>
+    <plexusUtilsVersion>3.1.1</plexusUtilsVersion>
 
     <antrunPluginVersion>1.8</antrunPluginVersion>
     <l10nPluginVersion>1.8</l10nPluginVersion>
@@ -165,7 +165,7 @@
     <fb-contribVersion>7.4.3.sb</fb-contribVersion>
     <findsecbugsVersion>1.8.0</findsecbugsVersion>
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
-    <mavenSurefireVersion>3.0.0-M2</mavenSurefireVersion>
+    <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
     <servletApiVersion>4.0.1</servletApiVersion>
 
@@ -203,24 +203,18 @@
       <version>${antVersion}</version>
     </dependency>
 
-    <!-- Needed with groovy 2.5.0 and gmaven currently (remove if fixed later) -->
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-dateutil</artifactId>
+      <artifactId>groovy</artifactId>
       <version>${groovyVersion}</version>
       <classifier>indy</classifier>
     </dependency>
 
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy</artifactId>
-      <version>${groovyVersion}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-ant</artifactId>
       <version>${groovyVersion}</version>
+      <classifier>indy</classifier>
       <exclusions>
           <exclusion>
               <groupId>org.apache.ant</groupId>
@@ -231,6 +225,13 @@
               <artifactId>ant-antlr</artifactId>
           </exclusion>
       </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-dateutil</artifactId>
+      <version>${groovyVersion}</version>
+      <classifier>indy</classifier>
     </dependency>
 
     <dependency>
