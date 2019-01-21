@@ -167,7 +167,7 @@
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
     <javaeeApiVersion>8.0</javaeeApiVersion>
-    <servletApiVersion>4.0.1</servletApiVersion>
+    <servletApiVersion>4.0.2</servletApiVersion>
 
     <jgit.version>5.2.0.201812061821-r</jgit.version>
 
