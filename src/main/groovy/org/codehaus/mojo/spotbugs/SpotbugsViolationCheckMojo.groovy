@@ -50,7 +50,7 @@ import org.codehaus.plexus.util.FileUtils
  * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
 
-@Mojo( name = "check", defaultPhase = LifecyclePhase.VERIFY, requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true, threadSafe = true )
+@Mojo( name = "check", defaultPhase = LifecyclePhase.VERIFY, requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true, threadSafe = true)
 @Execute( goal = "spotbugs")
 class SpotbugsViolationCheckMojo extends AbstractMojo {
 
@@ -78,11 +78,6 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     File xmlOutputDirectory
 
     /**
-     * Location where generated html will be created.
-     *
-     */
-
-    /**
      * This has been deprecated and is on by default.
      *
      * @since 1.2.0
@@ -93,7 +88,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     boolean spotbugsXmlOutput
 
     /**
-     * Specifies the directory where the spotbugs native xml output will be generated.
+     * Specifies the directory where the Spotbugs native xml output will be generated.
      *
      * @since 1.2.0
      */
@@ -107,13 +102,13 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     Renderer siteRenderer
 
     /**
-     * Directory containing the class files for SpotBugs to analyze.
+     * Directory containing the class files for Spotbugs to analyze.
      */
     @Parameter( defaultValue = '${project.build.outputDirectory}', required = true )
     File classFilesDirectory
 
     /**
-     * Directory containing the test class files for SpotBugs to analyze.
+     * Directory containing the test class files for Spotbugs to analyze.
      *
      */
     @Parameter( defaultValue = '${project.build.testOutputDirectory}', required = true )
@@ -236,6 +231,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
      * directory before being passed to Spotbugs as a filter file.
+     * It supports multiple files separated by a comma
      * </p>
      *
      * @since 1.0-beta-1
@@ -257,6 +253,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
      * resolved, the contents of the configuration is copied into the
      * <code>${project.build.directory}</code>
      * directory before being passed to Spotbugs as a filter file.
+     * It supports multiple files separated by a comma
      * </p>
      *
      * @since 1.0-beta-1
@@ -413,7 +410,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     boolean failOnError
 
     /**
-     * Fork a VM for SpotBugs analysis.  This will allow you to set timeouts and heap size
+     * Fork a VM for Spotbugs analysis.  This will allow you to set timeouts and heap size
      *
      * @since 2.3.2
      */
@@ -430,7 +427,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     int maxHeap
 
     /**
-     * Specifies the amount of time, in milliseconds, that SpotBugs may run before
+     * Specifies the amount of time, in milliseconds, that Spotbugs may run before
      *  it is assumed to be hung and is terminated.
      * The default is 600,000 milliseconds, which is ten minutes.
      * This only works if the <b>fork</b> parameter is set <b>true</b>.
@@ -450,14 +447,14 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     @Parameter( property="spotbugs.jvmArgs" )
     String jvmArgs
 
-	int bugCount
+    int bugCount
 
-	int errorCount
+    int errorCount
 
 
     /**
      * <p>
-     * specified max number of violations which can be ignored by the findbugs.
+     * specified max number of violations which can be ignored by the spotbugs.
      * </p>
      *
      * @since 2.4.1
@@ -465,41 +462,41 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     @Parameter( property="spotbugs.maxAllowedViolations" , defaultValue = "0")
     int maxAllowedViolations
 
-	void execute() {
-		Locale locale = Locale.getDefault()
-		List sourceFiles
+    void execute() {
+        Locale locale = Locale.getDefault()
+        List sourceFiles
 
-		log.debug("Executing spotbugs:check")
+        log.debug("Executing spotbugs:check")
 
-		if ( this.classFilesDirectory.exists() && this.classFilesDirectory.isDirectory() ) {
-			sourceFiles = FileUtils.getFiles(classFilesDirectory, SpotBugsInfo.JAVA_REGEX_PATTERN, null)
-		}
+        if (this.classFilesDirectory.exists() && this.classFilesDirectory.isDirectory()) {
+            sourceFiles = FileUtils.getFiles(classFilesDirectory, SpotBugsInfo.JAVA_REGEX_PATTERN, null)
+        }
 
-		if ( !skip && sourceFiles ) {
+        if (!skip && sourceFiles) {
 
-			// this goes
+            // this goes
 
-			log.debug("Here goes...............Executing spotbugs:check")
+            log.debug("Here goes...............Executing spotbugs:check")
 
-			if (!spotbugsXmlOutputDirectory.exists()) {
-				if ( !spotbugsXmlOutputDirectory.mkdirs() ) {
+            if (!spotbugsXmlOutputDirectory.exists()) {
+                if ( !spotbugsXmlOutputDirectory.mkdirs() ) {
                     throw new MojoExecutionException("Cannot create xml output directory")
-				}
-			}
+                }
+            }
 
-			File outputFile = new File("${spotbugsXmlOutputDirectory}/spotbugsXml.xml")
+            File outputFile = new File("${spotbugsXmlOutputDirectory}/spotbugsXml.xml")
 
-			if (outputFile.exists()) {
+            if (outputFile.exists()) {
 
-				def path = new XmlSlurper().parse(outputFile)
+                def path = new XmlSlurper().parse(outputFile)
 
-				def allNodes = path.depthFirst().collect { it }
+                def allNodes = path.depthFirst().collect { it }
 
-				bugCount = allNodes.findAll {it.name() == 'BugInstance'}.size()
-				log.info("BugInstance size is ${bugCount}")
+                bugCount = allNodes.findAll {it.name() == 'BugInstance'}.size()
+                log.info("BugInstance size is ${bugCount}")
 
-				errorCount = allNodes.findAll {it.name() == 'Error'}.size()
-				log.info("Error size is ${errorCount}")
+                errorCount = allNodes.findAll {it.name() == 'Error'}.size()
+                log.info("Error size is ${errorCount}")
 
                 def xml = new XmlParser().parse(outputFile)
                 def bugs = xml.BugInstance
