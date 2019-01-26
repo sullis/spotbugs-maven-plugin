@@ -26,9 +26,9 @@ SpotBugs Maven Plugin
  
  SpotBugs uses BCEL to analyze Java bytecode.  It uses dom4j for XML manipulation.
  
- This introduction is an excerpt from the Facts Sheet at {{{http://spotbugs.sourceforge.net/factSheet.html}SpotBugs home page}}.
+ This introduction is an excerpt from the Facts Sheet at {{{https://spotbugs.github.io/}SpotBugs home page}}.
 
- To see more documentation about SpotBugs' options, please see the {{{http://spotbugs.sourceforge.net/manual/index.html}SpotBugs Manual}}.
+ To see more documentation about SpotBugs' options, please see the {{{https://spotbugs.readthedocs.io/en/latest/}SpotBugs Manual}}.
 
 *Please Note
  

@@ -103,7 +103,7 @@ mvn site
   you can use filters.
   The filters allow specifying by class and method which bug categories to
   include/exclude in/from the reports. The
-  {{{http://spotbugs.sourceforge.net/manual/filter.html}filter format specification}}
+  {{{https://spotbugs.readthedocs.io/en/latest/filter.html}filter format specification}}
   also contains useful examples.
 
 +-----+
@@ -142,7 +142,7 @@ mvn site
   you can use filters.
   The filters allow specifying by class and method which bug categories to
   include/exclude in/from the reports. The
-  {{{http://spotbugs.sourceforge.net/manual/filter.html}filter format specification}}
+  {{{https://spotbugs.readthedocs.io/en/latest/filter.html}filter format specification}}
   also contains useful examples.
 
 +-----+
