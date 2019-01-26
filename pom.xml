@@ -467,7 +467,7 @@
         <artifactId>gmavenplus-plugin</artifactId>
         <version>${gmavenPluginVersion}</version>
         <configuration>
-          <groovydocOutputDirectory>${project.reporting.outputDirectory}/apidocs</groovydocOutputDirectory>
+          <groovyDocOutputDirectory>${project.reporting.outputDirectory}/gapidocs</groovyDocOutputDirectory>
         </configuration>
         <executions>
           <execution>
