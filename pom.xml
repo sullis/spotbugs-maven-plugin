@@ -573,6 +573,7 @@
         <version>${project.version}</version>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>${infoReportsPluginVersion}</version>
         <reportSets>
