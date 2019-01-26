@@ -6,7 +6,7 @@
   <artifactId>jsr305</artifactId>
   <version>@spotbugs.version@</version>
   <packaging>jar</packaging>
-  <url>http://spotbugs.sourceforge.net/</url>
+  <url>https://spotbugs.github.io/</url>
   <name>SpotBugs-jsr305</name>
   <description>JSR305 Annotations for Spotbugs</description>
   <licenses>

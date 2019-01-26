@@ -427,7 +427,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      *
      * @since 2.1-SNAPSHOT
      */
-    @Component(role = org.apache.maven.doxia.tools.SiteTool.class)
+    @Component(role = SiteTool.class)
     SiteTool siteTool
 
     /**
@@ -484,7 +484,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      */
     @Parameter(property = "spotbugs.skipEmptyReport", defaultValue = "false")
     boolean skipEmptyReport
-    
+
     /**
      * Set the path of the user preferences file to use.
      * Will try to read the path as a resource before treating it as a local path.
@@ -499,6 +499,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     String userPrefs
 
     int bugCount
+
     int errorCount
 
     ResourceBundle bundle
