@@ -236,6 +236,12 @@
 
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-groovydoc</artifactId>
+      <version>${groovyVersion}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-xml</artifactId>
       <version>${groovyVersion}</version>
     </dependency>
@@ -473,21 +479,19 @@
               <goal>compile</goal>
               <goal>generateTestStubs</goal>
               <goal>compileTests</goal>
-<!--
               <goal>removeStubs</goal>
               <goal>removeTestStubs</goal>
--->
             </goals>
           </execution>
           <execution>
             <id>site</id>
             <phase>site</phase>
-            <!-- TODO: This is breaking site generation since groovy 2.5.0 (review and fix to turn back on)
             <goals>
+              <goal>generateStubs</goal>
+              <goal>generateTestStubs</goal>
               <goal>groovydoc</goal>
               <goal>groovydocTests</goal>
             </goals>
-            -->
           </execution>
         </executions>
       </plugin>
