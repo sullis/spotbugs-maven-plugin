@@ -61,14 +61,14 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     File classFilesDirectory
 
     /**
-     * turn on Spotbugs debugging
+     * Turn on Spotbugs debugging.
      *
      */
     @Parameter( defaultValue = "false", property="spotbugs.debug" )
     Boolean debug
 
     /**
-     * List of artifacts this plugin depends on. Used for resolving the Spotbugs coreplugin.
+     * List of artifacts this plugin depends on. Used for resolving the Spotbugs core plugin.
      *
      */
     @Parameter( property="plugin.artifacts", required = true, readonly = true )
@@ -111,7 +111,7 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     RepositorySystem factory
 
     /**
-     * List of Remote Repositories used by the resolver
+     * List of Remote Repositories used by the resolver.
      *
      */
     @Parameter(property = "project.remoteArtifactRepositories", required = true, readonly = true)
@@ -125,7 +125,7 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     ArtifactRepository localRepository
 
     /**
-     * Maven Project
+     * Maven Project.
      *
      */
     @Parameter( property="project", required = true, readonly = true )
@@ -164,6 +164,8 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     int maxHeap
 
 	/**
+	 * Resource Manager.
+	 *
 	 * @since 2.0
 	 */
 	@Component(role = ResourceManager.class)
