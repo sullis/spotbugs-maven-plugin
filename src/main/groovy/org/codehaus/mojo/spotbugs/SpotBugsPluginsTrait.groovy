@@ -21,13 +21,15 @@ package org.codehaus.mojo.spotbugs
 
 import org.apache.maven.artifact.Artifact
 import org.apache.maven.artifact.repository.ArtifactRepository
-import org.apache.maven.artifact.resolver.ArtifactResolver
 
 import org.apache.maven.plugin.logging.Log
+import org.apache.maven.project.ProjectBuildingRequest
 import org.apache.maven.plugin.MojoExecutionException
 
 import org.apache.maven.repository.RepositorySystem
 
+import org.apache.maven.shared.transfer.artifact.resolve.ArtifactResolver
+import org.apache.maven.shared.transfer.artifact.resolve.ArtifactResult
 import org.codehaus.plexus.resource.ResourceManager
 
 /**
@@ -93,6 +95,11 @@ trait SpotBugsPluginsTrait {
 
             Artifact pomArtifact
 
+            ProjectBuildingRequest configuration = session.getProjectBuildingRequest();
+            log.debug("  Session is: " + session.toString())
+            configuration.setRemoteRepositories(this.remoteRepositories)
+            configuration.setLocalRepository(this.localRepository)
+
             plugins.each() { plugin ->
 
                 log.debug("  Processing Plugin: " + plugin.toString())
@@ -100,7 +107,7 @@ trait SpotBugsPluginsTrait {
                 pomArtifact = this.factory.createArtifact(plugin['groupId'], plugin['artifactId'], plugin['version'], "", plugin['type'])
                 log.debug("pomArtifact is ${pomArtifact} ****** groupId is ${plugin['groupId']} ****** artifactId is ${plugin['artifactId']} ****** version is ${plugin['version']} ****** type is ${plugin['type']}")
 
-                artifactResolver.resolve(pomArtifact, this.remoteRepositories, this.localRepository)
+                pomArtifact = artifactResolver.resolveArtifact(configuration, pomArtifact).getArtifact()
 
                 urlPlugins += resourceHelper.getResourceFile(pomArtifact.file.absolutePath).absolutePath + ((plugin == plugins[plugins.size() - 1]) ? "" : File.pathSeparator)
             }

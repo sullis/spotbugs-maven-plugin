@@ -20,7 +20,8 @@ package org.codehaus.mojo.spotbugs
  */
 
 import org.apache.maven.artifact.repository.ArtifactRepository
-import org.apache.maven.artifact.resolver.ArtifactResolver
+
+import org.apache.maven.execution.MavenSession
 
 import org.apache.maven.plugin.AbstractMojo
 
@@ -32,6 +33,8 @@ import org.apache.maven.plugins.annotations.ResolutionScope
 import org.apache.maven.project.MavenProject
 
 import org.apache.maven.repository.RepositorySystem
+
+import org.apache.maven.shared.transfer.artifact.resolve.ArtifactResolver
 
 import org.codehaus.plexus.resource.ResourceManager
 
@@ -61,14 +64,14 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     File classFilesDirectory
 
     /**
-     * turn on Spotbugs debugging
+     * Turn on Spotbugs debugging.
      *
      */
     @Parameter( defaultValue = "false", property="spotbugs.debug" )
     Boolean debug
 
     /**
-     * List of artifacts this plugin depends on. Used for resolving the Spotbugs coreplugin.
+     * List of artifacts this plugin depends on. Used for resolving the Spotbugs core plugin.
      *
      */
     @Parameter( property="plugin.artifacts", required = true, readonly = true )
@@ -111,7 +114,7 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     RepositorySystem factory
 
     /**
-     * List of Remote Repositories used by the resolver
+     * List of Remote Repositories used by the resolver.
      *
      */
     @Parameter(property = "project.remoteArtifactRepositories", required = true, readonly = true)
@@ -125,7 +128,13 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     ArtifactRepository localRepository
 
     /**
-     * Maven Project
+     * Maven Session.
+     */
+    @Parameter (defaultValue = '${session}', required = true, readonly = true)
+    MavenSession session;
+ 
+    /**
+     * Maven Project.
      *
      */
     @Parameter( property="project", required = true, readonly = true )
@@ -164,6 +173,8 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     int maxHeap
 
 	/**
+	 * Resource Manager.
+	 *
 	 * @since 2.0
 	 */
 	@Component(role = ResourceManager.class)

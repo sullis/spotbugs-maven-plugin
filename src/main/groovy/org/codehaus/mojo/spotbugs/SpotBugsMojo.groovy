@@ -23,10 +23,11 @@ import groovy.xml.StreamingMarkupBuilder
 
 import org.apache.maven.artifact.Artifact
 import org.apache.maven.artifact.repository.ArtifactRepository
-import org.apache.maven.artifact.resolver.ArtifactResolver
 
 import org.apache.maven.doxia.siterenderer.Renderer
 import org.apache.maven.doxia.tools.SiteTool
+
+import org.apache.maven.execution.MavenSession
 
 import org.apache.maven.plugin.MojoExecutionException
 
@@ -41,6 +42,8 @@ import org.apache.maven.project.MavenProject
 import org.apache.maven.reporting.AbstractMavenReport
 
 import org.apache.maven.repository.RepositorySystem
+
+import org.apache.maven.shared.transfer.artifact.resolve.ArtifactResolver
 
 import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.resource.loader.FileResourceCreationException
@@ -162,7 +165,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     List pluginArtifacts
 
     /**
-     * List of Remote Repositories used by the resolver
+     * List of Remote Repositories used by the resolver.
      *
      */
     @Parameter(property = "project.remoteArtifactRepositories", required = true, readonly = true)
@@ -183,7 +186,13 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     List remoteArtifactRepositories
 
     /**
-     * Maven Project
+     * Maven Session.
+     */
+    @Parameter (defaultValue = '${session}', required = true, readonly = true)
+    MavenSession session;
+
+    /**
+     * Maven Project.
      *
      */
     @Parameter(property = "project", required = true, readonly = true)
@@ -384,7 +393,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
 
     /**
      * This option enables or disables scanning of nested jar and zip files found
-     *  in the list of files and directories to be analyzed.
+     * in the list of files and directories to be analyzed.
      *
      * @since 2.3.2
      */
@@ -417,6 +426,8 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     boolean skip
 
     /**
+     * Resource Manager.
+     *
      * @since 2.0
      */
     @Component(role = ResourceManager.class)
@@ -457,7 +468,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
 
     /**
      * Specifies the amount of time, in milliseconds, that Spotbugs may run before
-     *  it is assumed to be hung and is terminated.
+     * it is assumed to be hung and is terminated.
      * The default is 600,000 milliseconds, which is ten minutes.
      * This only works if the <b>fork</b> parameter is set <b>true</b>.
      *
@@ -468,7 +479,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
 
     /**
      * <p>
-     * the arguments to pass to the forked VM (ignored if fork is disabled).
+     * The arguments to pass to the forked VM (ignored if fork is disabled).
      * </p>
      *
      * @since 2.4.1

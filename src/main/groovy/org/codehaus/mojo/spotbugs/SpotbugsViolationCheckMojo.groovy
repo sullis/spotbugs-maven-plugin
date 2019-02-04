@@ -20,10 +20,11 @@ package org.codehaus.mojo.spotbugs
  */
 
 import org.apache.maven.artifact.repository.ArtifactRepository
-import org.apache.maven.artifact.resolver.ArtifactResolver
 
 import org.apache.maven.doxia.siterenderer.Renderer;
 import org.apache.maven.doxia.tools.SiteTool
+
+import org.apache.maven.execution.MavenSession
 
 import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.plugin.MojoExecutionException
@@ -36,6 +37,8 @@ import org.apache.maven.plugins.annotations.Parameter
 import org.apache.maven.plugins.annotations.ResolutionScope
 
 import org.apache.maven.project.MavenProject
+
+import org.apache.maven.shared.transfer.artifact.resolve.ArtifactResolver
 
 import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.util.FileUtils
@@ -152,7 +155,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     boolean includeTests
 
     /**
-     * List of artifacts this plugin depends on. Used for resolving the Spotbugs coreplugin.
+     * List of artifacts this plugin depends on. Used for resolving the Spotbugs core plugin.
      *
      */
     @Parameter( property="plugin.artifacts", required = true, readonly = true )
@@ -173,7 +176,13 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     List remoteArtifactRepositories
 
     /**
-     * Maven Project
+     * Maven Session.
+     */
+    @Parameter (defaultValue = '${session}', required = true, readonly = true)
+    MavenSession session;
+
+    /**
+     * Maven Project.
      *
      */
     @Parameter( property="project", required = true, readonly = true )
@@ -293,7 +302,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     String effort
 
     /**
-     * turn on Spotbugs debugging
+     * Turn on Spotbugs debugging.
      *
      */
     @Parameter( defaultValue = "false", property="spotbugs.debug" )
@@ -355,7 +364,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
 
     /**
      * This option enables or disables scanning of nested jar and zip files found
-     *  in the list of files and directories to be analyzed.
+     * in the list of files and directories to be analyzed.
      *
      * @since 2.3.2
      */
@@ -388,6 +397,8 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     boolean skip
 
     /**
+     * Resource Manager.
+     *
      * @since 2.0
      */
     @Component( role = ResourceManager.class)
@@ -410,7 +421,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     boolean failOnError
 
     /**
-     * Fork a VM for Spotbugs analysis.  This will allow you to set timeouts and heap size
+     * Fork a VM for Spotbugs analysis.  This will allow you to set timeouts and heap size.
      *
      * @since 2.3.2
      */
@@ -428,7 +439,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
 
     /**
      * Specifies the amount of time, in milliseconds, that Spotbugs may run before
-     *  it is assumed to be hung and is terminated.
+     * it is assumed to be hung and is terminated.
      * The default is 600,000 milliseconds, which is ten minutes.
      * This only works if the <b>fork</b> parameter is set <b>true</b>.
      *
@@ -439,7 +450,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
 
     /**
      * <p>
-     * the arguments to pass to the forked VM (ignored if fork is disabled).
+     * The arguments to pass to the forked VM (ignored if fork is disabled).
      * </p>
      *
      * @since 2.4.1
@@ -450,7 +461,6 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     int bugCount
 
     int errorCount
-
 
     /**
      * <p>
