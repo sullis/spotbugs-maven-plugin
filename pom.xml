@@ -118,10 +118,10 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>5.4.0-RC2</junitVersion>
+    <junitVersion>5.4.0</junitVersion>
     <spotbugsVersion>3.1.11</spotbugsVersion>
     <spotbugsTag>3.1.11</spotbugsTag>
-    <slf4jVersion>1.8.0-beta2</slf4jVersion>
+    <slf4jVersion>1.8.0-beta4</slf4jVersion>
 
     <antVersion>1.10.5</antVersion>
     <groovyVersion>2.5.6</groovyVersion>
