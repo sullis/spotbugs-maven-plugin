@@ -119,8 +119,8 @@
     <projectVersion>${project.version}</projectVersion>
 
     <junitVersion>5.4.0</junitVersion>
-    <spotbugsVersion>3.1.11</spotbugsVersion>
-    <spotbugsTag>3.1.11</spotbugsTag>
+    <spotbugsVersion>3.1.12</spotbugsVersion>
+    <spotbugsTag>3.1.12</spotbugsTag>
     <slf4jVersion>1.8.0-beta4</slf4jVersion>
 
     <antVersion>1.10.5</antVersion>
@@ -130,12 +130,12 @@
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
 
     <mavenCoreVersion>3.1.1</mavenCoreVersion>
-    <mavenTransferVersion>0.10.1</mavenTransferVersion>
+    <mavenTransferVersion>0.11.0</mavenTransferVersion>
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
     <mavenReportingVersion>3.0.0</mavenReportingVersion>
     <mavenVersion>3.5.0</mavenVersion> <!-- Version 3.5.3+ introduces issues for many users of spotbugs that cannot upgrade maven to latest -->
 
-    <plexusContainerVersion>1.7.1</plexusContainerVersion>
+    <plexusContainerVersion>2.0.0</plexusContainerVersion>
     <plexusResourcesVersion>1.1.0</plexusResourcesVersion>
     <plexusUtilsVersion>3.1.1</plexusUtilsVersion>
 
@@ -145,7 +145,7 @@
     <gmavenPluginVersion>1.6.2</gmavenPluginVersion>
     <infoReportsPluginVersion>3.0.0</infoReportsPluginVersion>
     <invokerPluginVersion>3.2.0</invokerPluginVersion>
-    <javadocPluginVersion>3.0.1</javadocPluginVersion>
+    <javadocPluginVersion>3.1.0</javadocPluginVersion>
     <pluginPluginVersion>3.6.0</pluginPluginVersion>
     <scmPluginVersion>1.11.1</scmPluginVersion>
     <sitePluginVersion>3.7.1</sitePluginVersion>
@@ -178,7 +178,7 @@
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
     <chain.version>1.2</chain.version>
-    <codec.version>1.11</codec.version>
+    <codec.version>1.12</codec.version>
     <collections.version>3.2.2</collections.version>
     <digester.version>1.8.1</digester.version>
     <io.version>2.6</io.version>
