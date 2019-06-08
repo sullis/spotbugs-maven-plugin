@@ -470,6 +470,9 @@
           <execution>
             <id>default-descriptor</id>
             <phase>process-classes</phase>
+            <goals>
+              <goal>descriptor</goal>
+            </goals>
           </execution>
           <!-- if you want to generate help goal -->
           <execution>
