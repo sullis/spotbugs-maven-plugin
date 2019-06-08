@@ -180,7 +180,7 @@
     <chain.version>1.2</chain.version>
     <codec.version>1.12</codec.version>
     <collections.version>3.2.2</collections.version>
-    <digester.version>1.8.1</digester.version>
+    <digester.version>2.1</digester.version>
     <io.version>2.6</io.version>
     <lang3.version>3.9</lang3.version>
     <validator.version>1.6</validator.version>
