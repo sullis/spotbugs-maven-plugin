@@ -28,9 +28,9 @@
           <xmlOutput>true</xmlOutput>
           <plugins>
             <plugin>
-              <groupId>com.mebigfatguy.fb-contrib</groupId>
-              <artifactId>fb-contrib</artifactId>
-              <version>@fb-contribVersion@</version>
+              <groupId>com.mebigfatguy.sb-contrib</groupId>
+              <artifactId>sb-contrib</artifactId>
+              <version>@sb-contribVersion@</version>
             </plugin>
             <plugin>
               <groupId>com.h3xstream.findsecbugs</groupId>

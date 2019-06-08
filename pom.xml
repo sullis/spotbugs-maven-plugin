@@ -118,15 +118,15 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>5.4.0</junitVersion>
+    <junitVersion>5.4.2</junitVersion>
     <spotbugsVersion>3.1.12</spotbugsVersion>
     <spotbugsTag>3.1.12</spotbugsTag>
     <slf4jVersion>1.8.0-beta4</slf4jVersion>
 
-    <antVersion>1.10.5</antVersion>
-    <groovyVersion>2.5.6</groovyVersion>
+    <antVersion>1.10.6</antVersion>
+    <groovyVersion>2.5.7</groovyVersion>
 
-    <doxiaVersion>1.8</doxiaVersion>
+    <doxiaVersion>1.9</doxiaVersion>
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
 
     <mavenCoreVersion>3.1.1</mavenCoreVersion>
@@ -142,12 +142,12 @@
     <antrunPluginVersion>1.8</antrunPluginVersion>
     <l10nPluginVersion>1.8</l10nPluginVersion>
     <codenarcPluginVersion>0.22-1</codenarcPluginVersion>
-    <gmavenPluginVersion>1.6.2</gmavenPluginVersion>
+    <gmavenPluginVersion>1.7.1</gmavenPluginVersion>
     <infoReportsPluginVersion>3.0.0</infoReportsPluginVersion>
     <invokerPluginVersion>3.2.0</invokerPluginVersion>
     <javadocPluginVersion>3.1.0</javadocPluginVersion>
     <pluginPluginVersion>3.6.0</pluginPluginVersion>
-    <scmPluginVersion>1.11.1</scmPluginVersion>
+    <scmPluginVersion>1.11.2</scmPluginVersion>
     <sitePluginVersion>3.7.1</sitePluginVersion>
     <sitePlugin36Version>3.6</sitePlugin36Version> <!-- For MFINDBUGS-145 (breaks on newer jdks) -->
     <versionsPluginVersion>2.7</versionsPluginVersion>
@@ -165,24 +165,24 @@
     <skipSurefireReport>true</skipSurefireReport>
 
     <!-- Used by Integration tests -->
-    <compilerPluginVersion>3.8.0</compilerPluginVersion>
-    <fb-contribVersion>7.4.3.sb</fb-contribVersion>
-    <findsecbugsVersion>1.8.0</findsecbugsVersion>
+    <compilerPluginVersion>3.8.1</compilerPluginVersion>
+    <findsecbugsVersion>1.9.0</findsecbugsVersion>
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
-    <javaeeApiVersion>8.0.1-b5</javaeeApiVersion>
+    <javaeeApiVersion>8.0.1</javaeeApiVersion>
     <servletApiVersion>4.0.2</servletApiVersion>
+    <sb-contribVersion>7.4.5</sb-contribVersion>
 
-    <jgit.version>5.2.1.201812262042-r</jgit.version>
+    <jgit.version>5.3.1.201904271842-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
     <chain.version>1.2</chain.version>
     <codec.version>1.12</codec.version>
     <collections.version>3.2.2</collections.version>
-    <digester.version>1.8.1</digester.version>
+    <digester.version>2.1</digester.version>
     <io.version>2.6</io.version>
-    <lang3.version>3.8.1</lang3.version>
+    <lang3.version>3.9</lang3.version>
     <validator.version>1.6</validator.version>
   </properties>
 
