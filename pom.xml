@@ -165,13 +165,13 @@
     <skipSurefireReport>true</skipSurefireReport>
 
     <!-- Used by Integration tests -->
-    <fb-contribVersion>7.4.3.sb</fb-contribVersion>
     <compilerPluginVersion>3.8.1</compilerPluginVersion>
     <findsecbugsVersion>1.9.0</findsecbugsVersion>
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
     <javaeeApiVersion>8.0.1</javaeeApiVersion>
     <servletApiVersion>4.0.2</servletApiVersion>
+    <sb-contribVersion>7.4.5</sb-contribVersion>
 
     <jgit.version>5.3.1.201904271842-r</jgit.version>
 
