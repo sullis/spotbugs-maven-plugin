@@ -170,7 +170,7 @@
     <findsecbugsVersion>1.9.0</findsecbugsVersion>
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
-    <javaeeApiVersion>8.0.1-b5</javaeeApiVersion>
+    <javaeeApiVersion>8.0.1</javaeeApiVersion>
     <servletApiVersion>4.0.2</servletApiVersion>
 
     <jgit.version>5.2.1.201812262042-r</jgit.version>
