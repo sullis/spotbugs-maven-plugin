@@ -123,8 +123,8 @@
     <spotbugsTag>3.1.12</spotbugsTag>
     <slf4jVersion>1.8.0-beta4</slf4jVersion>
 
-    <groovyVersion>2.5.6</groovyVersion>
     <antVersion>1.10.6</antVersion>
+    <groovyVersion>2.5.7</groovyVersion>
 
     <doxiaVersion>1.8</doxiaVersion>
     <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
