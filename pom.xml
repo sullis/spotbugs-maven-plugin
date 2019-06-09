@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>21</version>
+    <version>22</version>
     <relativePath />
   </parent>
 
@@ -446,6 +446,13 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>${sitePluginVersion}</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.maven.doxia</groupId>
+              <artifactId>doxia-sink-api</artifactId>
+              <version>${doxiaVersion}</version>
+            </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <groupId>com.github.spotbugs</groupId>
@@ -463,6 +470,9 @@
           <execution>
             <id>default-descriptor</id>
             <phase>process-classes</phase>
+            <goals>
+              <goal>descriptor</goal>
+            </goals>
           </execution>
           <!-- if you want to generate help goal -->
           <execution>
