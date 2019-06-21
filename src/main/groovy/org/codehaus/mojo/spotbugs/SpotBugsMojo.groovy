@@ -158,6 +158,13 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     boolean includeTests
 
     /**
+     * Run Spotbugs with -sourcepath parameter populated with the known source roots.
+     *
+     */
+    @Parameter(defaultValue = "false", property = "spotbugs.addSourceDirs")
+    boolean addSourceDirs
+
+    /**
      * List of artifacts this plugin depends on. Used for resolving the Spotbugs coreplugin.
      *
      */
@@ -901,6 +908,17 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
                 args << "-excludeBugs"
                 args << resourceHelper.getResourceFile(excludeFile.trim())
             }
+        }
+
+        if (addSourceDirs) {
+            log.debug("  Adding Source directories (To process source exclusions)")
+            args << "-sourcepath"
+            String sourceRoots = "";
+            compileSourceRoots.each() { sourceRoots += it + File.pathSeparator }
+            if (includeTests) {
+                testSourceRoots.each() { sourceRoots + it + File.pathSeparator }
+            }
+            args << sourceRoots.substring(0, sourceRoots.length() -1);
         }
 
         if (maxRank) {
