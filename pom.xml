@@ -171,7 +171,7 @@
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
     <javaeeApiVersion>8.0.1</javaeeApiVersion>
     <servletApiVersion>4.0.2</servletApiVersion>
-    <sb-contribVersion>7.4.5</sb-contribVersion>
+    <sb-contribVersion>7.4.6</sb-contribVersion>
 
     <jgit.version>5.3.1.201904271842-r</jgit.version>
 
