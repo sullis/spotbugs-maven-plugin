@@ -173,7 +173,7 @@
     <servletApiVersion>4.0.2</servletApiVersion>
     <sb-contribVersion>7.4.6</sb-contribVersion>
 
-    <jgit.version>5.3.1.201904271842-r</jgit.version>
+    <jgit.version>5.4.0.201906121030-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
