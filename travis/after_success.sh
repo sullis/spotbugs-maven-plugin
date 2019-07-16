@@ -32,7 +32,7 @@ if [ $TRAVIS_REPO_SLUG == "spotbugs/spotbugs-maven-plugin" ] && [ $TRAVIS_PULL_R
 
     # Deploy to site
     ./mvnw site -B -Ddownloader.tls.protocols=TLSv1.1,TLSv1.2,TLSv1.3
-	echo -e "Successfully deploy site under Travis job ${TRAVIS_JOB_NUMBER}"
+	echo -e "Successfully deployed site under Travis job ${TRAVIS_JOB_NUMBER}"
   fi
 
 else
