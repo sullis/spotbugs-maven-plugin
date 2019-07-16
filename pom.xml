@@ -118,16 +118,16 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>5.4.2</junitVersion>
+    <junitVersion>5.5.0</junitVersion>
     <spotbugsVersion>3.1.12</spotbugsVersion>
     <spotbugsTag>3.1.12</spotbugsTag>
-    <slf4jVersion>1.8.0-beta4</slf4jVersion>
+    <slf4jVersion>2.0.0-alpha0</slf4jVersion>
 
     <antVersion>1.10.6</antVersion>
-    <groovyVersion>2.5.7</groovyVersion>
+    <groovyVersion>3.0.0-beta-2</groovyVersion>
 
     <doxiaVersion>1.9</doxiaVersion>
-    <doxiaSiteToolsVersion>1.8.1</doxiaSiteToolsVersion>
+    <doxiaSiteToolsVersion>1.9.1</doxiaSiteToolsVersion>
 
     <mavenCoreVersion>3.1.1</mavenCoreVersion>
     <mavenTransferVersion>0.11.0</mavenTransferVersion>
@@ -137,7 +137,7 @@
 
     <plexusContainerVersion>2.0.0</plexusContainerVersion>
     <plexusResourcesVersion>1.1.0</plexusResourcesVersion>
-    <plexusUtilsVersion>3.1.1</plexusUtilsVersion>
+    <plexusUtilsVersion>3.2.1</plexusUtilsVersion>
 
     <antrunPluginVersion>1.8</antrunPluginVersion>
     <l10nPluginVersion>1.8</l10nPluginVersion>
@@ -145,7 +145,7 @@
     <gmavenPluginVersion>1.7.1</gmavenPluginVersion>
     <infoReportsPluginVersion>3.0.0</infoReportsPluginVersion>
     <invokerPluginVersion>3.2.0</invokerPluginVersion>
-    <javadocPluginVersion>3.1.0</javadocPluginVersion>
+    <javadocPluginVersion>3.1.1</javadocPluginVersion>
     <pluginPluginVersion>3.6.0</pluginPluginVersion>
     <scmPluginVersion>1.11.2</scmPluginVersion>
     <sitePluginVersion>3.7.1</sitePluginVersion>
@@ -171,9 +171,9 @@
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
     <javaeeApiVersion>8.0.1</javaeeApiVersion>
     <servletApiVersion>4.0.2</servletApiVersion>
-    <sb-contribVersion>7.4.5</sb-contribVersion>
+    <sb-contribVersion>7.4.6</sb-contribVersion>
 
-    <jgit.version>5.3.1.201904271842-r</jgit.version>
+    <jgit.version>5.4.0.201906121030-r</jgit.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
