@@ -22,7 +22,7 @@
 # 3. Deploy site
 #    a. Use -q option to only display Maven errors and warnings.
 
-if [ $TRAVIS_REPO_SLUG == "spotbugs/spotbugs-maven-plugin" ] && [ $TRAVIS_PULL_REQUEST == "false" ] && [ $TRAVIS_BRANCH == "spotbugs" ] && [ "$TRAVIS_COMMIT_MESSAGE" != *"[maven-release-plugin]"* ]; then
+if [ $TRAVIS_REPO_SLUG == "spotbugs/spotbugs-maven-plugin" ] && [ $TRAVIS_PULL_REQUEST == "false" ] && [ $TRAVIS_BRANCH == "spotbugs" ] && [[ "$TRAVIS_COMMIT_MESSAGE" != *"[maven-release-plugin]"* ]]; then
 
   if [ $TRAVIS_JDK_VERSION == "oraclejdk8" ]; then
 
