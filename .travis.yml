@@ -17,6 +17,16 @@ after_success:
   - "./travis/after_success.sh"
 
 deploy:
+  - provider: script
+    script: ./mvnw site -B -Ddownloader.tls.protocols=TLSv1.1,TLSv1.2,TLSv1.3
+    on:
+      repo: spotbugs/spotbugs-maven-plugin
+      branch: spotbugs
+      jdk: oraclejdk8
+      condition:
+        - $TRAVIS_PULL_REQUEST == "false"
+        - $TRAVIS_COMMIT_MESSAGE != *"[maven-release-plugin]"*
+
   - provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
