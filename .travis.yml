@@ -1,11 +1,11 @@
-# Ubuntu releases Xenial 16.04, Trusty 14.04 (default), and Precise 12.04 currently supported by Travis-ci
+# Ubuntu releases Xenial 16.04 (in-rollout), Trusty 14.04 (default), and Precise 12.04 currently supported by Travis-ci
 dist: xenial
 
 language: java
 
 jdk:
-  - oraclejdk11
-  - oraclejdk8
+  - openjdk11
+  - openjdk8
 
 env:
   global:
