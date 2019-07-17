@@ -184,6 +184,9 @@
     <io.version>2.6</io.version>
     <lang3.version>3.9</lang3.version>
     <validator.version>1.6</validator.version>
+
+    <!-- TODO: Override dependency check to latest uptil upgrade to base-parent 23 -->
+    <dependency-check.plugin>5.1.1</dependency-check.plugin>
   </properties>
 
   <dependencies>
