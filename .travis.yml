@@ -24,7 +24,7 @@ deploy:
       repo: spotbugs/spotbugs-maven-plugin
       branch: spotbugs
       jdk: openjdk8
-      condition: $TRAVIS_COMMIT_MESSAGE != ^[maven-release-plugin]$
+      condition: $TRAVIS_COMMIT_MESSAGE != *[maven-release-plugin]*
 
   - provider: pages
     skip_cleanup: true
@@ -35,4 +35,4 @@ deploy:
       repo: spotbugs/spotbugs-maven-plugin
       branch: spotbugs
       jdk: openjdk8
-      condition: $TRAVIS_COMMIT_MESSAGE != ^[maven-release-plugin]$
+      condition: $TRAVIS_COMMIT_MESSAGE != *[maven-release-plugin]$*
