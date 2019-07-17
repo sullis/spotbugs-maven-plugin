@@ -17,6 +17,7 @@ script:
 
 deploy:
   - provider: script
+    skip_cleanup: true
     script: ./mvnw site -B -Ddownloader.tls.protocols=TLSv1.1,TLSv1.2,TLSv1.3
     email: jeremylandis@hotmail.com
     on:
@@ -34,4 +35,4 @@ deploy:
       repo: spotbugs/spotbugs-maven-plugin
       branch: spotbugs
       jdk: openjdk8
-      condition: "!$TRAVIS_PULL_REQUEST"
+      condition: $TRAVIS_COMMIT_MESSAGE != ^[maven-release-plugin]$
