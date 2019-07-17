@@ -694,15 +694,6 @@
               </execution>
             </executions>
           </plugin>
-
-          <!-- Add override to get past travis issue with system provided jdk -->
-          <plugin>
-            <groupId>org.owasp</groupId>
-            <artifactId>dependency-check-maven</artifactId>
-            <configuration>
-                <skipSystemScope>true</skipSystemScope>
-            </configuration>
-          </plugin>
         </plugins>
       </build>
     </profile>
