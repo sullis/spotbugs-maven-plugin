@@ -44,7 +44,6 @@ import org.apache.maven.reporting.AbstractMavenReport
 import org.apache.maven.repository.RepositorySystem
 
 import org.apache.maven.shared.transfer.artifact.resolve.ArtifactResolver
-
 import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.resource.loader.FileResourceCreationException
 import org.codehaus.plexus.resource.loader.FileResourceLoader
@@ -100,6 +99,14 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      */
     @Parameter(defaultValue = '${project.build.directory}', required = true)
     File spotbugsXmlOutputDirectory
+
+    /**
+     * Set the name of the output XML file produced
+     *
+     * @since 3.1.13
+     */
+    @Parameter(property = "spotbugs.outputXmlFilename", defaultValue = "spotbugsXml.xml")
+    String spotbugsXmlOutputFilename
 
     /**
      * Doxia Site Renderer.
@@ -556,7 +563,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
         }
 
         if (canGenerate && outputSpotbugsFile == null) {
-            outputSpotbugsFile = new File("${spotbugsXmlOutputDirectory}/spotbugsXml.xml")
+            outputSpotbugsFile = new File("${spotbugsXmlOutputDirectory}/${spotbugsXmlOutputFilename}")
 
             ClassLoader tccl = Thread.currentThread().getContextClassLoader();
             try {
