@@ -103,7 +103,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     /**
      * Set the name of the output XML file produced
      *
-     * @since 3.1.13
+     * @since 3.1.12.2
      */
     @Parameter(property = "spotbugs.outputXmlFilename", defaultValue = "spotbugsXml.xml")
     String spotbugsXmlOutputFilename
