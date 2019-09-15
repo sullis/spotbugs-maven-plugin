@@ -123,7 +123,7 @@
     <spotbugsTag>3.1.12</spotbugsTag>
     <slf4jVersion>2.0.0-alpha0</slf4jVersion>
 
-    <antVersion>1.10.6</antVersion>
+    <antVersion>1.10.7</antVersion>
     <groovyVersion>3.0.0-beta-3</groovyVersion>
 
     <doxiaVersion>1.9</doxiaVersion>
