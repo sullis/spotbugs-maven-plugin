@@ -1134,7 +1134,10 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
                 outputFile.createNewFile()
 
                 def writer = outputFile.newWriter(effectiveEncoding)
-                writer.write "\n"
+				
+				writer.write "<?xml version=\"1.0\" encoding=\"" + effectiveEncoding + "\"?>"
+				
+				writer.write "\n"
 
                 writer << xmlBuilder.bind { mkp.yield path }
             } else {
