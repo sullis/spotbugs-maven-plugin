@@ -176,7 +176,7 @@
     <jgit.version>5.4.0.201906121030-r</jgit.version>
 
     <!-- Targeted patches -->
-    <asm.version>7.2-beta</asm.version>
+    <asm.version>7.2</asm.version>
     <beanutils.version>1.9.4</beanutils.version>
     <chain.version>1.2</chain.version>
     <codec.version>1.13</codec.version>
