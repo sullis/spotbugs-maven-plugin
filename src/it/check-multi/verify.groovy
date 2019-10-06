@@ -18,6 +18,7 @@
 
 //  check module 1
 
+import groovy.xml.XmlSlurper
 
 File spotbugXml = new File(basedir, "modules/module-1/target/spotbugsXml.xml")
 assert spotbugXml.exists()
