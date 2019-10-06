@@ -19,7 +19,7 @@ package org.codehaus.mojo.spotbugs
  * under the License.
  */
 
-import groovy.util.slurpersupport.GPathResult
+import groovy.xml.slurpersupport.GPathResult
 import groovy.xml.StreamingMarkupBuilder
 
 import org.apache.maven.plugin.logging.Log
