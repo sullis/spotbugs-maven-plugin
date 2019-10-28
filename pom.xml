@@ -124,7 +124,7 @@
     <slf4jVersion>2.0.0-alpha1</slf4jVersion>
 
     <antVersion>1.10.7</antVersion>
-    <groovyVersion>3.0.0-beta-3</groovyVersion>
+    <groovyVersion>3.0.0-rc-1</groovyVersion>
 
     <doxiaVersion>1.9</doxiaVersion>
     <doxiaSiteToolsVersion>1.9.1</doxiaSiteToolsVersion>
