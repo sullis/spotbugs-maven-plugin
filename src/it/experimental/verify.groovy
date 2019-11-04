@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-def thresholdLevel = 'experimental'
+import groovy.xml.XmlSlurper
 
+def thresholdLevel = 'experimental'
 
 File spotbugsHtml =  new File(basedir, 'target/site/spotbugs.html')
 assert spotbugsHtml.exists()

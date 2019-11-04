@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import groovy.xml.XmlSlurper
+
 File spotbugXml = new File(basedir, 'target/findbugsXml.xml')
 assert spotbugXml.exists()
 

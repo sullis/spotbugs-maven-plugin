@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-
+import groovy.xml.XmlSlurper
 
 File spotbugsHtml =  new File(basedir, 'target/site/spotbugs.html')
 assert spotbugsHtml.exists()

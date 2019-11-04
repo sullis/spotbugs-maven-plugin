@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-def effortLevel = 'default'
+import groovy.xml.XmlSlurper
 
+def effortLevel = 'default'
 
 File spotbugsHtml =  new File(basedir, 'target/site/spotbugs.html')
 assert spotbugsHtml.exists()

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import groovy.xml.XmlSlurper
+
 def effortLevel = 'default'
 
 File spotbugsHtml =  new File(basedir, 'target/site/spotbugs.html')
