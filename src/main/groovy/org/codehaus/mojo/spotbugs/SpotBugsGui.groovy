@@ -19,6 +19,8 @@ package org.codehaus.mojo.spotbugs
  * under the License.
  */
 
+import groovy.ant.AntBuilder
+
 import org.apache.maven.artifact.repository.ArtifactRepository
 
 import org.apache.maven.execution.MavenSession
