@@ -30,10 +30,7 @@ import org.codehaus.plexus.util.PathTool
 /**
  * The reporter controls the generation of the SpotBugs report. It contains call back methods which gets called by
  * SpotBugs if a bug is found.
- *
- * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
-
 class SpotbugsReportGenerator implements SpotBugsInfo {
 
 	/**

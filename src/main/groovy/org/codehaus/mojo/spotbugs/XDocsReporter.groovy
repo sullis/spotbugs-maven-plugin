@@ -26,10 +26,7 @@ import org.apache.maven.plugin.logging.Log
 
 /**
  * The reporter controls the generation of the Spotbugs report.
- *
- * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
-
 class XDocsReporter {
 
 	/**

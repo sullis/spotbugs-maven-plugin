@@ -47,10 +47,7 @@ import org.codehaus.plexus.resource.ResourceManager
  * @since 2.0
  *
  * @description Launch the Spotbugs GUI using the parameters in the POM fle.
- *
- * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
-
 @Mojo( name = "gui", requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true )
 class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
 
