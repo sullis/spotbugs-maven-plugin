@@ -48,7 +48,7 @@ xhtmlParser.setFeature("http://apache.org/xml/features/disallow-doctype-decl", f
 xhtmlParser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
 def path = xhtmlParser.parse( spotbugsHtml )
 //*[@id="contentBox"]/div[2]/table/tbody/tr[2]/td[2]
-spotbugsErrors = path.body.'**'.find {div -> div.@id == 'contentBox'}.div[1].table.tr[1].td[1].toInteger()
+spotbugsErrors = path.body.'**'.find {div -> div.@id == 'contentBox'}.section[1].table.tr[1].td[1].toInteger()
 println "Error Count is ${spotbugsErrors}"
 
 println '***************************'
@@ -120,7 +120,7 @@ xhtmlParser.setFeature("http://apache.org/xml/features/nonvalidating/load-extern
 path = xhtmlParser.parse( spotbugsHtml )
 
 //*[@id="contentBox"]/div[2]/table/tbody/tr[2]/td[2]
-spotbugsErrors = path.body.'**'.find {div -> div.@id == 'contentBox'}.div[1].table.tr[1].td[1].toInteger()
+spotbugsErrors = path.body.'**'.find {div -> div.@id == 'contentBox'}.section[1].table.tr[1].td[1].toInteger()
 println "Error Count is ${spotbugsErrors}"
 
 println '***************************'
