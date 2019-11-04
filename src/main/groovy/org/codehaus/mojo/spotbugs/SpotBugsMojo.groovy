@@ -1043,11 +1043,11 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
 
         def spotbugsArgs = getSpotbugsArgs(tempFile)
 
-            def effectiveEncoding = System.getProperty("file.encoding", "UTF-8")
+        def effectiveEncoding = System.getProperty("file.encoding", "UTF-8")
 
-            if (sourceEncoding) {
-                effectiveEncoding = sourceEncoding
-            }
+        if (sourceEncoding) {
+            effectiveEncoding = sourceEncoding
+        }
 
         ant.java(classname: "edu.umd.cs.findbugs.FindBugs2", inputstring: getSpotbugsAuxClasspath(), fork: "${fork}", failonerror: "true", clonevm: "false", timeout: "${timeout}", maxmemory: "${maxHeap}m") {
 
