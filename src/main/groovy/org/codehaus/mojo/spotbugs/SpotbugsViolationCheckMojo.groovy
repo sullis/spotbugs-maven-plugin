@@ -19,6 +19,7 @@ package org.codehaus.mojo.spotbugs
  * under the License.
  */
 
+import groovy.xml.XmlParser
 import groovy.xml.XmlSlurper
 
 import org.apache.maven.artifact.repository.ArtifactRepository
