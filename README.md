@@ -11,7 +11,7 @@ Please download latest snapshots from [here](https://oss.sonatype.org/content/re
 Building spotbugs-maven-plugin Requirements
 ===========================================
 
-Java 8 is required for spotbugs analysis.
+Java 8+ is required for spotbugs analysis.
 
 spotbugs-maven-plugin
 =====================
@@ -58,5 +58,5 @@ mvn -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspe
 
 Run gui with a specific version 
 ```
-mvn com.github.spotbugs:spotbugs-maven-plugin:3.1.8:gui 
+mvn com.github.spotbugs:spotbugs-maven-plugin:3.1.12.2:gui 
 ```
