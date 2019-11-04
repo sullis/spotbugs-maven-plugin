@@ -118,7 +118,7 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>5.5.1</junitVersion>
+    <junitVersion>5.5.2</junitVersion>
     <spotbugsVersion>3.1.12</spotbugsVersion>
     <spotbugsTag>3.1.12</spotbugsTag>
     <slf4jVersion>2.0.0-alpha1</slf4jVersion>
@@ -169,8 +169,8 @@
     <findsecbugsVersion>1.9.0</findsecbugsVersion>
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
-    <javaeeApiVersion>8.0.1</javaeeApiVersion>
-    <servletApiVersion>4.0.2</servletApiVersion>
+    <jakartaeeApiVersion>8.0.0</jakartaeeApiVersion>
+    <servletApiVersion>4.0.3</servletApiVersion>
     <sb-contribVersion>7.4.6</sb-contribVersion>
 
     <jgit.version>5.5.1.201910021850-r</jgit.version>
@@ -186,8 +186,8 @@
     <lang3.version>3.9</lang3.version>
     <validator.version>1.6</validator.version>
 
-    <!-- TODO: Override dependency check to latest until upgrade to base-parent 23 -->
-    <dependency-check.plugin>5.2.0</dependency-check.plugin>
+    <!-- TODO: Override dependency check to latest until upgrade to base-parent 24 -->
+    <dependency-check.plugin>5.2.2</dependency-check.plugin>
   </properties>
 
   <dependencies>
