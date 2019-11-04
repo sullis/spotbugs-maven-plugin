@@ -399,11 +399,9 @@ class SpotbugsReportGenerator implements SpotBugsInfo {
 	 */
 	protected void printBug(String bugClass) {
 
-
 		log.debug("printBug bugClass is ${bugClass}")
 
 		openClassReportSection(bugClass)
-
 
 		log.debug("printBug spotbugsResults is ${spotbugsResults}")
 
@@ -530,7 +528,7 @@ class SpotbugsReportGenerator implements SpotBugsInfo {
 	}
 
 	/**
-	 * Initialised a bug report section in the report for a particular class.
+	 * Initialized a bug report section in the report for a particular class.
 	 */
 	protected void openClassReportSection(String bugClass) {
 		String columnBugText = bundle.getString(COLUMN_BUG_KEY)
@@ -703,7 +701,6 @@ class SpotbugsReportGenerator implements SpotBugsInfo {
 				sink.tableCell_()
 
 				sink.tableRow_()
-
 
 				bugClasses << classStatsValue
 			}
