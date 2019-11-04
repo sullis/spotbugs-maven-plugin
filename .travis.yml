@@ -20,7 +20,7 @@ script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: ./mvnw site -B -Ddownloader.tls.protocols=TLSv1.1,TLSv1.2,TLSv1.3
+    script: ./mvnw site -B -Ddownloader.tls.protocols=TLSv1.2,TLSv1.3
     email: jeremylandis@hotmail.com
     on:
       repo: spotbugs/spotbugs-maven-plugin
