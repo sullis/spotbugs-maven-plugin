@@ -52,10 +52,7 @@ import org.codehaus.plexus.util.FileUtils
  * To see more documentation about SpotBugs' options, please see the <a href="http://spotbugs.readthedocs.io/en/latest/" class="externalLink">SpotBugs Manual.</a>.
  *
  * @since 2.0
- *
- * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
-
 @Mojo( name = "check", defaultPhase = LifecyclePhase.VERIFY, requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true, threadSafe = true)
 @Execute( goal = "spotbugs")
 class SpotbugsViolationCheckMojo extends AbstractMojo {

@@ -24,11 +24,7 @@ package org.codehaus.mojo.spotbugs
  * The HTML report is generated for site commands only.
  * To see more documentation about Spotbugs' options, please see the
  * <a href="http://spotbugs.readthedocs.io/en/latest/">Spotbugs Manual.</a>
- *
- *
- * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
-
 interface SpotBugsInfo {
 
 	/**

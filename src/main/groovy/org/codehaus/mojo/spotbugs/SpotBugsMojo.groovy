@@ -52,11 +52,7 @@ import org.codehaus.plexus.resource.loader.FileResourceLoader
 /**
  * Generates a SpotBugs Report when the site plugin is run.
  * The HTML report is generated for site commands only.
- *
- *
- * @author <a href="mailto:gleclaire@codehaus.org">Garvin LeClaire</a>
  */
-
 @Mojo(name = "spotbugs", requiresDependencyResolution = ResolutionScope.TEST, requiresProject = true, threadSafe = true)
 class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
 
