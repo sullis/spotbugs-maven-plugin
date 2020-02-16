@@ -171,7 +171,7 @@
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
     <jakartaeeApiVersion>8.0.0</jakartaeeApiVersion>
     <servletApiVersion>4.0.3</servletApiVersion>
-    <sb-contribVersion>7.4.6</sb-contribVersion>
+    <sb-contribVersion>7.4.7</sb-contribVersion>
 
     <jgit.version>5.6.0.201912101111-r</jgit.version>
 
