@@ -11,7 +11,7 @@
 
   <groupId>com.github.spotbugs</groupId>
   <artifactId>spotbugs-maven-plugin</artifactId>
-  <version>3.1.12.3-SNAPSHOT</version>
+  <version>4.0.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>SpotBugs Maven Plugin</name>
@@ -118,9 +118,9 @@
   <properties>
     <projectVersion>${project.version}</projectVersion>
 
-    <junitVersion>5.5.2</junitVersion>
-    <spotbugsVersion>3.1.12</spotbugsVersion>
-    <spotbugsTag>3.1.12</spotbugsTag>
+    <junitVersion>5.6.0</junitVersion>
+    <spotbugsVersion>4.0.0</spotbugsVersion>
+    <spotbugsTag>4.0.0</spotbugsTag>
     <slf4jVersion>2.0.0-alpha1</slf4jVersion>
 
     <antVersion>1.10.7</antVersion>
@@ -166,12 +166,12 @@
 
     <!-- Used by Integration tests -->
     <compilerPluginVersion>3.8.1</compilerPluginVersion>
-    <findsecbugsVersion>1.9.0</findsecbugsVersion>
+    <findsecbugsVersion>1.10.1</findsecbugsVersion>
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
     <mavenSurefireVersion>3.0.0-M3</mavenSurefireVersion>
     <jakartaeeApiVersion>8.0.0</jakartaeeApiVersion>
     <servletApiVersion>4.0.3</servletApiVersion>
-    <sb-contribVersion>7.4.6</sb-contribVersion>
+    <sb-contribVersion>7.4.7</sb-contribVersion>
 
     <jgit.version>5.6.0.201912101111-r</jgit.version>
 
