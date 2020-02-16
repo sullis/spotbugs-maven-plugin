@@ -11,7 +11,7 @@
 
   <groupId>com.github.spotbugs</groupId>
   <artifactId>spotbugs-maven-plugin</artifactId>
-  <version>3.1.12.3-SNAPSHOT</version>
+  <version>4.0.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>SpotBugs Maven Plugin</name>
@@ -119,8 +119,8 @@
     <projectVersion>${project.version}</projectVersion>
 
     <junitVersion>5.5.2</junitVersion>
-    <spotbugsVersion>3.1.12</spotbugsVersion>
-    <spotbugsTag>3.1.12</spotbugsTag>
+    <spotbugsVersion>4.0.0</spotbugsVersion>
+    <spotbugsTag>4.0.0</spotbugsTag>
     <slf4jVersion>2.0.0-alpha1</slf4jVersion>
 
     <antVersion>1.10.7</antVersion>
