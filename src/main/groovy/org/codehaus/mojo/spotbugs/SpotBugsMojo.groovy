@@ -636,15 +636,14 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
 
         if (!skip && canGenerateReport()) {
 
-            log.debug("Locale is ${locale.getLanguage()}")
-
-            log.debug("****** SpotBugsMojo executeReport *******")
-
-            log.debug("report Output Directory is " + getReportOutputDirectory())
-            log.debug("Output Directory is " + outputDirectory)
-            log.debug("Classes Directory is " + classFilesDirectory)
-
-            log.debug("  Plugin Artifacts to be added ->" + pluginArtifacts.toString())
+            if (log.isDebugEnabled()) {
+                log.debug("Locale is ${locale.getLanguage()}")
+                log.debug("****** SpotBugsMojo executeReport *******")
+                log.debug("report Output Directory is " + getReportOutputDirectory())
+                log.debug("Output Directory is " + outputDirectory)
+                log.debug("Classes Directory is " + classFilesDirectory)
+                log.debug("  Plugin Artifacts to be added ->" + pluginArtifacts.toString())
+            }
 
             generateXDoc(locale)
 
@@ -1020,15 +1019,13 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
 
         resourceManager.setOutputDirectory(new File(project.getBuild().getDirectory()))
 
-        log.debug("resourceManager outputDirectory is ${resourceManager.outputDirectory}")
-
-
-        log.debug("  Plugin Artifacts to be added -> ${pluginArtifacts.toString()}")
-
-        log.debug("outputFile is " + outputFile.getCanonicalPath())
-        log.debug("output Directory is " + spotbugsXmlOutputDirectory.getAbsolutePath())
-
-        log.debug("Temp File is " + tempFile.getCanonicalPath())
+        if (log.isDebugEnabled()) {
+            log.debug("resourceManager outputDirectory is ${resourceManager.outputDirectory}")
+            log.debug("  Plugin Artifacts to be added -> ${pluginArtifacts.toString()}")
+            log.debug("outputFile is " + outputFile.getCanonicalPath())
+            log.debug("output Directory is " + spotbugsXmlOutputDirectory.getAbsolutePath())
+            log.debug("Temp File is " + tempFile.getCanonicalPath())
+        }
 
         def ant = new AntBuilder()
 
