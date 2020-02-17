@@ -1,4 +1,4 @@
-# Ubuntu releases Xenial 16.04 (in-rollout), Trusty 14.04 (default), and Precise 12.04 currently supported by Travis-ci
+# See https://docs.travis-ci.com/user/reference/overview/
 dist: xenial
 
 language: java
@@ -27,7 +27,7 @@ deploy:
       repo: spotbugs/spotbugs-maven-plugin
       branch: spotbugs
       jdk: openjdk11
-      condition: $TRAVIS_COMMIT_MESSAGE != ^\[maven-release-plugin\]*
+      condition: $TRAVIS_COMMIT_MESSAGE !~ ^\[maven-release-plugin\]*
 
   - provider: pages
     skip_cleanup: true
@@ -38,4 +38,4 @@ deploy:
       repo: spotbugs/spotbugs-maven-plugin
       branch: spotbugs
       jdk: openjdk11
-      condition: $TRAVIS_COMMIT_MESSAGE != ^\[maven-release-plugin\]*
+      condition: $TRAVIS_COMMIT_MESSAGE !~ ^\[maven-release-plugin\]*
