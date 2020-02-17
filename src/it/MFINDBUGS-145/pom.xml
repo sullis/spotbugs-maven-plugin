@@ -64,6 +64,54 @@
             </plugin>
           </reportPlugins>
         </configuration>
+        <!-- Jdk14 and above requires doxia be upgraded and allows test to still use old site otherwise test must be deleted -->
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-sink-api</artifactId>
+            <version>@doxiaVersion@</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-xhtml</artifactId>
+            <version>@doxiaVersion@</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-apt</artifactId>
+            <version>@doxiaVersion@</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-xdoc</artifactId>
+            <version>@doxiaVersion@</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-fml</artifactId>
+            <version>@doxiaVersion@</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-markdown</artifactId>
+            <version>@doxiaVersion@</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-decoration-model</artifactId>
+            <version>@doxiaSiteToolsVersion@</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-site-renderer</artifactId>
+            <version>@doxiaSiteToolsVersion@</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-integration-tools</artifactId>
+            <version>@doxiaSiteToolsVersion@</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
