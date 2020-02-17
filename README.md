@@ -18,6 +18,8 @@ spotbugs-maven-plugin
 
 Maven Mojo Plug-In to generate reports based on the SpotBugs Analyzer
 
+See site page for [usage](https://spotbugs.github.io/spotbugs-maven-plugin/)
+
 ## Special notice ##
 
 Continue to use 'FindBugsFilter' when needed as the spotbugs project has not yet renamed that to reflect project.
