@@ -21,7 +21,7 @@
   <licenses>
     <license>
       <name>Apache 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -44,7 +44,7 @@
       <id>gl</id>
       <name>Garvin LeClaire</name>
       <email>gleclaire@codehaus.org</email>
-      <url>http://gdleclaire.blogspot.com</url>
+      <url>https://gdleclaire.blogspot.com</url>
       <roles>
         <role>Documentation</role>
         <role>Java Developer</role>
@@ -57,7 +57,7 @@
       <name>Olivier Lamy</name>
       <email>olamy@apache.org</email>
       <organization />
-      <organizationUrl>http://olamy.blogspot.com/</organizationUrl>
+      <organizationUrl>https://olamy.blogspot.com/</organizationUrl>
       <roles>
         <role>Java Developer</role>
       </roles>
@@ -67,7 +67,7 @@
       <name>Detlef Pleiss</name>
       <email>d.pleiss@comundus.com</email>
       <organization>comundus GmbH</organization>
-      <organizationUrl>http://www.comundus.com</organizationUrl>
+      <organizationUrl>https://www.comundus.com</organizationUrl>
       <roles>
         <role>Java Developer</role>
       </roles>
