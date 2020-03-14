@@ -9,7 +9,7 @@ package org.codehaus.mojo.spotbugs
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *  http://www.apache.org/licenses/LICENSE-2.0
+ *  https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -49,7 +49,7 @@ import org.codehaus.plexus.util.FileUtils
 /**
  * Fail the build if there were any SpotBugs violations in the source code.
  * An XML report is put out by default in the target directory with the errors.
- * To see more documentation about SpotBugs' options, please see the <a href="http://spotbugs.readthedocs.io/en/latest/" class="externalLink">SpotBugs Manual.</a>.
+ * To see more documentation about SpotBugs' options, please see the <a href="https://spotbugs.readthedocs.io/en/latest/" class="externalLink">SpotBugs Manual.</a>.
  *
  * @since 2.0
  */
