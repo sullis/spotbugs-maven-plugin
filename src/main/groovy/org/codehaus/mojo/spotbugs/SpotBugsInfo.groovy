@@ -23,7 +23,7 @@ package org.codehaus.mojo.spotbugs
  * Generates a Spotbugs Report when the site plugin is run.
  * The HTML report is generated for site commands only.
  * To see more documentation about Spotbugs' options, please see the
- * <a href="http://spotbugs.readthedocs.io/en/latest/">Spotbugs Manual.</a>
+ * <a href="https://spotbugs.readthedocs.io/en/latest/">Spotbugs Manual.</a>
  */
 interface SpotBugsInfo {
 

@@ -12,7 +12,7 @@
       </p>
       <p>
       This may be addressed in the future by a module like
-      <a href="http://mojo.codehaus.org/dashboard-maven-plugin/">dashboard</a>
+      <a href="https://maven.apache.org/archives/maven-1.x/plugins/dashboard/">dashboard</a>
       to get an aggregate report.
       </p>
      </answer>
