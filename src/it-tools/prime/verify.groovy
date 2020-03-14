@@ -15,4 +15,3 @@
  */
 
 assert new File(basedir, 'target/prime-testing.jar').exists()
-

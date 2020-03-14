@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-
-
 assert (new File(basedir, 'target/site/index.html').exists())
 assert (new File(basedir, 'target/spotbugs.xml').exists())
 assert (new File(basedir, 'target/spotbugsXml.xml').exists())

@@ -70,4 +70,3 @@ assert  path.findAll {it.name() == 'BugCollection'}.@threshold.text() == thresho
 assert xdocErrors == spotbugsXmlErrors
 
 assert spotbugsErrors == spotbugsXmlErrors
-

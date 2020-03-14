@@ -81,4 +81,3 @@ xdocErrors += allNodes.findAll {it.name() == 'BugInstance'  && it.@type == "DLS_
 println "BugInstance with includes size is ${xdocErrors}"
 
 assert 0 == xdocErrors
-

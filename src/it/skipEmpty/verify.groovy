@@ -37,4 +37,3 @@ def spotbugsXmlErrors = allNodes.findAll {it.name() == 'BugInstance'}.size()
 println "BugInstance size is ${spotbugsXmlErrors}"
 
 assert spotbugsXmlErrors == 0
-

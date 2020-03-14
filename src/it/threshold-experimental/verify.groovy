@@ -69,4 +69,3 @@ println "BugInstance size is ${xdocErrors}"
 assert xdocErrors == spotbugsXmlErrors
 
 assert spotbugsErrors == spotbugsXmlErrors
-

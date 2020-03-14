@@ -15,4 +15,3 @@
  */
 
 assert new File(basedir, 'target/build-tools-testing.jar').exists()
-

@@ -45,4 +45,3 @@ def xdocErrors = allNodes.findAll {it.name() == 'BugInstance'}.size()
 println "BugInstance size is ${xdocErrors}"
 
 assert xdocErrors == spotbugsXmlErrors
-

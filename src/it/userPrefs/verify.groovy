@@ -70,4 +70,3 @@ assert  path.findAll {it.name() == 'BugCollection'}.@effort.text() == effortLeve
 assert xdocErrors == spotbugsXmlErrors
 
 assert spotbugsErrors == spotbugsXmlErrors
-

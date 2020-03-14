@@ -156,4 +156,3 @@ spotbugsXmlErrors = allNodes.findAll {it.name() == 'BugInstance'  && it.@type ==
 println "BugInstance with includes size is ${spotbugsXmlErrors}"
 
 assert spotbugsErrors == spotbugsXmlErrors
-

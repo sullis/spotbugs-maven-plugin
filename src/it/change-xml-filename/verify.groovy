@@ -32,4 +32,3 @@ println "BugInstance size is ${spotbugsXmlErrors}"
 
 
 assert spotbugsXmlErrors > 0
-
