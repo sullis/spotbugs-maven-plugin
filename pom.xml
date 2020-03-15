@@ -490,6 +490,15 @@
           <artifactId>spotbugs-maven-plugin</artifactId>
           <version>${project.version}</version>
         </plugin>
+
+        <!-- Skip System Dependencies as com.sun:tools:jar:1.8.0:system blows up site -->
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <configuration>
+            <skipSystemScope>true</skipSystemScope>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
 
