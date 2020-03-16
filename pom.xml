@@ -185,6 +185,9 @@
     <io.version>2.6</io.version>
     <lang3.version>3.9</lang3.version>
     <validator.version>1.6</validator.version>
+
+    <!-- TODO: Remove this after base-parent 25 released -->
+    <dependency-check.plugin>5.3.1</dependency-check.plugin>
   </properties>
 
   <dependencies>
@@ -486,6 +489,15 @@
           <groupId>com.github.spotbugs</groupId>
           <artifactId>spotbugs-maven-plugin</artifactId>
           <version>${project.version}</version>
+        </plugin>
+
+        <!-- Skip System Dependencies as com.sun:tools:jar:1.8.0:system blows up site -->
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <configuration>
+            <skipSystemScope>true</skipSystemScope>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
