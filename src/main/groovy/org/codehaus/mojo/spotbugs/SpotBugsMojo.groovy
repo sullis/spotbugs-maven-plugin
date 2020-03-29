@@ -534,6 +534,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      * @return true if report can be generated, otherwise false
      * @see org.apache.maven.reporting.MavenReport#canGenerateReport()
      */
+    @Override
     boolean canGenerateReport() {
 
         def canGenerate = false
@@ -591,6 +592,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      * @return description of the report
      * @see org.apache.maven.reporting.MavenReport#getDescription(java.util.Locale)
      */
+    @Override
     String getDescription(Locale locale) {
         return getBundle(locale).getString(SpotBugsInfo.DESCRIPTION_KEY)
     }
@@ -604,6 +606,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      * @return name of the report
      * @see org.apache.maven.reporting.MavenReport#getName(java.util.Locale)
      */
+    @Override
     String getName(Locale locale) {
         return getBundle(locale).getString(SpotBugsInfo.NAME_KEY)
     }
@@ -616,6 +619,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      * @return name of the generated page
      * @see org.apache.maven.reporting.MavenReport#getOutputName()
      */
+    @Override
     String getOutputName() {
         return SpotBugsInfo.PLUGIN_NAME
     }
@@ -629,6 +633,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      *
      * @see org.apache.maven.reporting.MavenReport #executeReport(java.util.Locale)
      */
+    @Override
     void executeReport(Locale locale) {
 
         log.debug("****** SpotBugsMojo executeReport *******")
@@ -695,6 +700,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
         }
     }
 
+    @Override
     public void execute() {
         log.debug("****** SpotBugsMojo execute *******")
 
@@ -754,6 +760,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      * @return full path to the directory where the files in the site get copied to
      * @see org.apache.maven.reporting.AbstractMavenReport#getOutputDirectory()
      */
+    @Override
     protected String getOutputDirectory() {
         return outputDirectory.getAbsolutePath()
     }
@@ -764,6 +771,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      * @return the project.
      * @see org.apache.maven.reporting.AbstractMavenReport#getProject()
      */
+    @Override
     protected MavenProject getProject() {
         return this.project
     }
@@ -772,6 +780,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
      * Return the Site Renderer.
      *
      */
+    @Override
     protected Renderer getSiteRenderer() {
         return this.siteRenderer
     }
@@ -1187,6 +1196,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     /**
      * @see org.apache.maven.reporting.AbstractMavenReport#setReportOutputDirectory(java.io.File)
      */
+    @Override
     public void setReportOutputDirectory(File reportOutputDirectory) {
         super.setReportOutputDirectory(reportOutputDirectory)
         this.outputDirectory = reportOutputDirectory

@@ -187,6 +187,7 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     @Component(role = ResourceManager.class)
     ResourceManager resourceManager
 
+    @Override
     void execute() {
 
         def ant = new AntBuilder()
