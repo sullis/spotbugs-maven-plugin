@@ -183,7 +183,7 @@
     <collections.version>3.2.2</collections.version>
     <digester.version>2.1</digester.version>
     <io.version>2.6</io.version>
-    <lang3.version>3.9</lang3.version>
+    <lang3.version>3.10</lang3.version>
     <validator.version>1.6</validator.version>
 
     <!-- TODO: Remove this after base-parent 25 released -->
