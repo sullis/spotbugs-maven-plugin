@@ -142,7 +142,7 @@
     <antrunPluginVersion>1.8</antrunPluginVersion>
     <l10nPluginVersion>1.8</l10nPluginVersion>
     <codenarcPluginVersion>0.22-1</codenarcPluginVersion>
-    <gmavenPluginVersion>1.8.1</gmavenPluginVersion>
+    <gmavenPluginVersion>1.9.0</gmavenPluginVersion>
     <infoReportsPluginVersion>3.0.0</infoReportsPluginVersion>
     <invokerPluginVersion>3.2.1</invokerPluginVersion>
     <javadocPluginVersion>3.2.0</javadocPluginVersion>
@@ -229,14 +229,22 @@
       <version>${groovyVersion}</version>
       <classifier>indy</classifier>
       <exclusions>
-          <exclusion>
-              <groupId>org.apache.ant</groupId>
-              <artifactId>ant-junit</artifactId>
-          </exclusion>
-          <exclusion>
-              <groupId>org.apache.ant</groupId>
-              <artifactId>ant-antlr</artifactId>
-          </exclusion>
+        <exclusion>
+          <groupId>org.apache.ant</groupId>
+          <artifactId>ant-junit</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.ant</groupId>
+          <artifactId>ant-antlr</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy-groovydoc</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
 
@@ -245,18 +253,82 @@
       <artifactId>groovy-dateutil</artifactId>
       <version>${groovyVersion}</version>
       <classifier>indy</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-docgenerator</artifactId>
+      <version>${groovyVersion}</version>
+      <scope>runtime</scope>
+      <classifier>indy</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy-templates</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-groovydoc</artifactId>
       <version>${groovyVersion}</version>
+      <classifier>indy</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy-docgenerator</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy-templates</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-templates</artifactId>
+      <version>${groovyVersion}</version>
+      <scope>runtime</scope>
+      <classifier>indy</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy-xml</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-xml</artifactId>
       <version>${groovyVersion}</version>
+      <classifier>indy</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -562,6 +634,7 @@
         <version>${gmavenPluginVersion}</version>
         <configuration>
           <groovyDocOutputDirectory>${project.reporting.outputDirectory}/gapidocs</groovyDocOutputDirectory>
+          <invokeDynamic>true</invokeDynamic>
         </configuration>
         <executions>
           <execution>
