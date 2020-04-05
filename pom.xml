@@ -634,6 +634,7 @@
         <version>${gmavenPluginVersion}</version>
         <configuration>
           <groovyDocOutputDirectory>${project.reporting.outputDirectory}/gapidocs</groovyDocOutputDirectory>
+          <invokeDynamic>true</invokeDynamic>
         </configuration>
         <executions>
           <execution>
