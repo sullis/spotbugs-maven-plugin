@@ -35,7 +35,6 @@ import org.codehaus.plexus.resource.ResourceManager
 /**
  * SpotBugs plugin support for Mojos.
  */
-
 trait SpotBugsPluginsTrait {
 
     // the trait needs certain objects to work, this need is expressed as abstract getters
@@ -45,9 +44,10 @@ trait SpotBugsPluginsTrait {
     abstract List getRemoteRepositories()
     abstract ArtifactRepository getLocalRepository()
     abstract File getSpotbugsXmlOutputDirectory()
-	abstract Log getLog()
-	abstract ResourceManager getResourceManager()
+    abstract Log getLog()
+    abstract ResourceManager getResourceManager()
 
+    // TODO This has been fixed for 2 years now, apply as noted...
     // properties in traits should be supported but don't compile currently:
     // https://issues.apache.org/jira/browse/GROOVY-7536
     // when fixed, should move pluginList and plugins properties here
@@ -113,7 +113,6 @@ trait SpotBugsPluginsTrait {
             }
         }
 
-
         log.debug("  Plugin list is: ${urlPlugins}")
 
         return urlPlugins
@@ -145,6 +144,5 @@ trait SpotBugsPluginsTrait {
 
         return "-effort:" + effortParameter
     }
-
 
 }

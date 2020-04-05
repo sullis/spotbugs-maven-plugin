@@ -179,14 +179,13 @@ class SpotBugsGui extends AbstractMojo implements SpotBugsPluginsTrait {
     @Parameter( property="spotbugs.maxHeap", defaultValue = "512" )
     int maxHeap
 
-	/**
-	 * Resource Manager.
-	 *
-	 * @since 2.0
-	 */
-	@Component(role = ResourceManager.class)
-	ResourceManager resourceManager
-
+    /**
+     * Resource Manager.
+     *
+     * @since 2.0
+     */
+    @Component(role = ResourceManager.class)
+    ResourceManager resourceManager
 
     void execute() {
 
