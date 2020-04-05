@@ -480,7 +480,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     @Parameter( property="spotbugs.maxAllowedViolations" , defaultValue = "0")
     int maxAllowedViolations
 
-
+    @Override
     void execute() {
         Locale locale = Locale.getDefault()
         List sourceFiles
