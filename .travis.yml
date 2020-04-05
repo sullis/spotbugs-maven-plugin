@@ -1,5 +1,5 @@
 # See https://docs.travis-ci.com/user/reference/overview/
-dist: xenial
+dist: bionic
 
 language: java
 
