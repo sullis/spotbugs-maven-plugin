@@ -1225,10 +1225,3 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     }
 
 }
-
-class PluginArtifact {
-    String groupId, artifactId, version
-
-    String type = "jar"
-}
-
