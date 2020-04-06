@@ -169,7 +169,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     boolean addSourceDirs
 
     /**
-     * List of artifacts this plugin depends on. Used for resolving the Spotbugs coreplugin.
+     * List of artifacts this plugin depends on. Used for resolving the Spotbugs core plugin.
      *
      */
     @Parameter(property = "plugin.artifacts", required = true, readonly = true)
@@ -330,7 +330,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     String effort
 
     /**
-     * turn on Spotbugs debugging
+     * Turn on Spotbugs debugging.
      *
      */
     @Parameter(defaultValue = "false", property = "spotbugs.debug")
@@ -461,7 +461,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
     boolean failOnError
 
     /**
-     * Fork a VM for Spotbugs analysis.  This will allow you to set timeouts and heap size
+     * Fork a VM for Spotbugs analysis.  This will allow you to set timeouts and heap size.
      *
      * @since 2.3.2
      */
