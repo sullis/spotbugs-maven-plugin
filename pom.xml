@@ -139,7 +139,7 @@
     <plexusResourcesVersion>1.1.0</plexusResourcesVersion>
     <plexusUtilsVersion>3.3.0</plexusUtilsVersion>
 
-    <antrunPluginVersion>1.8</antrunPluginVersion>
+    <antrunPluginVersion>3.0.0</antrunPluginVersion>
     <l10nPluginVersion>1.8</l10nPluginVersion>
     <codenarcPluginVersion>0.22-1</codenarcPluginVersion>
     <gmavenPluginVersion>1.9.0</gmavenPluginVersion>
