@@ -563,15 +563,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
         if (canGenerate && outputSpotbugsFile == null) {
             outputSpotbugsFile = new File("${spotbugsXmlOutputDirectory}/${spotbugsXmlOutputFilename}")
 
-            ClassLoader tccl = Thread.currentThread().getContextClassLoader();
-            try {
-                // The SAX parser factory will fail with CCE if the TCCL is out of sync with our class loader
-                // This for Maven 2.2.1 only MFINDBUGS-178
-                Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
-                executeSpotbugs(outputSpotbugsFile)
-            } finally {
-                Thread.currentThread().setContextClassLoader(tccl);
-            }
+            executeSpotbugs(outputSpotbugsFile)
 
             if (skipEmptyReport && bugCount == 0) {
                 canGenerate = false
