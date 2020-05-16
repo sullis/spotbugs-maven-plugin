@@ -466,10 +466,6 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     @Parameter(property = "spotbugs.jvmArgs")
     String jvmArgs
 
-    int bugCount
-
-    int errorCount
-
     /**
      * <p>
      * specified max number of violations which can be ignored by the spotbugs.
@@ -507,31 +503,26 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
 
             if (outputFile.exists()) {
 
-                def path = new XmlSlurper().parse(outputFile)
+                def xml = new XmlParser().parse(outputFile)
 
-                def allNodes = path.depthFirst().collect { it }
-
-                bugCount = allNodes.findAll {it.name() == 'BugInstance'}.size()
+                def bugs = xml.BugInstance
+                def bugCount = bugs.size()
                 log.info("BugInstance size is ${bugCount}")
 
-                errorCount = allNodes.findAll {it.name() == 'Error'}.size()
+                def errorCount = xml.Error.size()
                 log.info("Error size is ${errorCount}")
 
-                def xml = new XmlParser().parse(outputFile)
-                def bugs = xml.BugInstance
-                def total = bugs.size()
-
-                if (total <= 0) {
+                if (bugCount <= 0) {
                     log.info('No errors/warnings found')
                     return
-                }else if( maxAllowedViolations > 0 && total <= maxAllowedViolations){
-                    log.info("total ${total} violations are found which is set to be acceptable using configured property maxAllowedViolations :"+maxAllowedViolations +".\nBelow are list of bugs ignored :\n")
-                    printBugs(total, bugs)
+                } else if (maxAllowedViolations > 0 && bugCount <= maxAllowedViolations) {
+                    log.info("total ${bugCount} violations are found which is set to be acceptable using configured property maxAllowedViolations :"+maxAllowedViolations +".\nBelow are list of bugs ignored :\n")
+                    printBugs(bugCount, bugs)
                     return;
                 }
 
-                log.info('Total bugs: ' + total)
-                for (i in 0..total-1) {
+                log.info('Total bugs: ' + bugCount)
+                for (i in 0..bugCount-1) {
                     def bug = bugs[i]
                     log.error( bug.LongMessage.text() + SpotBugsInfo.BLANK + bug.SourceLine.'@classname' + SpotBugsInfo.BLANK + bug.SourceLine.Message.text() + SpotBugsInfo.BLANK + bug.'@type')
                 }
