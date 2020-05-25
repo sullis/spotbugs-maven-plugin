@@ -429,6 +429,15 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
     boolean failOnError
 
     /**
+     * Prioritiy threshold which bugs have to reach to cause a failure. Valid values are High, Medium or Low.
+     * Bugs below this threshold will just issue a warning log entry.
+     *
+     * @since 4.0.1
+     */
+    @Parameter(property = "spotbugs.failThreshold")
+    String failThreshold
+
+    /**
      * Fork a VM for Spotbugs analysis.  This will allow you to set timeouts and heap size.
      *
      * @since 2.3.2
@@ -522,15 +531,31 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
                 }
 
                 log.info('Total bugs: ' + bugCount)
+                def bugCountAboveThreshold = 0
+                def priorityThresholdNum = failThreshold ? SpotBugsInfo.spotbugsPriority.indexOf(failThreshold) : Integer.MAX_VALUE
+                if (priorityThresholdNum == -1) {
+                    throw new MojoExecutionException("Invalid value for failThreshold: ${failThreshold}")
+                }
+
                 for (i in 0..bugCount-1) {
                     def bug = bugs[i]
-                    log.error( bug.LongMessage.text() + SpotBugsInfo.BLANK + bug.SourceLine.'@classname' + SpotBugsInfo.BLANK + bug.SourceLine.Message.text() + SpotBugsInfo.BLANK + bug.'@type')
+                    def priorityNum = bug.'@priority' as int
+                    def priorityName = SpotBugsInfo.spotbugsPriority[priorityNum]
+                    def logMsg = priorityName + ': ' + bug.LongMessage.text() + SpotBugsInfo.BLANK + bug.SourceLine.'@classname' + SpotBugsInfo.BLANK +
+                            bug.SourceLine.Message.text() + SpotBugsInfo.BLANK + bug.'@type'
+
+                    if (priorityNum <= priorityThresholdNum) {  // lower is more severe
+                        bugCountAboveThreshold += 1
+                        log.error(logMsg)
+                    } else {
+                        log.warn(logMsg)
+                    }
                 }
 
                 log.info('\n\n\nTo see bug detail using the Spotbugs GUI, use the following command "mvn spotbugs:gui"\n\n\n')
 
-                if ( (bugCount || errorCount) && failOnError ) {
-                    throw new MojoExecutionException("failed with ${bugCount} bugs and ${errorCount} errors ")
+                if ( (bugCountAboveThreshold || errorCount) && failOnError ) {
+                    throw new MojoExecutionException("failed with ${bugCountAboveThreshold} bugs and ${errorCount} errors ")
                 }
             }
         }
