@@ -836,6 +836,13 @@
                 <artifactId>groovy-all</artifactId>
                 <version>${groovyVersion}</version>
                 <type>pom</type>
+                <exclusions>
+                    <!-- See 'addendum for 3.0.4 https://groovy-lang.org/releasenotes/groovy-3.0.html -->
+                    <exclusion>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-testng</artifactId>
+                    </exclusion>
+                </exclusions>
               </dependency>
             </dependencies>
           </plugin>
