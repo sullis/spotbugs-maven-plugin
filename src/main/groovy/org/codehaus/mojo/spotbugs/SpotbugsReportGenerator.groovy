@@ -448,7 +448,7 @@ class SpotbugsReportGenerator implements SpotBugsInfo {
 
                 // priority
                 sink.tableCell()
-                sink.text(spotbugsPriority[priority.toInteger()])
+                sink.text(spotbugsPriority[priority as Integer])
                 sink.tableCell_()
 
                 sink.tableRow_()
