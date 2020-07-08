@@ -15,5 +15,5 @@
  */
 
 File buildLog = new File( basedir, 'build.log' )
-assert buildLog.text.contains( '[WARNING] Medium: Unused public or protected field:' )
+assert buildLog.text.contains( '[INFO] Medium: Unused public or protected field:' )
 assert buildLog.text.contains( '[ERROR] High: Found reliance on default encoding in UserMistakes' )

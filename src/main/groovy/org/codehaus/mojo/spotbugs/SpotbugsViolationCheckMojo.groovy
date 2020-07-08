@@ -548,7 +548,7 @@ class SpotbugsViolationCheckMojo extends AbstractMojo {
                         bugCountAboveThreshold += 1
                         log.error(logMsg)
                     } else {
-                        log.warn(logMsg)
+                        log.info(logMsg)
                     }
                 }
 
