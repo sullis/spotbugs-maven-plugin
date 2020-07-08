@@ -77,8 +77,6 @@ interface SpotBugsInfo {
 
     static final String COMMA = ","
 
-    static final String FORWARD_SLASH = '/'
-
     /**
      * The character to separate URL tokens.
      *

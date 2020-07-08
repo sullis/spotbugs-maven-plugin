@@ -25,6 +25,8 @@ import org.codehaus.plexus.resource.loader.FileResourceLoader
 import org.codehaus.plexus.resource.ResourceManager
 import org.codehaus.plexus.util.FileUtils
 
+import java.nio.file.Paths
+
 final class ResourceHelper {
 
     Log log
@@ -53,12 +55,11 @@ final class ResourceHelper {
         String location = null
         String artifact = resource
 
-        if (resource.indexOf(SpotBugsInfo.FORWARD_SLASH) != -1) {
-            artifact = resource.substring(resource.lastIndexOf(SpotBugsInfo.FORWARD_SLASH) + 1)
-        }
+        def file = new File(resource)
 
-        if (resource.indexOf(SpotBugsInfo.FORWARD_SLASH) != -1) {
-            location = resource.substring(0, resource.lastIndexOf(SpotBugsInfo.FORWARD_SLASH))
+        if (file.exists()) {
+            artifact = file.getName()
+            location = file.getAbsolutePath()
         }
 
         // replace all occurrences of the following characters:  ? : & =
