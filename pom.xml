@@ -170,7 +170,7 @@
     <jxrPluginVersion>3.0.0</jxrPluginVersion>
     <mavenSurefireVersion>3.0.0-M4</mavenSurefireVersion>
     <jakartaeeApiVersion>8.0.0</jakartaeeApiVersion>
-    <servletApiVersion>4.0.3</servletApiVersion>
+    <servletApiVersion>4.0.4</servletApiVersion>
     <sb-contribVersion>7.4.7</sb-contribVersion>
 
     <jgit.version>5.7.0.202003110725-r</jgit.version>
