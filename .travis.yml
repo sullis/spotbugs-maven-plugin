@@ -4,10 +4,7 @@ dist: bionic
 language: java
 
 jdk:
-  - openjdk16
-  - openjdk15
   - openjdk11
-  - openjdk8
 
 env:
   global:
