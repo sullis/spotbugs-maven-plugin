@@ -130,7 +130,7 @@
     <doxiaSiteToolsVersion>1.9.2</doxiaSiteToolsVersion>
 
     <mavenCoreVersion>3.2.5</mavenCoreVersion>
-    <mavenTransferVersion>0.12.0</mavenTransferVersion>
+    <mavenTransferVersion>0.13.1</mavenTransferVersion>
     <mavenReportingApiVersion>3.0</mavenReportingApiVersion>
     <mavenReportingVersion>3.0.0</mavenReportingVersion>
     <mavenVersion>3.5.2</mavenVersion> <!-- Version 3.5.3+ introduces issues for many users of spotbugs that cannot upgrade maven to latest -->
