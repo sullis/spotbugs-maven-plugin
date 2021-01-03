@@ -1,6 +1,7 @@
 # Spotbugs Maven Plugin
 
-[![Build Status](https://travis-ci.org/spotbugs/spotbugs-maven-plugin.svg?branch=spotbugs)](https://travis-ci.org/spotbugs/spotbugs-maven-plugin)
+[![Java CI](https://github.com/spotbugs/spotbugs-maven-plugin/workflows/Java%20CI/badge.svg)](https://github.com/spotbugs/spotbugs-maven-plugin/actions?query=workflow%3A%22Java+CI%22)
+[![Java Integration Tests](https://github.com/spotbugs/spotbugs-maven-plugin/workflows/Java%20Integration%20Tests/badge.svg)](https://github.com/spotbugs/spotbugs-maven-plugin/actions?query=workflow%3A%22Java+Integration+Tests%22)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.spotbugs/spotbugs-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.spotbugs/spotbugs-maven-plugin)
 [![Apache 2](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
