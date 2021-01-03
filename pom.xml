@@ -110,8 +110,8 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <site>
-      <id>gh-pages</id>
-      <url>github:ssh://spotbugs.github.io/spotbugs-maven-plugin/</url>
+      <id>gh-pages-scm</id>
+      <url>scm:git:ssh://git@github.com/spotbugs/spotbugs-maven-plugin.git</url>
     </site>
   </distributionManagement>
 
