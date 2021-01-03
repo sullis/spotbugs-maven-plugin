@@ -116,6 +116,8 @@
   </distributionManagement>
 
   <properties>
+    <sourceDirectory>${project.basedir}/src/main/groovy</sourceDirectory>
+
     <projectVersion>${project.version}</projectVersion>
 
     <junitVersion>5.7.0</junitVersion>
