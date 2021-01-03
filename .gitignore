@@ -1,4 +1,5 @@
 .classpath
+.github/keys
 .project
 .settings
 target/
