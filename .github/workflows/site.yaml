@@ -28,6 +28,6 @@ jobs:
         with:
           SSH: true
           BRANCH: gh-pages
-          FOLDER: target/staging
+          FOLDER: spotbugs/spotbugs-maven-plugin.git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
