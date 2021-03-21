@@ -1062,7 +1062,7 @@ class SpotBugsMojo extends AbstractMavenReport implements SpotBugsPluginsTrait {
             }
 
             if (debug || trace) {
-                sysproperty(key: "spotbugs.debug", value: true)
+                sysproperty(key: "findbugs.debug", value: true)
             }
 
             classpath() {
